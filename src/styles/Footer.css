@@ -1,0 +1,50 @@
+/**
+ * DESCRIPTION: This stylesheet contains the styling for the footer component (Footer.tsx).
+ *
+ * Author: Dean Longstaff
+ */
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.footer {
+  background-color: rgb(10, 4, 22);
+  bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 8px !important;
+}
+.footer-copywright {
+  text-align: center;
+}
+
+.footer-body {
+  z-index: 1;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .footer-copywright {
+    text-align: center;
+  }
+
+  .footer-body {
+    text-align: center;
+  }
+}
+
+.footer h3 {
+  font-size: 1em;
+  color: white;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.footer-icons {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0;
+}
+
+.social-icons {
+  display: inline-block;
+  padding-right: 15px;
+  padding-left: 15px;
+}

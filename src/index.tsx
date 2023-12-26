@@ -1,19 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+/**
+ * DESCRIPTION: This is the index file for the react app. This ultimately renders the App component to the DOM at runtime.
+ *
+ * Author: Dean Longstaff
+ */
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ----- Import the required modules
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ----- Import the app styles
+
+import "./styles/index.css";
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ----- Render the App component to the DOM
+
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

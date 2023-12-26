@@ -1,0 +1,14 @@
+/**
+ * DESCRIPTION: This stylesheet acts as an index for all the stylesheets in the app. This sheet is imported into App.tsx.
+ *
+ * Author: Dean Longstaff
+ */
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@import "./main.css";
+@import "./Preloader.css";
+@import "./Navbar.css";
+@import "./Footer.css";
+@import "./Home/Welcome.css";
+@import "./Home/Hobbies.css";
+@import "./Home/AboutMe.css";
+@import "./Home/MyWork.css";

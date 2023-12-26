@@ -1,0 +1,108 @@
+/**
+ * DESCRIPTION: This stylesheet contains the styling for the mywork component of the home page (MyWork.tsx).
+ *
+ * Author: Dean Longstaff
+ */
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mywork-section {
+  position: relative;
+  padding-bottom: 70px;
+  padding-top: 70px;
+  background-image: var(--image-gradient), url(../../assets/images/office.jpeg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mywork-description {
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.mywork-body {
+  padding-top: 50px;
+  font-size: 1.2em;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.mywork-mojlogo {
+  border-radius: 10px;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#skills {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.2s ease-in-out;
+  width: fit-content;
+  margin: 0 auto;
+  text-decoration: none;
+  color: inherit;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 32px 0 rgba(79, 79, 79, 0.477);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 10px;
+}
+
+.skill:hover {
+  box-shadow: 0 0 5px 5px var(--primary-color);
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+.skill .icon {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-right: 10px;
+}
+
+.skill p {
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin: 0;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .skill {
+    padding: 8px;
+  }
+
+  .skill .icon {
+    font-size: 2rem;
+  }
+}

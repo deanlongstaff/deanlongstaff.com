@@ -1,0 +1,47 @@
+/**
+ * DESCRIPTION: This stylesheet contains the styling for the hobbies component of the home page (Hobbies.tsx).
+ *
+ * Author: Dean Longstaff
+ */
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.hobbies-section {
+  position: relative;
+  padding-top: 150px;
+  padding-bottom: 30px;
+  background-image: var(--image-gradient),
+    url(../../assets/images/background.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hobbies-card {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  height: auto;
+}
+
+.hobbies-card-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hobbies-card-view {
+  box-shadow: 0 0 5px 1px var(--primary-color);
+  color: white !important;
+  background-color: transparent !important;
+  opacity: 0.9;
+  transition: all 0.5s ease 0s;
+  height: 100% !important;
+}
+
+.hobbies-card-view:hover {
+  transform: scale(1.02);
+  overflow: hidden;
+  box-shadow: 0 0 5px 5px var(--primary-color);
+}
