@@ -22,23 +22,27 @@ const hobbies = [
   {
     image: skiing,
     title: "Skiing",
-    description: "Skiing: An Infrequent but Thrilling Adventure - When the rare opportunity arises, I hit the slopes with friends, immersing myself in the exhilarating world of skiing. It's more than just a hobby; it's a cherished passion that awakens with every snowy trail and heart-pounding descent. These moments, though few, are always cherished and unforgettable."
+    description:
+      "Skiing: An Infrequent but Thrilling Adventure - When the rare opportunity arises, I hit the slopes with friends, immersing myself in the exhilarating world of skiing. It's more than just a hobby; it's a cherished passion that awakens with every snowy trail and heart-pounding descent. These moments, though few, are always cherished and unforgettable.",
   },
   {
     image: programming,
     title: "Programming",
-    description: "Programming: A Creative Outlet - I'm a programmer, and I love it. I'm always on the lookout for new projects and challenges, and I'm constantly learning new skills and languages. It's a creative outlet that allows me to explore new ideas and concepts, and it's a hobby that I'll never get tired of."
+    description:
+      "Programming: A Creative Outlet - I'm a programmer, and I love it. I'm always on the lookout for new projects and challenges, and I'm constantly learning new skills and languages. It's a creative outlet that allows me to explore new ideas and concepts, and it's a hobby that I'll never get tired of.",
   },
   {
     image: diy,
     title: "DIY",
-    description: "DIY: The Art of Creation - I'm a DIYer at heart. I love building things with my hands, and I'm always on the lookout for new projects. Whether it's a new piece of furniture, a new gadget, or burying fibre optics under my garden as shown above, I'm always looking for a new challenge and new ways to improve my skills."
+    description:
+      "DIY: The Art of Creation - I'm a DIYer at heart. I love building things with my hands, and I'm always on the lookout for new projects. Whether it's a new piece of furniture, a new gadget, or building a beautiful deck and pergola as shown above. I'm always looking for a new challenge and new ways to improve my skills.",
   },
   {
     image: rex,
     title: "Rex",
-    description: "Rex, My Labrador Sidekick: Our hobbies include endless games of fetch that test both our agility and patience, daily walks that are as much about exploration as exercise, and the occasional beach escapade where the sand and waves add to our adventurous spirit. Together, we embrace the simple joys of play and the outdoors."
-  }
+    description:
+      "Rex, My Labrador Sidekick: Our hobbies include endless games of fetch that test both our agility and patience, daily walks that are as much about exploration as exercise, and the occasional beach escapade where the sand and waves add to our adventurous spirit. Together, we embrace the simple joys of play and the outdoors.",
+  },
 ];
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Custom Functions
@@ -50,9 +54,7 @@ function HobbyCard(props: any) {
       <Card.Img variant="top" src={props.image} alt="card-img" className="hobbies-card-img" />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "center" }}>
-          {props.description}
-        </Card.Text>
+        <Card.Text style={{ textAlign: "center" }}>{props.description}</Card.Text>
         {"\n"}
         {"\n"}
       </Card.Body>
@@ -77,11 +79,7 @@ function index() {
           <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
             {hobbies.map((hobby, index) => (
               <Col key={index} md={4} className="hobbies-card">
-                <HobbyCard
-                  image={hobby.image}
-                  title={hobby.title}
-                  description={hobby.description}
-                />
+                <HobbyCard image={hobby.image} title={hobby.title} description={hobby.description} />
               </Col>
             ))}
           </Row>
