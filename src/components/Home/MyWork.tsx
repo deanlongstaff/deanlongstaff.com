@@ -6,7 +6,6 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import the required modules
 
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import GitHubCalendar from "react-github-calendar";
 
@@ -17,7 +16,6 @@ import { SiTypescript, SiJavascript, SiPython, SiReact, SiPowershell, SiAzurefun
 import { FaNodeJs } from "react-icons/fa";
 import { DiGit } from "react-icons/di";
 import mojLogo from "../../assets/images/moj.jpeg";
-import { MdMargin } from "react-icons/md";
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Define the skills to display
