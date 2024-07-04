@@ -13,6 +13,14 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
+}
+
+.interactive-duck {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
 }
 
 .mywork-description {
@@ -108,5 +116,9 @@
 
   .mywork-mojlogo {
     margin-bottom: 10%;
+  }
+
+  .interactive-duck {
+    visibility: hidden; /* Hide duck element on tablets/phones */
   }
 }
