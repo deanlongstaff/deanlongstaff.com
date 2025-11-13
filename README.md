@@ -2,7 +2,7 @@
 
 ## Brief Description
 
-deanlongstaff.com is a personal and professional showcase, offering a unique window into who I am. It reflects my work, skills, hobbies, and interests, highlighting my development expertise through engaging and innovative web solutions.
+deanlongstaff.com is a personal and professional showcase, offering a unique window into who I am. It reflects my work, skills, hobbies, and interests - highlighting my development expertise through engaging and innovative web solutions.
 
 ## Features
 
