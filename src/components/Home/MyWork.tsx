@@ -147,8 +147,7 @@ function MyWork() {
           My <strong className="primary-color">Work</strong>
         </h1>
         <p style={{ color: "white" }}>
-          In my digital dojo, creativity flourishes and ideas soar. As a remote warrior, I excel in my personal haven, transforming concepts into vibrant digital experiences and interfaces into virtual art. While I relish the solitude of my
-          workspace, the joy of collaboration and human interaction always beckons, bridging the gap between the virtual and the tangible.
+          I thrive working remotely, where I transform concepts into polished digital experiences. While I value the focus of independent work, I equally embrace collaboration and the energy that comes from working with others.
         </p>
         <Row className="mywork-body">
           <Col md={6}>
@@ -156,16 +155,17 @@ function MyWork() {
           </Col>
           <Col md={6}>
             <p>
-              At the Ministry of Justice UK, I'm the tech maestro behind the curtain, orchestrating a digital symphony that's music to the ears of efficiency and innovation. With my wand — or should I say, keyboard — I'm leading the charge in the
-              Evolve Programme, turning the old-school into the cool-school for over 40,000 devices.
+              At the Ministry of Justice UK, I lead a pioneering automation initiative across the EUCS department, driving efficiency and innovation at scale. I engage multiple product teams, upskilling them into programmatic workflows and delivering
+              tangible cost savings for us taxpayers.
             </p>
           </Col>
         </Row>
-        <h2 className="secondary-heading">My Skills</h2>
+        <h2 className="secondary-heading">My Technical Skills</h2>
         <SkillsSection />
         <h2 className="secondary-heading" style={{ paddingBottom: "20px" }}>
           My GitHub History
         </h2>
+        <p style={{ color: "white", paddingBottom: "20px" }}>GitHub is where I version control my code, collaborate with others, and showcase my development journey.</p>
         <GitHubSection />
       </Container>
     </section>

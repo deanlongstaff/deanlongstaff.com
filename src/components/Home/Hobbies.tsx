@@ -14,6 +14,7 @@ import skiing from "../../assets/images/me-skiing.jpeg";
 import programming from "../../assets/images/programming.jpeg";
 import diy from "../../assets/images/diy.jpeg";
 import rex from "../../assets/images/rex.jpeg";
+import rc_car from "../../assets/images/rc_car.jpeg";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the Hobbies to be displayed
 
@@ -41,6 +42,12 @@ const hobbies = [
     title: "Rex",
     description:
       "My Labrador Sidekick - Our hobbies include endless games of fetch that test both our agility and patience, daily walks that are as much about exploration as exercise, and the occasional beach escapade where the sand and waves add to our adventurous spirit. Together, we embrace the simple joys of play and the outdoors.",
+  },
+  {
+    image: rc_car,
+    title: "Remote Control Anything",
+    description:
+      "High-Speed Thrills - My Traxxas XRT delivers endless entertainment, whether tearing across trails or watching Rex sprint after it with pure joy. Remote control anything captures my fascination; cars, drones or boats. Though I'm no hardcore enthusiast, the simple pleasure of piloting these machines never gets old, especially when Rex decides he's part of the action.",
   },
 ];
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

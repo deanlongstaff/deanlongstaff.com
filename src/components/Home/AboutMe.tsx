@@ -22,6 +22,7 @@ function index() {
             <p className="aboutme-body">
               I'm the Swiss Army knife of tech - sharp, handy, and a tad bit quirky.
               <br />
+              <br />
               Jack of all trades, master of <b>one</b> - where versatility meets mastery.
               <br />
               <br />

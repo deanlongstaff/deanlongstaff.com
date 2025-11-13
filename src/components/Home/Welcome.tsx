@@ -20,26 +20,18 @@ import photo from "../../assets/images/me.jpeg";
 
 // Type writer effect
 function Type() {
-    return (
-        <Typewriter
-            options={{
-                strings: [
-                    "Software Developer",
-                    "Open Source Contributor",
-                    "Automation Engineer",
-                    "DevOps Engineer",
-                    "Cloud Engineer",
-                    "Innovator",
-                    "Tech Enthusiast",
-                    "DIYer"
-                ],
-                autoStart: true,
-                loop: true,
-                deleteSpeed: 100,
-            }}
-        />
-    );
-};
+  return (
+    <Typewriter
+      options={{
+        strings: ["Software Developer", "Open Source Contributor", "Automation Engineer", "DevOps Engineer", "Cloud Engineer", "Innovator", "Tech Enthusiast", "DIYer", "Problem Solver"],
+        autoStart: true,
+        loop: true,
+        deleteSpeed: 100,
+        cursor: "|",
+      }}
+    />
+  );
+}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the Welcome component
 
