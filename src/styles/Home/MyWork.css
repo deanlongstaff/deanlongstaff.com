@@ -62,63 +62,123 @@
   justify-content: center;
 }
 
-.skill {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  transition: all 0.2s ease-in-out;
-  width: fit-content;
-  margin: 0 auto;
+.skill-wrapper {
   text-decoration: none;
   color: inherit;
-  background: rgb(255, 255, 255);
-  box-shadow: 0 8px 32px 0 rgba(79, 79, 79, 0.477);
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
-  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
 }
 
-.skill:hover {
-  box-shadow: 0 0 5px 5px var(--primary-color);
+.skill-wrapper:hover {
   transform: translateY(-4px);
   cursor: pointer;
 }
 
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  height: 100%;
+  min-height: 60px;
+}
+
 .skill .icon {
   font-size: 2.5rem;
-  color: #000000;
+  color: #ffffff;
   margin-right: 10px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .skill p {
   font-size: 0.85rem;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
-  color: #000000;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
+  .mywork-section {
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+
+  .mywork-description {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mywork-description > p {
+    font-size: 0.95em;
+    line-height: 1.7;
+  }
+
+  .mywork-body {
+    padding-top: 30px;
+    font-size: 1em;
+  }
+
+  .mywork-body p {
+    text-align: center;
+    line-height: 1.7;
+  }
+
   .skills-container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+    padding: 20px 10px;
+  }
+
+  .skill-wrapper {
+    width: 120px;
   }
 
   .skill {
-    padding: 8px;
+    padding: 8px 20px;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
   }
 
   .skill .icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .skill p {
+    font-size: 0.75rem;
   }
 
   .mywork-mojlogo {
-    margin-bottom: 10%;
+    margin-bottom: 40px;
+    width: 70%;
+    max-width: 250px;
   }
 
   .interactive-duck {
-    visibility: hidden; /* Hide duck element on tablets/phones */
+    visibility: hidden;
+  }
+
+  #skills {
+    padding: 10px 10px 30px 10px;
+  }
+
+  /* Make GitHub calendar responsive */
+  .mywork-description .react-activity-calendar {
+    font-size: 12px;
+  }
+
+  .mywork-description .react-activity-calendar svg {
+    max-width: 100%;
+    height: auto;
   }
 }

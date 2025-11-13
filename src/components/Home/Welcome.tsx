@@ -36,53 +36,58 @@ function Type() {
 // ----- Define the Welcome component
 
 function index() {
-    return (
-        <section id="welcome">
-            <Particle />
-            <Container fluid className="welcome-section" id="home">
-                <div className="background-container"></div>
-                <Container className="welcome-content">
-                    <Row>
-                        <Col md={7} className="welcome-header">
-                            <h1 style={{ paddingBottom: 15 }} className="heading">
-                                Hello!{" "}
-                                <span className="wave" role="img" aria-labelledby="wave">
-                                    👋
-                                </span>
-                            </h1>
+  return (
+    <section id="welcome">
+      <Particle />
+      <Container fluid className="welcome-section" id="home">
+        <div className="background-container"></div>
+        <Container className="welcome-content">
+          <Row className="align-items-center">
+            <Col xs={12} md={7} className="welcome-header order-1 order-md-1">
+              <h1 style={{ paddingBottom: 15 }} className="heading">
+                Hello!{" "}
+                <span className="wave" role="img" aria-labelledby="wave">
+                  👋
+                </span>
+              </h1>
 
-                            <h1 className="heading-name">
-                                I'M
-                                <strong className="primary-color"> DEAN LONGSTAFF</strong>
-                            </h1>
+              <h1 className="heading-name">
+                I'M
+                <strong className="primary-color"> DEAN LONGSTAFF</strong>
+              </h1>
 
-                            <div style={{ padding: 50, textAlign: "left" }}>
-                                <Type />
-                            </div>
-                        </Col>
-                        <Col md={5} style={{ paddingBottom: 20, paddingTop: 20, justifyContent: 'center', alignItems: 'center' }}>
-                            <Tilt style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <img
-                                    src={photo}
-                                    alt="Dean Longstaff"
-                                    style={{
-                                        width: '80%',
-                                        height: 'auto',
-                                        aspectRatio: '1 / 1', // Ensures the image is square
-                                        borderRadius: '50%',
-                                        objectFit: 'cover', // This ensures the image covers the area without being stretched
-                                        padding: 5,
-                                        margin: 5,
-                                        boxShadow: '0 0 20px 8px rgba(0, 0, 0, 0.5)',
-                                    }}
-                                />
-                            </Tilt>
-                        </Col>
-                    </Row>
-                </Container>
-            </Container>
-        </section >
-    );
-};
+              <div className="d-none d-md-block" style={{ paddingLeft: 50, paddingTop: 20 }}>
+                <Type />
+              </div>
+            </Col>
+            <Col xs={12} md={5} className="order-2 order-md-2 mb-4 mb-md-0" style={{ paddingBottom: 20, paddingTop: 20, display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <Tilt style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", maxWidth: "350px" }}>
+                <img
+                  src={photo}
+                  alt="Dean Longstaff"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    aspectRatio: "1 / 1",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    padding: 5,
+                    margin: 5,
+                    boxShadow: "0 0 20px 8px rgba(0, 0, 0, 0.5)",
+                  }}
+                />
+              </Tilt>
+            </Col>
+            <Col xs={12} className="order-3 d-md-none">
+              <div style={{ padding: 50, paddingLeft: 20, paddingRight: 20, textAlign: "center" }}>
+                <Type />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </Container>
+    </section>
+  );
+}
 
 export default index;

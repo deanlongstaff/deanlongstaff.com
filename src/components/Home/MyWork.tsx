@@ -45,9 +45,11 @@ function SkillsSection() {
     <section id="skills">
       <div className="skills-container">
         {skills.map((skill, index) => (
-          <a href={skill.link} target="_blank" rel="noopener noreferrer" className="skill" key={`skill-${index}`}>
-            <div className="icon">{skill.logo}</div>
-            <p>{skill.name}</p>
+          <a href={skill.link} target="_blank" rel="noopener noreferrer" className="skill-wrapper" key={`skill-${index}`}>
+            <div className="skill">
+              <div className="icon">{skill.logo}</div>
+              <p>{skill.name}</p>
+            </div>
           </a>
         ))}
       </div>

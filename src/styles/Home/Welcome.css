@@ -64,6 +64,8 @@
 
 .welcome-section {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .background-container {
@@ -72,8 +74,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: var(--image-gradient),
-    url(../../assets/images/background.jpg);
+  background-image: var(--image-gradient), url(../../assets/images/background.jpg);
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -108,10 +109,50 @@
 }
 
 @media (max-width: 767px) {
+  .welcome-section {
+    min-height: auto;
+    padding: 20px 0;
+  }
+
+  .welcome-content {
+    padding: 5rem 0 2rem;
+  }
+
+  .welcome-header {
+    text-align: center;
+    padding: 20px 0 10px 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .heading {
+    font-size: 1.8em;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .heading-name {
+    font-size: 1.6em;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0 !important;
+  }
+
+  .order-2 {
+    padding-top: 10px !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .order-3 > div {
+    padding-top: 15px !important;
+    padding-bottom: 20px !important;
+  }
+
   .Typewriter__wrapper {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 500;
-    position: absolute;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .Typewriter__cursor {
