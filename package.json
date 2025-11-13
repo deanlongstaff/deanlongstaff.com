@@ -4,27 +4,28 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^6.1.5",
-    "@testing-library/react": "^14.1.2",
+    "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.1",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "bootstrap": "^5.3.2",
-    "react": "^18.2.0",
+    "date-fns": "^3.6.0",
+    "react": "^19.2.0",
     "react-bootstrap": "^2.9.1",
-    "react-dom": "^18.2.0",
-    "react-github-calendar": "^4.0.8",
+    "react-dom": "^19.2.0",
+    "react-github-calendar": "^4.5.11",
     "react-icons": "^4.12.0",
-    "react-microsoft-clarity": "^1.2.0",
-    "react-parallax-tilt": "^1.7.179",
-    "react-rewards": "^2.0.4",
+    "react-microsoft-clarity": "^2.0.0",
+    "react-parallax-tilt": "^1.7.313",
+    "react-rewards": "^2.1.0",
     "react-router-dom": "^6.21.1",
     "react-scripts": "^5.0.1",
-    "react-scroll": "^1.9.0",
+    "react-scroll": "^1.9.3",
     "react-tsparticles": "^1.42.2",
     "typescript": "^4.9.5",
-    "typewriter-effect": "^2.21.0",
+    "typewriter-effect": "^2.22.0",
     "web-vitals": "^3.5.0"
   },
   "scripts": {
@@ -54,5 +55,8 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react-scroll": "^1.8.10"
+  },
+  "overrides": {
+    "date-fns": "^3.6.0"
   }
 }
