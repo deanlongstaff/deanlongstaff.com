@@ -16,6 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  overflow-x: hidden;
 }
 
 html {
@@ -35,6 +36,7 @@ html {
   --secondary-color: #3fe2ff;
 
   text-align: center;
+  overflow-x: hidden;
 }
 
 #tsparticles {

@@ -56,7 +56,7 @@ function index() {
                 <strong className="primary-color"> DEAN LONGSTAFF</strong>
               </h1>
 
-              <div className="d-none d-md-block" style={{ paddingLeft: 50, paddingTop: 20 }}>
+              <div className="d-none d-md-block" style={{ paddingLeft: 50, paddingTop: 20, paddingBottom: 40, height: "50px" }}>
                 <Type />
               </div>
             </Col>
@@ -79,7 +79,7 @@ function index() {
               </Tilt>
             </Col>
             <Col xs={12} className="order-3 d-md-none">
-              <div style={{ padding: 50, paddingLeft: 20, paddingRight: 20, textAlign: "center" }}>
+              <div style={{ padding: "20px 20px", textAlign: "center", height: "50px" }}>
                 <Type />
               </div>
             </Col>
