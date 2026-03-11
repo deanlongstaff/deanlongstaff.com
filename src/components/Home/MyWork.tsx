@@ -8,14 +8,17 @@
 
 import { useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import GitHubCalendar from "react-github-calendar";
+import { GitHubCalendar } from "react-github-calendar";
 import { useReward } from "react-rewards";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Import Icons/Images/Sounds
 
-import { SiTypescript, SiJavascript, SiPython, SiReact, SiPowershell, SiAzurefunctions, SiMicrosoftazure, SiGithub, SiElectron, SiRedis, SiMicrosoftsqlserver } from "react-icons/si";
+import { SiTypescript, SiJavascript, SiPython, SiReact, SiGithub, SiElectron, SiRedis } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
-import { DiGit } from "react-icons/di";
+import { DiGit, DiMsqlServer } from "react-icons/di";
+import { VscAzure } from "react-icons/vsc";
+import { TbBrandPowershell } from "react-icons/tb";
+import { PiCodeBold } from "react-icons/pi";
 import mojLogo from "../../assets/images/moj.jpeg";
 import quackSound from "../../assets/sounds/quack.mp3";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -25,16 +28,16 @@ const skills = [
   { name: "TypeScript", logo: <SiTypescript />, link: "https://www.typescriptlang.org/" },
   { name: "JavaScript", logo: <SiJavascript />, link: "https://www.javascript.com/" },
   { name: "Python", logo: <SiPython />, link: "https://www.python.org/" },
-  { name: "PowerShell", logo: <SiPowershell />, link: "https://docs.microsoft.com/en-gb/powershell/" },
+  { name: "PowerShell", logo: <TbBrandPowershell />, link: "https://docs.microsoft.com/en-gb/powershell/" },
   { name: "React", logo: <SiReact />, link: "https://reactjs.org/" },
-  { name: "Azure", logo: <SiMicrosoftazure />, link: "https://azure.microsoft.com/en-gb/" },
-  { name: "Serverless Functions", logo: <SiAzurefunctions />, link: "https://azure.microsoft.com/en-gb/services/functions/" },
+  { name: "Azure", logo: <VscAzure />, link: "https://azure.microsoft.com/en-gb/" },
+  { name: "Serverless Functions", logo: <PiCodeBold />, link: "https://azure.microsoft.com/en-gb/services/functions/" },
   { name: "GitHub", logo: <SiGithub />, link: "https://github.com/deanlongstaff" },
   { name: "Electron", logo: <SiElectron />, link: "https://www.electronjs.org/" },
   { name: "Node.js", logo: <FaNodeJs />, link: "https://nodejs.org/en/" },
   { name: "Git", logo: <DiGit />, link: "https://git-scm.com/" },
   { name: "Redis", logo: <SiRedis />, link: "https://redis.io/" },
-  { name: "SQL Server", logo: <SiMicrosoftsqlserver />, link: "https://www.microsoft.com/en-gb/sql-server/sql-server-2019" },
+  { name: "SQL Server", logo: <DiMsqlServer />, link: "https://www.microsoft.com/en-gb/sql-server/sql-server-2019" },
 ];
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Custom Functions
