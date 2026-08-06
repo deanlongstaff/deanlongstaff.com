@@ -11,17 +11,17 @@
   prefersdark: false;
   color-scheme: light;
   --color-base-100: #ffffff;
-  --color-base-200: #eaf5ef;
-  --color-base-300: #dcebe3;
-  --color-base-content: #17332a;
-  --color-primary: #187a5a;
+  --color-base-200: #e5f1f1;
+  --color-base-300: #d4e5e5;
+  --color-base-content: #172b40;
+  --color-primary: #ee6c4d;
   --color-primary-content: #ffffff;
-  --color-secondary: #8dc7eb;
-  --color-secondary-content: #17332a;
-  --color-accent: #f4bb63;
-  --color-accent-content: #17332a;
-  --color-neutral: #17332a;
-  --color-neutral-content: #f6f5ed;
+  --color-secondary: #43b9d2;
+  --color-secondary-content: #172b40;
+  --color-accent: #f5c857;
+  --color-accent-content: #172b40;
+  --color-neutral: #172b40;
+  --color-neutral-content: #f7f4eb;
   --radius-box: 1.25rem;
 }
 
@@ -30,18 +30,18 @@
   default: false;
   prefersdark: true;
   color-scheme: dark;
-  --color-base-100: #172722;
-  --color-base-200: #203b31;
-  --color-base-300: #315344;
-  --color-base-content: #edf5ef;
-  --color-primary: #74c99e;
-  --color-primary-content: #102019;
-  --color-secondary: #8dc7eb;
-  --color-secondary-content: #102019;
-  --color-accent: #f7c76f;
-  --color-accent-content: #17332a;
-  --color-neutral: #0f1b16;
-  --color-neutral-content: #edf5ef;
+  --color-base-100: #1b3043;
+  --color-base-200: #243e50;
+  --color-base-300: #38586a;
+  --color-base-content: #eef4f3;
+  --color-primary: #ff8667;
+  --color-primary-content: #101d2d;
+  --color-secondary: #6fd7e5;
+  --color-secondary-content: #101d2d;
+  --color-accent: #ffd86a;
+  --color-accent-content: #172b40;
+  --color-neutral: #0d1724;
+  --color-neutral-content: #eef4f3;
   --radius-box: 1.25rem;
 }
 
@@ -60,3 +60,4 @@
 @import "./Home/AboutMe.css";
 @import "./Home/MyWork.css";
 @import "./Home/SideProjects.css";
+@import "./Skeuo.css";

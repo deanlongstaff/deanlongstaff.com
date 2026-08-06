@@ -63,7 +63,7 @@ function index() {
             </div>
           </div>
           <div className="welcome-photo flex items-center justify-center py-5">
-            <Tilt className="flex w-full max-w-[350px] items-center justify-center">
+            <Tilt className="flex w-full max-w-[450px] items-center justify-center">
               <img
                 src={photo}
                 alt="Dean Longstaff"

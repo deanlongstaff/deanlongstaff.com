@@ -16,13 +16,6 @@
   overflow: hidden;
 }
 
-.interactive-duck {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-}
-
 .mywork-description {
   color: white;
   padding-top: 100px;
@@ -162,10 +155,6 @@
     margin-bottom: 40px;
     width: 70%;
     max-width: 250px;
-  }
-
-  .interactive-duck {
-    visibility: hidden;
   }
 
   #skills {

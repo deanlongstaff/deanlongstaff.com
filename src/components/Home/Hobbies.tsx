@@ -21,32 +21,27 @@ const hobbies = [
   {
     image: skiing,
     title: "Skiing",
-    description:
-      "An Infrequent but Thrilling Adventure - When the rare opportunity arises, I hit the slopes with friends, immersing myself in the exhilarating world of skiing. It's more than just a hobby; it's a cherished passion that awakens with every snowy trail and heart-pounding descent. These moments, though few, are always cherished and unforgettable.",
+    description: "Occasional mountain menace. I ski for the views, the adrenaline, and the optimistic belief that I can definitely stop.",
   },
   {
     image: programming,
     title: "Programming",
-    description:
-      "A Creative Outlet - I'm a programmer, and I love it. I'm always on the lookout for new projects and challenges, and I'm constantly learning new skills and languages. It's a creative outlet that allows me to explore new ideas and concepts, and it's a hobby that I'll never get tired of.",
+    description: "My favourite hobby is turning “this should be easy” into a weekend project with documentation.",
   },
   {
     image: diy,
     title: "DIY",
-    description:
-      "The Art of Creation - I'm a DIYer at heart. I love building things with my hands, and I'm always on the lookout for new projects. Whether it's a new piece of furniture, a new gadget, or building a beautiful deck and pergola as shown above. I'm always looking for a new challenge and new ways to improve my skills.",
+    description: "If it can be measured, drilled, glued or painted, I’ll probably make it harder than necessary.",
   },
   {
     image: rex,
     title: "Rex",
-    description:
-      "My Labrador Sidekick - Our hobbies include endless games of fetch that test both our agility and patience, daily walks that are as much about exploration as exercise, and the occasional beach escapade where the sand and waves add to our adventurous spirit. Together, we embrace the simple joys of play and the outdoors.",
+    description: "Chief morale officer, tennis-ball consultant and full-time snack detector. Management is mostly paws-off.",
   },
   {
     image: rc_car,
     title: "Remote Control Anything",
-    description:
-      "High-Speed Thrills - My Traxxas XRT delivers endless entertainment, whether tearing across trails or watching Rex sprint after it with pure joy. Remote control anything captures my fascination; cars, drones or boats. Though I'm no hardcore enthusiast, the simple pleasure of piloting these machines never gets old, especially when Rex decides he's part of the action.",
+    description: "Cars, drones, boats, If it has a remote, I want to drive it. Rex remains my most enthusiastic crash-test dummy.",
   },
 ];
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

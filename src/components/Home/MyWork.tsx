@@ -6,8 +6,6 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import the required modules
 
-import { useEffect, useRef } from "react";
-import { useReward } from "react-rewards";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Import Icons/Images/Sounds
 
@@ -18,7 +16,6 @@ import { VscAzure } from "react-icons/vsc";
 import { TbBrandPowershell } from "react-icons/tb";
 import { PiCodeBold } from "react-icons/pi";
 import mojLogo from "../../assets/images/moj.jpeg";
-import quackSound from "../../assets/sounds/quack.mp3";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Define the skills to display
 
@@ -73,81 +70,8 @@ function SkillsSection() {
 // ----- Define the MyWork component
 
 function MyWork() {
-  const duckRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  // Duck confetti reward
-  const duckConfettiConfig = {
-    emoji: ["🦆", "🐤", "🐥"],
-    elementCount: 60,
-    spread: 150,
-    zIndex: 9999,
-    lifetime: 300,
-    position: "absolute",
-  };
-
-  // Make 🦆 the dominant emoji
-  for (let i = 0; i < 25; i++) {
-    duckConfettiConfig.emoji.push("🦆");
-  }
-  const { reward: duckConfetti, isAnimating: ducksInFlight } = useReward("duckConfetti", "emoji", duckConfettiConfig);
-
-  const handleDuckMouseOver = () => {
-    if (!ducksInFlight) {
-      duckConfetti(); // Launch the ducks!
-    }
-    const audio = new Audio(quackSound);
-    audio.play().catch((error) => {
-      console.warn("Duck can't quack:", error);
-    });
-  };
-  const handleDuckClick = () => {
-    window.open("https://rubberduckdebugging.com", "_blank");
-  };
-
-  // Some overkill code to position a div overlay ontop of the rubber ducky in the background image
-  useEffect(() => {
-    const duckOriginalPosition = { x: 3114, y: 2180 }; // Coordinates of the duck in the original image
-    const backgroundOriginalSize = { width: 4032, height: 3024 }; // Size of the original image
-
-    // Calculate the position of the overlay and update it
-    const positionOverlay = () => {
-      if (!sectionRef.current || !duckRef.current) return;
-
-      const containerRect = sectionRef.current.getBoundingClientRect();
-      const containerAspectRatio = containerRect.width / containerRect.height;
-      const imageAspectRatio = backgroundOriginalSize.width / backgroundOriginalSize.height;
-
-      let scaleFactor;
-      let offsetX = 0;
-      let offsetY = 0;
-
-      if (containerAspectRatio > imageAspectRatio) {
-        scaleFactor = containerRect.width / backgroundOriginalSize.width;
-        offsetY = (containerRect.height - backgroundOriginalSize.height * scaleFactor) / 2;
-      } else {
-        scaleFactor = containerRect.height / backgroundOriginalSize.height;
-        offsetX = (containerRect.width - backgroundOriginalSize.width * scaleFactor) / 2;
-      }
-
-      const newX = duckOriginalPosition.x * scaleFactor + offsetX;
-      const newY = duckOriginalPosition.y * scaleFactor + offsetY;
-
-      duckRef.current.style.left = `${newX}px`;
-      duckRef.current.style.top = `${newY}px`;
-    };
-
-    window.addEventListener("resize", positionOverlay);
-    positionOverlay(); // Initial call
-
-    return () => {
-      window.removeEventListener("resize", positionOverlay);
-    };
-  }, []);
-
   return (
-    <section id="mywork" className="mywork-section" ref={sectionRef}>
-      <div id="duckConfetti" className="interactive-duck" ref={duckRef} onMouseOver={handleDuckMouseOver} onClick={handleDuckClick}></div>
+    <section id="mywork" className="mywork-section">
       <div className="mywork-description mx-auto max-w-7xl">
         <h1 className="main-heading">
           My <strong className="primary-color">Work</strong>

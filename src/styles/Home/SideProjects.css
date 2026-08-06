@@ -9,9 +9,9 @@
 .side-projects-dots {
   position: absolute;
   inset: 0;
-  opacity: 0.55;
-  background-image: radial-gradient(#187a5a 1px, transparent 1px);
-  background-size: 22px 22px;
+  opacity: 0.18;
+  background-image: radial-gradient(var(--secondary-color) 1px, transparent 1px);
+  background-size: 32px 32px;
   mask-image: linear-gradient(to bottom, black 5%, transparent 85%);
 }
 
