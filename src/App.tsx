@@ -8,7 +8,6 @@
 
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { clarity } from "react-microsoft-clarity";
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

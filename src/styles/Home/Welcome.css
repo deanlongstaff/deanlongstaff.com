@@ -155,3 +155,31 @@
     display: none;
   }
 }
+
+/* Reskin */
+.welcome-section { min-height: 720px; padding: 0; background: var(--paper); overflow: hidden; }
+.background-container { opacity: 0.18; background-image: linear-gradient(110deg, var(--paper) 10%, transparent 70%), url(../../assets/images/background.jpg); mask-image: linear-gradient(to right, black, transparent 82%); }
+.welcome-content { position: relative; z-index: 1; width: 60vw; max-width: none; padding: 9rem 1.5rem 5rem; color: var(--ink); }
+.welcome-header { text-align: left; }
+.heading { margin: 0 0 1.1rem; padding: 0; color: var(--muted); font-family: "DM Mono", monospace; font-size: 1rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.heading-name { max-width: 680px; margin: 0; padding: 0; color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: clamp(3.8rem, 8vw, 7.2rem); line-height: 0.92; letter-spacing: -0.09em; }
+.heading-name strong { color: var(--primary-color); }
+.Typewriter__wrapper { color: var(--primary-color); font-size: 1.15rem; font-weight: 600; }
+.Typewriter__cursor { color: var(--sun); font-size: 1.3rem; }
+.welcome-photo img { border: 10px solid var(--surface); box-shadow: 14px 18px 0 var(--sun), 0 22px 45px rgba(23, 51, 42, 0.2) !important; }
+@media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { padding: 7rem 1rem 4rem; }.welcome-header { text-align: center; }.heading { font-size: 0.8rem; }.heading-name { font-size: clamp(3rem, 16vw, 4.8rem); }.welcome-content .order-2 img { box-shadow: 8px 10px 0 var(--sun), 0 16px 32px rgba(23, 51, 42, 0.18) !important; }.Typewriter__wrapper { font-size: 1rem; } }
+
+/* Personality-led hero */
+.welcome-section { min-height: 790px; background: var(--paper); }
+.background-container { display: none; }
+.welcome-section::before, .welcome-section::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.welcome-section::before { top: 110px; right: 7%; width: 150px; height: 150px; background: var(--secondary-color); opacity: 0.35; filter: blur(2px); }
+.welcome-section::after { bottom: 12%; left: 5%; width: 90px; height: 90px; background: var(--pink); opacity: 0.35; }
+.welcome-content { padding-top: 11rem; }
+.welcome-kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 20px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); background: var(--surface); font-family: "DM Mono", monospace; font-size: 0.7rem; letter-spacing: 0.02em; }
+.kicker-dot { width: 8px; height: 8px; border-radius: 50%; background: #55bf7d; box-shadow: 0 0 0 4px rgba(85, 191, 125, 0.15); }
+.welcome-lede { max-width: 500px; margin: 26px 0 18px; color: var(--muted); font-size: 1.15rem; line-height: 1.6; }
+.welcome-tags { display: flex; flex-wrap: wrap; gap: 8px; }.welcome-tags span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 11px; border-radius: 8px; color: var(--primary-deep); background: color-mix(in srgb, var(--primary-color) 14%, transparent); font-family: "DM Mono", monospace; font-size: 0.68rem; }.welcome-tags svg { display: block; width: 1.05rem; height: 1.05rem; stroke-width: 2.3; }
+.welcome-photo { position: relative; }.welcome-photo::before { content: "HEY THERE"; position: absolute; top: 5%; right: -3%; z-index: 2; padding: 11px 14px; border-radius: 8px; color: #17332a; background: var(--sun); font-family: "DM Mono", monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; transform: rotate(8deg); }
+.welcome-photo img { position: relative; z-index: 1; border: 12px solid var(--surface); box-shadow: 16px 18px 0 var(--primary-color), 0 24px 50px rgba(23, 51, 42, 0.2) !important; }
+@media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { width: 100%; padding-top: 7rem; }.welcome-kicker { font-size: 0.62rem; }.welcome-lede { margin: 20px auto 16px; font-size: 1rem; }.welcome-tags { justify-content: center; }.welcome-photo::before { right: 6%; }.welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 18px 35px rgba(23, 51, 42, 0.17) !important; } }

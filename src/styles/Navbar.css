@@ -168,3 +168,20 @@
 .github-btn-inner::after {
   display: none !important;
 }
+
+/* Reskin */
+.navbar, .sticky { padding: 0.65rem 1rem; background: color-mix(in srgb, var(--paper) 84%, transparent); border-bottom: 1px solid var(--line); box-shadow: 0 8px 24px rgba(23, 51, 42, 0.06); backdrop-filter: blur(18px); }
+.navbar-inner { width: 60vw; max-width: none; }
+.navbar-brand { color: var(--ink) !important; font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: -0.04em; }
+.navbar-brand span::before { content: "✦"; display: inline-block; margin-right: 8px; color: var(--sun); font-size: 0.8em; transform: rotate(-12deg); }
+.navbar-nav .nav-link { color: var(--muted) !important; font-size: 0.86rem; font-weight: 600; }
+.navbar-nav .nav-link { display: inline-flex; align-items: center; gap: 0.42rem; white-space: nowrap; }
+.navbar-nav .nav-link svg { display: inline-block; flex: 0 0 auto; width: 1.08em; height: 1.08em; vertical-align: middle; }
+.navbar-nav .nav-link:hover, .navbar-nav .nav-item .active-nav-link { color: var(--primary-color) !important; }
+.navbar .navbar-nav { align-items: center; gap: 1.25rem; }
+.navbar-nav .nav-item a::after { height: 3px; background: var(--primary-color); }
+.navbar-toggler span { background-color: var(--primary-color); }
+.github-btn { display: flex; align-items: center; height: 38px; padding-top: 0 !important; }.github-btn-inner { display: grid; place-items: center; width: 38px; height: 38px; padding: 0.25rem !important; border-radius: 50%; line-height: 1; background: var(--primary-color) !important; border-color: var(--primary-color) !important; }.github-btn-inner svg { display: block; margin: auto; }
+.theme-btn { display: flex; align-items: center; margin-left: 12px !important; }.theme-toggle { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: var(--surface); cursor: pointer; transition: transform 180ms ease, border-color 180ms ease, color 180ms ease; }.theme-toggle:hover { color: var(--primary-color); border-color: var(--primary-color); transform: rotate(12deg); }
+.theme-toggle svg { display: block; margin: auto; }
+@media (max-width: 767px) { .navbar, .sticky { padding: 0.75rem 1rem; background: var(--paper); }.navbar-inner { width: 100%; }.navbar .navbar-nav { gap: 0; }.theme-btn { justify-content: center; margin: 8px 0 !important; }.navbar-nav .nav-item { margin-left: 0; } }

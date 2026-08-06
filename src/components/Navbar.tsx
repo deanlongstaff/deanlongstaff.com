@@ -7,10 +7,6 @@
 // ----- Import the required modules
 
 import { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import { Link } from 'react-scroll';
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -19,7 +15,8 @@ import { Link } from 'react-scroll';
 import { FaGithub } from "react-icons/fa";
 import { FaPersonSkiing } from "react-icons/fa6";
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
-import { MdOutlineHomeWork } from "react-icons/md";
+import { MdOutlineHomeWork, MdOutlineAutoAwesome } from "react-icons/md";
+import ThemeToggle from "./ThemeToggle";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the navbar items
 
@@ -38,6 +35,11 @@ const navbarItems = [
         name: "My Work",
         icon: <MdOutlineHomeWork style={{ marginBottom: "2px" }} />,
         to: "mywork",
+    },
+    {
+        name: "Side Projects",
+        icon: <MdOutlineAutoAwesome style={{ marginBottom: "2px" }} />,
+        to: "sideprojects",
     },
     {
         name: "My Hobbies",
@@ -64,62 +66,46 @@ function NavBar() {
     window.addEventListener("scroll", scrollHandler);
 
     return (
-        <Navbar
-            expanded={expand}
-            fixed="top"
-            expand="md"
-            className={navColour ? "sticky" : "navbar"}
-        >
-            <Container>
-                <Navbar.Brand href="/" className="d-flex">
+        <nav className={`navbar ${navColour ? "sticky" : ""} fixed top-0 z-50 w-full`}>
+            <div className="navbar-inner mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between gap-3 px-6">
+                <a href="/" className="navbar-brand inline-flex items-center">
                     <span>Dean Longstaff</span>
-                </Navbar.Brand>
-                <Navbar.Toggle
+                </a>
+                <button
+                    type="button"
+                    className="navbar-toggler md:hidden"
                     aria-controls="responsive-navbar-nav"
-                    onClick={() => {
-                        updateExpanded(expand ? false : true);
-                    }}
+                    aria-expanded={expand}
+                    aria-label="Toggle navigation"
+                    onClick={() => updateExpanded(!expand)}
                 >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </Navbar.Toggle>
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="ms-auto" defaultActiveKey="#home">
+                    <span></span><span></span><span></span>
+                </button>
+                <div id="responsive-navbar-nav" className={`${expand ? "flex" : "hidden"} w-full flex-col items-stretch md:flex md:w-auto md:flex-row md:items-center`}>
+                    <div className="navbar-nav ml-auto flex flex-col items-stretch md:flex-row md:items-center md:gap-2">
                         {navbarItems.map(item => (
-                            <Nav.Item key={item.to}>
-                                <Nav.Link
-                                    as={Link}
-                                    to={item.to}
-                                    duration={1000}
-                                    spy={true}
-                                    activeClass="active-nav-link"
-                                    onClick={() => updateExpanded(false)}
-                                >
-                                    {item.icon} {item.name}
-                                </Nav.Link>
-                            </Nav.Item>
-                        ))}
-
-                        <Nav.Item className="github-btn">
-                            <Button
-                                href="https://github.com/deanlongstaff"
-                                target="_blank"
-                                className="github-btn-inner"
+                            <Link
+                                key={item.to}
+                                className="nav-link"
+                                to={item.to}
+                                duration={1000}
+                                spy={true}
+                                activeClass="active-nav-link"
+                                onClick={() => updateExpanded(false)}
                             >
-                                <FaGithub style={{
-                                    fontSize: "1.2em",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    paddingBottom: "2px"
-                                }}
-                                />
-                            </Button>
-                        </Nav.Item>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                                {item.icon} {item.name}
+                            </Link>
+                        ))}
+                        <div className="theme-btn"><ThemeToggle /></div>
+                        <div className="github-btn">
+                            <a href="https://github.com/deanlongstaff" target="_blank" rel="noopener noreferrer" className="github-btn-inner btn btn-primary btn-circle" aria-label="GitHub">
+                                <FaGithub aria-hidden="true" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     );
 }
 

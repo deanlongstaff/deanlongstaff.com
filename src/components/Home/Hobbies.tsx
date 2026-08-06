@@ -6,7 +6,6 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import the required modules
 
-import { Container, Row, Col, Card } from "react-bootstrap";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import images
 
@@ -56,15 +55,15 @@ const hobbies = [
 // Hobby card
 function HobbyCard(props: any) {
   return (
-    <Card className="hobbies-card-view">
-      <Card.Img variant="top" src={props.image} alt="card-img" className="hobbies-card-img" />
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "center" }}>{props.description}</Card.Text>
+    <article className="hobbies-card-view card">
+      <img src={props.image} alt={props.title} className="hobbies-card-img card-img-top" />
+      <div className="card-body">
+        <h3 className="card-title">{props.title}</h3>
+        <p className="card-text">{props.description}</p>
         {"\n"}
         {"\n"}
-      </Card.Body>
-    </Card>
+      </div>
+    </article>
   );
 }
 
@@ -74,23 +73,24 @@ function HobbyCard(props: any) {
 function index() {
   return (
     <section id="hobbies">
-      <Container fluid className="hobbies-section">
-        <Container>
+      <div className="hobbies-section">
+        <div className="mx-auto max-w-7xl">
+          <span className="hobbies-eyebrow">When the laptop is closed</span>
           <h1 className="main-heading">
             My <strong className="primary-color">Hobbies </strong>
           </h1>
-          <p style={{ color: "white" }}>
-            My world isn't just about pixels and code. When I'm not conjuring up digital magic, I'm on a constant quest to discover new hobbies and experiences. It's all about embracing the unexpected and adding a dash of variety to life!
+          <p>
+            The things that keep me curious, make me laugh, and occasionally leave me covered in sawdust.
           </p>
-          <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <div className="flex flex-wrap items-start justify-center pb-2.5">
             {hobbies.map((hobby, index) => (
-              <Col key={index} md={4} className="hobbies-card">
+              <div key={index} className={`hobbies-card hobby-card-${index + 1} md:w-1/3`}>
                 <HobbyCard image={hobby.image} title={hobby.title} description={hobby.description} />
-              </Col>
+              </div>
             ))}
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

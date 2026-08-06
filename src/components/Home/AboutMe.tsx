@@ -6,20 +6,22 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import the required modules
 
-import { Container, Row } from "react-bootstrap";
+import aboutPhoto from "../../assets/images/me-diy.jpeg";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the AboutMe component
 
 function index() {
   return (
     <section id="aboutme" className="aboutme-section">
-      <Container fluid id="about">
+      <div id="about" className="mx-auto max-w-7xl">
         <h1 className="main-heading">
           About <strong className="primary-color">Me</strong>
         </h1>
-        <Container className="aboutme-description">
-          <Row>
-            <p className="aboutme-body">
+        <div className="aboutme-description">
+          <div className="aboutme-grid">
+            <div className="aboutme-copy">
+              <span className="section-label">The short version</span>
+              <p className="aboutme-body">
               I'm the Swiss Army knife of tech - sharp, handy, and a tad bit quirky.
               <br />
               <br />
@@ -36,10 +38,15 @@ function index() {
               <br />
               <br />
               Yes, I am a <b className="ryobi">Ryobi</b> fanboy. No, I will not apologize for it.
-            </p>
-          </Row>
-        </Container>
-      </Container>
+              </p>
+            </div>
+            <figure className="aboutme-photo-card">
+              <img src={aboutPhoto} alt="Dean working on a DIY project" />
+              <figcaption><span>Current status</span><strong>Making something cool</strong></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

@@ -6,7 +6,7 @@
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .footer {
-  background-color: rgb(10, 4, 22);
+  background-color: var(--primary-deep);
   bottom: 0;
   padding-top: 10px;
   padding-bottom: 8px !important;
@@ -32,10 +32,11 @@
 
 .footer h3 {
   font-size: 1em;
-  color: white;
+  color: var(--paper);
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+.footer a { color: var(--paper) !important; transition: color 180ms ease, transform 180ms ease; }.footer a:hover { color: var(--sun) !important; }
 
 .footer-icons {
   margin-top: 0.5em;

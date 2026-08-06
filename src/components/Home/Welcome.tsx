@@ -6,9 +6,9 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import the required modules
 
-import { Container, Row, Col } from "react-bootstrap";
 import Typewriter from "typewriter-effect";
 import Tilt from "react-parallax-tilt";
+import { FiCloud, FiSettings, FiStar } from "react-icons/fi";
 import Particle from "../Particle";
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -39,53 +39,54 @@ function index() {
   return (
     <section id="welcome">
       <Particle />
-      <Container fluid className="welcome-section" id="home">
+      <section className="welcome-section" id="home">
         <div className="background-container"></div>
-        <Container className="welcome-content">
-          <Row className="align-items-center">
-            <Col xs={12} md={7} className="welcome-header order-1 order-md-1">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
-                Hello!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋
-                </span>
-              </h1>
+        <div className="welcome-content mx-auto grid max-w-screen-2xl items-center gap-20 px-6 md:grid-cols-[1.15fr_0.85fr] lg:gap-28">
+          <div className="welcome-header">
+            <div className="welcome-kicker"><span className="kicker-dot" /> Developer, builder &amp; enthusiastic tinkerer</div>
+            <h1 style={{ paddingBottom: 15 }} className="heading">
+              Hello!{" "}
+              <span className="wave" role="img" aria-labelledby="wave">
+                👋
+              </span>
+            </h1>
 
-              <h1 className="heading-name">
-                I'M
-                <strong className="primary-color"> DEAN LONGSTAFF</strong>
-              </h1>
+            <h1 className="heading-name">
+              I&apos;M <strong className="primary-color">DEAN</strong><br />LONGSTAFF
+            </h1>
 
-              <div className="d-none d-md-block" style={{ paddingLeft: 50, paddingTop: 20, paddingBottom: 40, height: "50px" }}>
-                <Type />
-              </div>
-            </Col>
-            <Col xs={12} md={5} className="order-2 order-md-2 mb-4 mb-md-0" style={{ paddingBottom: 20, paddingTop: 20, display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <Tilt style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", maxWidth: "350px" }}>
-                <img
-                  src={photo}
-                  alt="Dean Longstaff"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    aspectRatio: "1 / 1",
-                    borderRadius: "50%",
-                    objectFit: "cover",
-                    padding: 5,
-                    margin: 5,
-                    boxShadow: "0 0 20px 8px rgba(0, 0, 0, 0.5)",
-                  }}
-                />
-              </Tilt>
-            </Col>
-            <Col xs={12} className="order-3 d-md-none">
-              <div style={{ padding: "20px 20px", textAlign: "center", height: "50px" }}>
-                <Type />
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+            <p className="welcome-lede">I make useful things for the web, the cloud, and the real world.</p>
+            <div className="welcome-tags"><span><FiCloud aria-hidden="true" /> Cloud</span><span><FiSettings aria-hidden="true" /> Automation</span><span><FiStar aria-hidden="true" /> Side quests</span></div>
+
+            <div className="hidden h-[50px] py-5 pl-[50px] md:block md:pb-10">
+              <Type />
+            </div>
+          </div>
+          <div className="welcome-photo flex items-center justify-center py-5">
+            <Tilt className="flex w-full max-w-[350px] items-center justify-center">
+              <img
+                src={photo}
+                alt="Dean Longstaff"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  aspectRatio: "1 / 1",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  padding: 5,
+                  margin: 5,
+                  boxShadow: "0 0 20px 8px rgba(0, 0, 0, 0.5)",
+                }}
+              />
+            </Tilt>
+          </div>
+          <div className="md:hidden">
+            <div className="h-[50px] px-5 py-5 text-center">
+              <Type />
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
   );
 }

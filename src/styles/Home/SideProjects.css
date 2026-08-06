@@ -1,0 +1,93 @@
+.side-projects-section {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 20px;
+  color: #17332a;
+  background: #f6f5ed;
+}
+
+.side-projects-dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image: radial-gradient(#187a5a 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black 5%, transparent 85%);
+}
+
+.side-projects-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(75px);
+  pointer-events: none;
+}
+
+.side-projects-glow-left { top: -180px; left: -150px; background: rgba(144, 199, 236, 0.3); }
+.side-projects-glow-right { right: -180px; bottom: -210px; background: rgba(147, 221, 156, 0.28); }
+
+.side-projects-content {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.side-projects-section .main-heading { color: #17332a; }
+.side-projects-eyebrow { margin: 0 0 8px; color: #187a5a; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.side-projects-accent { color: #187a5a; }
+.side-projects-intro { max-width: 620px; margin: 14px auto 42px; color: rgba(23, 51, 42, 0.72); line-height: 1.7; }
+
+.binminder-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 36px;
+  overflow: hidden;
+  padding: 52px 58px;
+  border: 1px solid rgba(24, 122, 90, 0.18);
+  border-radius: 28px;
+  text-align: left;
+  background: linear-gradient(135deg, #ffffff 0%, #edf8f2 100%);
+  box-shadow: 0 20px 60px rgba(23, 51, 42, 0.14);
+}
+
+.binminder-brand { display: flex; align-items: center; gap: 10px; color: #0b5940; font-size: 1.35rem; font-weight: 800; letter-spacing: -0.04em; }
+.binminder-mark { width: 38px; height: 38px; border-radius: 11px; }
+.binminder-status { display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; padding: 7px 12px; border: 1px solid rgba(24, 122, 90, 0.2); border-radius: 999px; color: #187a5a; background: rgba(24, 122, 90, 0.08); font-size: 0.75rem; font-weight: 700; }
+.binminder-status span { width: 7px; height: 7px; border-radius: 50%; background: #187a5a; }
+.binminder-copy h2 { margin: 18px 0 12px; color: #17332a; font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.05; letter-spacing: -0.055em; }
+.binminder-copy h2 span { color: #187a5a; }
+.binminder-copy p { max-width: 500px; color: rgba(23, 51, 42, 0.7); line-height: 1.7; }
+.binminder-highlights { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 28px; }
+.binminder-highlight { display: inline-flex; align-items: center; gap: 7px; color: rgba(23, 51, 42, 0.74); font-size: 0.8rem; }
+.binminder-highlight-icon { display: inline-grid; place-items: center; width: 27px; height: 27px; border-radius: 50%; color: #0b5940; background: #d9f1e6; font-size: 1rem; }
+.binminder-link { display: inline-flex; align-items: center; gap: 8px; color: #fff; padding: 12px 17px; border-radius: 999px; background: #187a5a; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: transform 180ms ease, background 180ms ease; }
+.binminder-link:hover { color: #fff; transform: translateY(-2px); background: #0b5940; }
+
+.binminder-preview { display: flex; justify-content: center; align-self: stretch; align-items: center; height: 430px; min-height: 0; overflow: hidden; border-radius: 22px; background: radial-gradient(circle at 50% 10%, rgba(144, 199, 236, 0.48), transparent 48%), #dff1e8; }
+.binminder-phone { height: min(360px, 100%); width: auto; max-width: 86%; aspect-ratio: 1320 / 2868; overflow: hidden; border: 6px solid #17332a; border-radius: 30px; background: #f6f5ed; box-shadow: 0 18px 30px rgba(23, 51, 42, 0.25); transform: rotate(4deg); }
+.binminder-phone img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.binminder-phone-notch { position: absolute; top: 7px; left: 50%; width: 62px; height: 13px; border-radius: 10px; background: #17332a; transform: translateX(-50%); }
+.binminder-phone-topline { display: flex; justify-content: space-between; color: rgba(23, 51, 42, 0.55); font-size: 0.55rem; }
+.binminder-phone-greeting { margin: 20px 0 13px; font-size: 0.85rem; font-weight: 800; }
+.binminder-next-pickup { position: relative; overflow: hidden; margin-bottom: 14px; padding: 15px 13px; border-radius: 14px; color: #fff; background: #187a5a; }
+.binminder-next-pickup small { display: block; margin-bottom: 7px; color: #bce7d2; font-size: 0.48rem; font-weight: 700; letter-spacing: 0.08em; }
+.binminder-next-pickup strong { display: block; font-size: 1.05rem; }.binminder-next-pickup span { display: block; margin-top: 5px; color: #d9f1e6; font-size: 0.54rem; }
+.binminder-mini-bin { position: absolute; right: 16px; bottom: 13px; width: 17px; height: 22px; border-radius: 2px 2px 5px 5px; background: #f4bb63; }.binminder-mini-bin::before { content: ""; position: absolute; top: -4px; left: -3px; width: 23px; height: 4px; border-radius: 4px; background: #f4bb63; }
+.binminder-phone-row { display: grid; grid-template-columns: 14px 1fr auto; align-items: center; gap: 6px; margin: 9px 2px; font-size: 0.58rem; }.binminder-phone-row > span:last-child { color: rgba(23, 51, 42, 0.5); font-size: 0.5rem; }.binminder-row-dot { width: 10px; height: 10px; border-radius: 3px; }.binminder-row-dot.recycling { background: #90c7ec; }.binminder-row-dot.garden { background: #187a5a; }
+.binminder-phone-nav { display: flex; justify-content: space-around; margin-top: 24px; padding-top: 11px; border-top: 1px solid rgba(23, 51, 42, 0.12); color: rgba(23, 51, 42, 0.35); font-size: 0.85rem; }.binminder-phone-nav .active { color: #187a5a; }
+
+@media (max-width: 767px) {
+  .side-projects-section { padding: 75px 15px; }
+  .side-projects-intro { padding: 0 12px; font-size: 0.95rem; }
+  .binminder-card { grid-template-columns: 1fr; gap: 30px; padding: 32px 24px; border-radius: 22px; }
+  .binminder-copy h2 { font-size: 2.35rem; }.binminder-highlights { gap: 9px 14px; }.binminder-preview { height: 390px; }.binminder-phone { height: 330px; transform: rotate(2deg); }
+}
+
+/* Theme bridge */
+.side-projects-section { background: var(--paper); color: var(--ink); }
+.side-projects-section .main-heading { color: var(--ink); }
+.side-projects-intro { color: var(--muted); }
+.binminder-card { border-color: var(--line); background: linear-gradient(135deg, var(--surface) 0%, var(--surface-soft) 100%); box-shadow: 0 20px 60px rgba(23, 51, 42, 0.12); }
+.binminder-copy h2 { color: var(--ink); }.binminder-copy p, .binminder-highlight { color: var(--muted); }.binminder-highlight-icon { color: var(--primary-deep); background: color-mix(in srgb, var(--primary-color) 18%, transparent); }

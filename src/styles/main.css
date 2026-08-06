@@ -1,110 +1,75 @@
-/**
- * DESCRIPTION: This stylesheet contains the main styling for the app.
- *
- * Author: Dean Longstaff
- */
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/* ----- Import fonts ----- */
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
-
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/* ----- Main CSS and Global Variables ----- */
-
-body {
-  margin: 0;
-  font-family: "Raleway", serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
-  overflow-x: hidden;
-}
-
-html {
-  --section-background-color: linear-gradient(
-    to bottom left,
-    rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
-  );
-
-  --image-gradient: linear-gradient(
-    to bottom left,
-    rgba(17, 16, 16, 0.543),
-    rgba(12, 10, 22, 0.863)
-  );
-
-  --primary-color: #007bff;
-  --secondary-color: #3fe2ff;
-
+:root {
+  color-scheme: light;
+  --ink: #17332a;
+  --muted: #627b72;
+  --paper: #f6f5ed;
+  --surface: #ffffff;
+  --surface-soft: #eaf5ef;
+  --line: rgba(23, 51, 42, 0.13);
+  --primary-color: #187a5a;
+  --primary-deep: #0b5940;
+  --secondary-color: #8dc7eb;
+  --sun: #f4bb63;
+  --pink: #d9a1bc;
+  --section-background-color: var(--paper);
+  --image-gradient: linear-gradient(135deg, rgba(246, 245, 237, 0.86), rgba(234, 245, 239, 0.94));
   text-align: center;
-  overflow-x: hidden;
 }
 
-#tsparticles {
-  position: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="dean-light"]) {
+    color-scheme: dark;
+    --ink: #edf5ef;
+    --muted: #a5b9b0;
+    --paper: #101c18;
+    --surface: #172722;
+    --surface-soft: #203b31;
+    --line: rgba(237, 245, 239, 0.14);
+    --primary-color: #74c99e;
+    --primary-deep: #bce7d2;
+    --secondary-color: #8dc7eb;
+    --sun: #f7c76f;
+    --pink: #e1abc5;
+    --section-background-color: var(--paper);
+    --image-gradient: linear-gradient(135deg, rgba(16, 28, 24, 0.86), rgba(23, 39, 34, 0.94));
+  }
 }
 
-.primary-color {
-  color: var(--primary-color);
+:root[data-theme="dean-dark"] {
+  color-scheme: dark;
+  --ink: #edf5ef;
+  --muted: #a5b9b0;
+  --paper: #101c18;
+  --surface: #172722;
+  --surface-soft: #203b31;
+  --line: rgba(237, 245, 239, 0.14);
+  --primary-color: #74c99e;
+  --primary-deep: #bce7d2;
+  --secondary-color: #8dc7eb;
+  --sun: #f7c76f;
+  --pink: #e1abc5;
+  --section-background-color: var(--paper);
+  --image-gradient: linear-gradient(135deg, rgba(16, 28, 24, 0.86), rgba(23, 39, 34, 0.94));
 }
 
-.secondary-color {
-  color: var(--secondary-color);
-}
+:root[data-theme="dean-light"] { color-scheme: light; }
 
-button:focus {
-  box-shadow: none;
-}
-
-.main-heading {
-  color: white;
-  font-size: 2.3em;
-  font-weight: 500;
-  padding-top: 10px;
-}
-
-.secondary-heading {
-  color: white;
-  font-size: 1.6em;
-  font-weight: 300;
-  padding-top: 10px;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; overflow-x: hidden; }
+body { margin: 0; color: var(--ink); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; background: var(--paper); overflow-x: hidden; transition: background-color 220ms ease, color 220ms ease; }
+a { color: inherit; }
+#tsparticles { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.42; }
+.primary-color { color: var(--primary-color); }
+.secondary-color { color: var(--secondary-color); }
+.main-heading { margin: 0; color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: clamp(2.35rem, 4vw, 3.5rem); font-weight: 600; letter-spacing: -0.065em; }
+.secondary-heading { color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.04em; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--sun); outline-offset: 4px; }
+::selection { color: var(--surface); background: var(--primary-color); }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { border-radius: 99px; background: var(--primary-color); }
 
 @media (max-width: 767px) {
-  .main-heading {
-    font-size: 1.8em;
-    padding-top: 5px;
-  }
-
-  .secondary-heading {
-    font-size: 1.3em;
-    padding-top: 5px;
-  }
-}
-
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-/* ----- Scrollbar CSS ----- */
-
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #232323;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 12px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color);
-  border-radius: 12px;
+  .main-heading { font-size: 2.2rem; }
+  .secondary-heading { font-size: 1.3rem; }
 }

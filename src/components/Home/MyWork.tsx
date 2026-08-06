@@ -7,8 +7,6 @@
 // ----- Import the required modules
 
 import { useEffect, useRef } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { GitHubCalendar } from "react-github-calendar";
 import { useReward } from "react-rewards";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Import Icons/Images/Sounds
@@ -45,29 +43,32 @@ const skills = [
 // Skills section (Skill Cards)
 function SkillsSection() {
   return (
-    <section id="skills">
-      <div className="skills-container">
-        {skills.map((skill, index) => (
-          <a href={skill.link} target="_blank" rel="noopener noreferrer" className="skill-wrapper" key={`skill-${index}`}>
-            <div className="skill">
-              <div className="icon">{skill.logo}</div>
-              <p>{skill.name}</p>
-            </div>
-          </a>
-        ))}
+    <section id="skills" className="skills-manifesto">
+      <div className="skills-manifesto-copy">
+        <span className="section-label">How I approach things</span>
+        <h2>Anything is<br /><em>possible.</em></h2>
+        <p>
+          I don&apos;t believe in staying in one lane. When there&apos;s a problem to solve, I learn whatever helps me move it forward. The technology is just the set of tools on the bench.
+        </p>
+        <div className="skills-manifesto-note"><span>✦</span> Curiosity is the real superpower</div>
+      </div>
+      <div className="skills-toolbox">
+        <div className="toolbox-topline"><span>Things I&apos;ve picked up along the way</span></div>
+        <div className="skills-container">
+          {skills.map((skill, index) => (
+            <a href={skill.link} target="_blank" rel="noopener noreferrer" className={`skill-wrapper skill-wrapper-${index + 1}`} key={`skill-${index}`}>
+              <div className="skill">
+                <div className="icon">{skill.logo}</div>
+                <p>{skill.name}</p>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-// GitHub section (GitHub Calendar)
-function GitHubSection() {
-  return (
-    <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-      <GitHubCalendar username="deanlongstaff" blockSize={15} blockMargin={5} fontSize={16} colorScheme="dark" />
-    </Row>
-  );
-}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the MyWork component
 
@@ -147,32 +148,26 @@ function MyWork() {
   return (
     <section id="mywork" className="mywork-section" ref={sectionRef}>
       <div id="duckConfetti" className="interactive-duck" ref={duckRef} onMouseOver={handleDuckMouseOver} onClick={handleDuckClick}></div>
-      <Container className="mywork-description">
+      <div className="mywork-description mx-auto max-w-7xl">
         <h1 className="main-heading">
           My <strong className="primary-color">Work</strong>
         </h1>
-        <p style={{ color: "white" }}>
+        <p>
           I thrive working remotely, where I transform concepts into polished digital experiences. While I value the focus of independent work, I equally embrace collaboration and the energy that comes from working with others.
         </p>
-        <Row className="mywork-body">
-          <Col md={6}>
+        <div className="mywork-body grid items-center gap-8 md:grid-cols-2">
+          <div>
             <img src={mojLogo} alt="Ministry of Justice UK" className="mywork-mojlogo" />
-          </Col>
-          <Col md={6}>
+          </div>
+          <div>
             <p>
               At the Ministry of Justice UK, I lead a pioneering automation initiative across the EUCS department, driving efficiency and innovation at scale. I engage multiple product teams, upskilling them into programmatic workflows and delivering
               tangible cost savings for us taxpayers.
             </p>
-          </Col>
-        </Row>
-        <h2 className="secondary-heading">My Technical Skills</h2>
+          </div>
+        </div>
         <SkillsSection />
-        <h2 className="secondary-heading" style={{ paddingBottom: "20px" }}>
-          My GitHub History
-        </h2>
-        <p style={{ color: "white", paddingBottom: "20px" }}>GitHub is where I version control my code, collaborate with others, and showcase my development journey.</p>
-        <GitHubSection />
-      </Container>
+      </div>
     </section>
   );
 }

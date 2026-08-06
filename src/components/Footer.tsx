@@ -6,7 +6,6 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import the required modules
 
-import { Container, Row, Col } from "react-bootstrap";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import icons
 
@@ -19,30 +18,30 @@ function Footer() {
   let date = new Date();
   let year = date.getFullYear();
   return (
-    <Container fluid className="footer">
-      <Row>
-        <Col md="4" className="footer-copywright">
+    <footer className="footer">
+      <div className="mx-auto grid max-w-7xl items-center gap-2 md:grid-cols-3">
+        <div className="footer-copywright">
           <h3>deanlongstaff.com</h3>
-        </Col>
-        <Col md="4" className="footer-copywright">
+        </div>
+        <div className="footer-copywright">
           <h3>Copyright © {year}</h3>
-        </Col>
-        <Col md="4" className="footer-body">
+        </div>
+        <div className="footer-body">
           <ul className="footer-icons">
             <li className="social-icons">
-              <a href="https://github.com/deanlongstaff" style={{ color: "white" }} target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/deanlongstaff" target="_blank" rel="noopener noreferrer">
                 <AiFillGithub />
               </a>
             </li>
             <li className="social-icons">
-              <a href="https://www.linkedin.com/in/dean-longstaff-934023126/" style={{ color: "white" }} target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/dean-longstaff-934023126/" target="_blank" rel="noopener noreferrer">
                 <FaLinkedinIn />
               </a>
             </li>
           </ul>
-        </Col>
-      </Row>
-    </Container>
+        </div>
+      </div>
+    </footer>
   );
 }
 

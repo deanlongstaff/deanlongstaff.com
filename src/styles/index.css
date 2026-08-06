@@ -1,3 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: dean-light --default, dean-dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: "dean-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #eaf5ef;
+  --color-base-300: #dcebe3;
+  --color-base-content: #17332a;
+  --color-primary: #187a5a;
+  --color-primary-content: #ffffff;
+  --color-secondary: #8dc7eb;
+  --color-secondary-content: #17332a;
+  --color-accent: #f4bb63;
+  --color-accent-content: #17332a;
+  --color-neutral: #17332a;
+  --color-neutral-content: #f6f5ed;
+  --radius-box: 1.25rem;
+}
+
+@plugin "daisyui/theme" {
+  name: "dean-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #172722;
+  --color-base-200: #203b31;
+  --color-base-300: #315344;
+  --color-base-content: #edf5ef;
+  --color-primary: #74c99e;
+  --color-primary-content: #102019;
+  --color-secondary: #8dc7eb;
+  --color-secondary-content: #102019;
+  --color-accent: #f7c76f;
+  --color-accent-content: #17332a;
+  --color-neutral: #0f1b16;
+  --color-neutral-content: #edf5ef;
+  --radius-box: 1.25rem;
+}
+
 /**
  * DESCRIPTION: This stylesheet acts as an index for all the stylesheets in the app. This sheet is imported into App.tsx.
  *
@@ -12,3 +59,4 @@
 @import "./Home/Hobbies.css";
 @import "./Home/AboutMe.css";
 @import "./Home/MyWork.css";
+@import "./Home/SideProjects.css";
