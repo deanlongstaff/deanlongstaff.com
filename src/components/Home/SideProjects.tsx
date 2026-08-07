@@ -11,47 +11,65 @@ const highlights = [
 
 function SideProjects() {
   return (
-    <section id="sideprojects" className="side-projects-section">
-      <div className="side-projects-dots" aria-hidden="true" />
-      <div className="side-projects-glow side-projects-glow-left" aria-hidden="true" />
-      <div className="side-projects-glow side-projects-glow-right" aria-hidden="true" />
+    <section
+      id="sideprojects"
+      className="side-projects-section relative overflow-hidden px-[14px] pt-[58px] pb-[50px] text-[var(--ink)] md:px-5 md:py-[120px]"
+    >
+      <div className="side-projects-dots absolute inset-0 opacity-[0.18]" aria-hidden="true" />
+      <div className="pointer-events-none absolute -top-[180px] -left-[150px] size-[420px] rounded-[50%] bg-[rgba(144,199,236,0.3)] blur-[75px]" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-[180px] -bottom-[210px] size-[420px] rounded-[50%] bg-[rgba(147,221,156,0.28)] blur-[75px]" aria-hidden="true" />
 
-      <div className="side-projects-content">
-        <p className="side-projects-eyebrow">A little something I built</p>
+      <div className="relative mx-auto max-w-7xl">
+        <p className="m-0 mb-2 text-[0.8rem] font-bold tracking-[0.14em] text-[#187a5a] uppercase">A little something I built</p>
         <h1 className="main-heading">
-          Side <strong className="side-projects-accent">Projects</strong>
+          Side <strong className="text-[#187a5a]">Projects</strong>
         </h1>
-        <p className="side-projects-intro">
+        <p className="mx-auto mt-[14px] mb-[26px] max-w-[620px] px-1 text-[0.95rem] leading-[1.55] text-[var(--muted)] md:mb-[42px] md:px-0 md:text-base md:leading-[1.7]">
           Useful ideas, made real. One side quest that escaped the notebook and became something handy.
         </p>
 
-        <article className="binminder-card">
-          <div className="binminder-copy">
-            <div className="binminder-brand">
-              <img src={binminderMark} alt="" className="binminder-mark" />
+        <article className="binminder-card grid grid-cols-1 items-center gap-[22px] overflow-hidden rounded-[18px] border border-[var(--line)] bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-soft)_100%)] px-4 py-6 text-left shadow-[0_20px_60px_rgba(23,51,42,0.12)] md:grid-cols-[1.1fr_0.9fr] md:gap-9 md:rounded-[28px] md:px-[58px] md:py-[52px]">
+          <div>
+            <div className="flex items-center gap-2.5 text-[1.35rem] font-extrabold tracking-[-0.04em] text-[#0b5940]">
+              <img src={binminderMark} alt="" className="size-[38px] rounded-[11px]" />
               <span>binminder</span>
             </div>
-            <span className="binminder-status badge badge-outline"><span /> Launching August 2026</span>
-            <h2>Never miss <span>bin day</span> again.</h2>
-            <p>
+            <span className="binminder-status badge badge-outline mt-[26px]">
+              <span className="size-[7px] rounded-[50%] bg-[#187a5a]" /> Launching August 2026
+            </span>
+            <h2 className="mt-[18px] mb-3 text-[2rem] leading-[1.05] tracking-[-0.055em] text-[var(--ink)] md:text-[clamp(2rem,4vw,3.35rem)]">
+              Never miss <span className="text-[#187a5a]">bin day</span> again.
+            </h2>
+            <p className="max-w-[500px] text-[0.95rem] leading-[1.55] text-[var(--muted)] md:text-base md:leading-[1.7]">
               Keep your local bin collections in reach with live updates, reminders, widgets and shortcuts.
             </p>
-            <div className="binminder-highlights">
+            <div className="mt-6 mb-7 flex flex-wrap gap-x-[14px] gap-y-[9px] md:gap-2.5">
               {highlights.map((highlight) => (
-                <div className="binminder-highlight" key={highlight.label}>
-                  <span className="binminder-highlight-icon">{highlight.icon}</span>
+                <div className="inline-flex items-center gap-[7px] text-[0.8rem] text-[var(--muted)]" key={highlight.label}>
+                  <span className="inline-grid size-[27px] place-items-center rounded-[50%] bg-[color-mix(in_srgb,var(--primary-color)_18%,transparent)] text-base text-[var(--primary-deep)]">
+                    {highlight.icon}
+                  </span>
                   <span>{highlight.label}</span>
                 </div>
               ))}
             </div>
-            <a className="binminder-link btn btn-primary" href="https://binminder.app" target="_blank" rel="noopener noreferrer">
+            <a
+              className="binminder-link btn btn-primary"
+              href="https://binminder.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Visit binminder.app <HiArrowUpRight aria-hidden="true" />
             </a>
           </div>
 
-          <div className="binminder-preview" aria-hidden="true">
-            <div className="binminder-phone">
-              <img src={binminderToday} alt="Binminder Today screen showing the next collection and upcoming bin days" />
+          <div className="binminder-preview flex h-[280px] min-h-0 items-center justify-center self-stretch overflow-hidden rounded-2xl md:h-[430px] md:rounded-[22px]" aria-hidden="true">
+            <div className="h-[245px] w-auto max-w-[86%] rotate-2 overflow-hidden rounded-[30px] border-[6px] border-[#17332a] bg-[#f6f5ed] shadow-[0_18px_30px_rgba(23,51,42,0.25)] [aspect-ratio:1320/2868] md:h-[min(360px,100%)] md:rotate-[4deg]">
+              <img
+                src={binminderToday}
+                alt="Binminder Today screen showing the next collection and upcoming bin days"
+                className="block size-full object-contain"
+              />
             </div>
           </div>
         </article>

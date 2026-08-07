@@ -1,72 +1,53 @@
 /**
  * DESCRIPTION: This stylesheet contains the styling for the about me component of the home page (AboutMe.tsx).
  *
+ * Layout, spacing and alignment live in AboutMe.tsx as Tailwind utilities.
+ * What remains here is personality: the section rule and the tilted, raised
+ * photo card. The section's own background is set in Skeuo.css.
+ *
  * Author: Dean Longstaff
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .aboutme-section {
   position: relative;
-  padding-bottom: 70px;
-  padding-top: 70px;
-  background-image: var(--image-gradient), url(../../assets/images/me-diy.jpeg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  border-bottom: 1px solid var(--line);
 }
 
-.aboutme-description {
-  color: white;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  text-align: center;
+.aboutme-description { color: var(--muted); text-align: center; }
+
+.section-label {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--primary-color);
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.aboutme-body {
-  padding-top: 50px;
-  font-size: 1.2em;
-  text-align: left;
-  line-height: 1.8;
-}
+.aboutme-body { margin: 0; padding: 0; color: var(--muted); font-size: 1.08rem; line-height: 1.85; }
+.aboutme-body b { color: var(--primary-color); }
 
-.ryobi {
-  color: #ccda46;
+/* A photo dropped on the desk at an angle, not a flat image tile. */
+.aboutme-photo-card {
+  position: relative;
+  align-self: center;
+  height: fit-content;
+  margin: 0;
+  padding: 12px 12px 0;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 18px 35px rgba(23, 51, 42, 0.13);
+  transform: rotate(2deg);
 }
+.aboutme-photo-card img { display: block; width: 100%; height: 330px; border-radius: 13px 13px 5px 5px; object-fit: cover; }
+.aboutme-photo-card figcaption { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 4px 15px; text-align: left; }
+.aboutme-photo-card figcaption span { color: var(--muted); font-family: "DM Mono", monospace; font-size: 0.62rem; }
+.aboutme-photo-card figcaption strong { color: var(--primary-color); font-size: 0.8rem; }
 
 @media (max-width: 767px) {
-  .aboutme-section {
-    padding-bottom: 40px;
-    padding-top: 40px;
-  }
-
-  .aboutme-description {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .aboutme-body {
-    padding-top: 30px;
-    font-size: 1em;
-    text-align: center;
-    line-height: 1.7;
-  }
+  .aboutme-photo-card { max-width: 420px; margin: 0 auto; transform: rotate(-2deg); }
+  .aboutme-photo-card img { height: 260px; }
+  .aboutme-body { font-size: 1rem; }
 }
-
-/* Reskin */
-.aboutme-section { padding: 110px 20px; background-color: var(--surface-soft); background-image: var(--image-gradient), url(../../assets/images/me-diy.jpeg); background-blend-mode: soft-light; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.aboutme-section > div { max-width: 80rem; margin: 0 auto; }
-.aboutme-description { max-width: 80rem; padding: 50px 0 0; color: var(--muted); }
-.aboutme-body { margin: 0; padding: 0; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.9; }
-.aboutme-body b { color: var(--primary-color); }
-.ryobi { color: var(--sun); }
-@media (max-width: 767px) { .aboutme-section { padding: 75px 20px; }.aboutme-description { padding-top: 28px; }.aboutme-body { font-size: 1rem; line-height: 1.75; } }
-
-/* Image-forward bento about section */
-.aboutme-section { padding: 120px 20px; background-color: var(--surface-soft); background-image: radial-gradient(var(--primary-color) 1px, transparent 1px); background-size: 24px 24px; }
-.aboutme-section > div { max-width: 80rem; }.aboutme-description { max-width: 80rem; padding-top: 45px; }.aboutme-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 42px; }.aboutme-copy { padding: 28px 0; text-align: left; }.section-label { display: block; margin-bottom: 18px; color: var(--primary-color); font-family: "DM Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }.aboutme-body { color: var(--muted); font-size: 1.08rem; line-height: 1.85; }.aboutme-photo-card { position: relative; align-self: center; height: fit-content; margin: 0; padding: 12px 12px 0; border-radius: 20px; background: var(--surface); box-shadow: 0 18px 35px rgba(23, 51, 42, 0.13); transform: rotate(2deg); }.aboutme-photo-card img { display: block; width: 100%; height: 330px; border-radius: 13px 13px 5px 5px; object-fit: cover; }.aboutme-photo-card figcaption { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 4px 15px; text-align: left; }.aboutme-photo-card figcaption span { color: var(--muted); font-family: "DM Mono", monospace; font-size: 0.62rem; }.aboutme-photo-card figcaption strong { color: var(--primary-color); font-size: 0.8rem; }
-@media (max-width: 767px) { .aboutme-section { padding: 78px 20px; }.aboutme-description { padding-top: 30px; }.aboutme-grid { display: flex; flex-direction: column; gap: 18px; }.aboutme-copy { padding: 0; text-align: center; }.aboutme-photo-card { max-width: 420px; margin: 0 auto; transform: rotate(-2deg); }.aboutme-photo-card img { height: 260px; }.aboutme-body { font-size: 1rem; } }
-
-/* Let the welcome bridge carry the viewer into this section. */
-.aboutme-section { border-top: 0; }

@@ -12,14 +12,14 @@ import aboutPhoto from "../../assets/images/me-diy.jpeg";
 
 function index() {
   return (
-    <section id="aboutme" className="aboutme-section">
+    <section id="aboutme" className="aboutme-section relative overflow-hidden px-[14px] pt-[58px] pb-[50px] md:px-5 md:py-[120px]">
       <div id="about" className="mx-auto max-w-7xl">
         <h1 className="main-heading">
           About <strong className="primary-color">Me</strong>
         </h1>
-        <div className="aboutme-description">
-          <div className="aboutme-grid">
-            <div className="aboutme-copy">
+        <div className="aboutme-description max-w-7xl pt-5 md:pt-[45px]">
+          <div className="aboutme-grid flex items-center gap-[18px] max-md:flex-col md:grid md:grid-cols-[1.1fr_0.9fr] md:gap-[42px]">
+            <div className="aboutme-copy p-0 text-center md:py-7 md:text-left">
               <span className="section-label">The short version</span>
               <p className="aboutme-body">
                 I'm the Swiss Army knife of tech - sharp, handy, and a tad bit quirky.

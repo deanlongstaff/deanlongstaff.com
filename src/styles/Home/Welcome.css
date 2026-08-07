@@ -133,17 +133,6 @@
     margin-bottom: 0 !important;
   }
 
-  .order-2 {
-    padding-top: 10px !important;
-    padding-bottom: 15px !important;
-    margin-bottom: 0 !important;
-  }
-
-  .order-3 > div {
-    padding-top: 15px !important;
-    padding-bottom: 20px !important;
-  }
-
   .Typewriter__wrapper {
     font-size: 1.2em;
     font-weight: 500;
@@ -167,7 +156,7 @@
 .Typewriter__wrapper { color: var(--primary-color); font-size: 1.15rem; font-weight: 600; }
 .Typewriter__cursor { color: var(--sun); font-size: 1.3rem; }
 .welcome-photo img { border: 10px solid var(--surface); box-shadow: 14px 18px 0 var(--sun), 0 22px 45px rgba(23, 51, 42, 0.2) !important; }
-@media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { padding: 7rem 1rem 4rem; }.welcome-header { text-align: center; }.heading { font-size: 0.8rem; }.heading-name { font-size: clamp(3rem, 16vw, 4.8rem); }.welcome-content .order-2 img { box-shadow: 8px 10px 0 var(--sun), 0 16px 32px rgba(23, 51, 42, 0.18) !important; }.Typewriter__wrapper { font-size: 1rem; } }
+@media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { padding: 7rem 1rem 4rem; }.welcome-header { text-align: center; }.heading { font-size: 0.8rem; }.heading-name { font-size: clamp(3rem, 16vw, 4.8rem); }.Typewriter__wrapper { font-size: 1rem; } }
 
 /* Personality-led hero */
 .welcome-section { min-height: 790px; background: var(--paper); }
@@ -176,13 +165,11 @@
 .welcome-section::before { top: 110px; right: 7%; width: 150px; height: 150px; background: var(--secondary-color); opacity: 0.35; filter: blur(2px); }
 .welcome-section::after { bottom: 12%; left: 5%; width: 90px; height: 90px; background: var(--pink); opacity: 0.35; }
 .welcome-content { padding-top: 11rem; }
-.welcome-kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 20px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); background: var(--surface); font-family: "DM Mono", monospace; font-size: 0.7rem; letter-spacing: 0.02em; }
-.kicker-dot { width: 8px; height: 8px; border-radius: 50%; background: #55bf7d; box-shadow: 0 0 0 4px rgba(85, 191, 125, 0.15); }
 .welcome-lede { max-width: 500px; margin: 26px 0 18px; color: var(--muted); font-size: 1.15rem; line-height: 1.6; }
 .welcome-tags { display: flex; flex-wrap: wrap; gap: 8px; }.welcome-tags span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 11px; border-radius: 8px; color: var(--primary-deep); background: color-mix(in srgb, var(--primary-color) 14%, transparent); font-family: "DM Mono", monospace; font-size: 0.68rem; }.welcome-tags svg { display: block; width: 1.05rem; height: 1.05rem; stroke-width: 2.3; }
 .welcome-photo { position: relative; }.welcome-photo::before { content: "HEY THERE"; position: absolute; top: 5%; right: -3%; z-index: 2; padding: 11px 14px; border-radius: 8px; color: #17332a; background: var(--sun); font-family: "DM Mono", monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; transform: rotate(8deg); }
 .welcome-photo img { position: relative; z-index: 1; border: 12px solid var(--surface); box-shadow: 16px 18px 0 var(--primary-color), 0 24px 50px rgba(23, 51, 42, 0.2) !important; }
-@media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { width: 100%; padding-top: 7rem; }.welcome-kicker { font-size: 0.62rem; }.welcome-lede { margin: 20px auto 16px; font-size: 1rem; }.welcome-tags { justify-content: center; }.welcome-photo::before { right: 6%; }.welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 18px 35px rgba(23, 51, 42, 0.17) !important; } }
+@media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { width: 100%; padding-top: 7rem; }.welcome-lede { margin: 20px auto 16px; font-size: 1rem; }.welcome-tags { justify-content: center; }.welcome-photo::before { right: 6%; }.welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 18px 35px rgba(23, 51, 42, 0.17) !important; } }
 
 /* Y2K launch screen */
 .welcome-section {
@@ -237,8 +224,6 @@
 .welcome-system-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--secondary-color); box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary-color) 18%, transparent); animation: welcome-system-pulse 1.5s ease-in-out infinite; }
 .welcome-system-item:last-child i { background: var(--sun); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sun) 18%, transparent); animation-delay: .35s; }
 .welcome-command { padding-left: 0 !important; text-align: left; }
-.welcome-kicker { border-color: color-mix(in srgb, var(--secondary-color) 36%, var(--line)); border-radius: 7px; box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 12%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.75); }
-.welcome-kicker::after { content: "ONLINE"; margin-left: 7px; padding-left: 8px; border-left: 1px solid var(--line); color: var(--primary-color); font-size: 0.6rem; letter-spacing: 0.12em; }
 .welcome-photo::after { content: "DEAN.EXE"; position: absolute; right: 6%; bottom: 4%; z-index: 2; padding: 7px 10px; border: 1px solid color-mix(in srgb, var(--secondary-color) 48%, var(--line)); border-radius: 4px; color: var(--primary-deep); background: color-mix(in srgb, var(--surface) 86%, transparent); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 14%, transparent); font-family: "DM Mono", monospace; font-size: 0.58rem; letter-spacing: 0.08em; transform: rotate(-5deg); }
 .welcome-photo img { border-color: var(--surface); box-shadow: 14px 18px 0 var(--primary-color), 0 0 0 4px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 24px 50px color-mix(in srgb, var(--ink) 20%, transparent) !important; }
 .welcome-section { z-index: 2; overflow: visible; }
@@ -262,7 +247,6 @@
   .welcome-system-strip { gap: 8px; margin-bottom: 14px; font-size: .5rem; }
   .welcome-command { text-align: left; }
   .welcome-system-item:last-child { display: inline-flex; }
-  .welcome-kicker::after { display: none; }
   .welcome-photo::after { right: 10%; bottom: 1%; }
   .welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 0 0 3px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 18px 35px color-mix(in srgb, var(--ink) 18%, transparent) !important; }
   .welcome-bridge { bottom: -1rem; width: calc(100% - 2rem); }

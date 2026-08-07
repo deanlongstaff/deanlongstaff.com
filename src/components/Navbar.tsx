@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import the required modules
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-scroll';
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -61,24 +61,22 @@ function NavBar({ onLock, onShutdown }: NavbarProps) {
     const [navColour, updateNavbar] = useState(false);
     const [startOpen, updateStartOpen] = useState(false);
 
-    function scrollHandler() {
-        if (window.scrollY >= 20) {
-            updateNavbar(true);
-        } else {
-            updateNavbar(false);
-        }
-    }
-
-    window.addEventListener("scroll", scrollHandler);
+    // Bind once: registering on every render leaked a listener per re-render.
+    useEffect(() => {
+        const scrollHandler = () => updateNavbar(window.scrollY >= 20);
+        window.addEventListener("scroll", scrollHandler, { passive: true });
+        scrollHandler();
+        return () => window.removeEventListener("scroll", scrollHandler);
+    }, []);
 
     return (
-        <nav className={`navbar ${navColour ? "is-scrolled" : ""} fixed top-0 z-50 w-full`}>
-            <div className="navbar-inner mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between gap-3 px-6">
+        <nav className={`navbar ${navColour ? "is-scrolled" : ""} fixed top-0 z-50 w-full px-3 py-2 text-[1.4rem] md:px-4 md:py-[0.65rem] md:text-[1.2rem]`}>
+            <div className="navbar-inner mx-auto grid w-full items-center justify-between gap-2 max-md:grid-cols-[minmax(0,1fr)_auto_auto] md:flex md:w-[60vw] md:flex-wrap md:gap-3 md:px-6">
                 <a href="/" className="navbar-brand inline-flex items-center">
                     <span className="navbar-brand-name">Dean Longstaff</span>
                     <span className="navbar-brand-os">DEAN_OS <i>ONLINE</i></span>
                 </a>
-                <div className="os-start-launcher">
+                <div className="os-start-launcher relative z-[21] md:ml-auto">
                     <button
                         type="button"
                         className={`os-start-button ${startOpen ? "is-open" : ""}`}
@@ -123,9 +121,9 @@ function NavBar({ onLock, onShutdown }: NavbarProps) {
                         </div>
                     )}
                 </div>
-                <div className="navbar-controls">
-                    <div className="theme-btn"><ThemeToggle /></div>
-                    <div className="github-btn">
+                <div className="navbar-controls flex items-center gap-1 md:ml-3.5 md:gap-2.5">
+                    <div className="theme-btn flex h-8 items-center justify-center md:ml-3 md:h-auto md:justify-normal"><ThemeToggle /></div>
+                    <div className="github-btn flex h-8 items-center text-[1.1em] md:h-[38px]">
                         <a href="https://github.com/deanlongstaff" target="_blank" rel="noopener noreferrer" className="github-btn-inner btn btn-primary btn-circle" aria-label="GitHub">
                             <FaGithub aria-hidden="true" />
                         </a>

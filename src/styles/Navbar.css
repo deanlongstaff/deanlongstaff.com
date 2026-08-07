@@ -5,168 +5,14 @@
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.is-scrolled {
-  background-color: #1b1a2ea9;
-  transition: all 0.3s ease-out 0s;
-  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171);
-  backdrop-filter: blur(15px);
-}
-
 .navbar {
-  position: fixed;
-  transition: all 0.3s ease-out 0s;
-  padding: 0.3rem 2rem;
-  font-size: 1.2rem;
-}
-
-.navbar-toggler {
-  position: relative;
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.navbar-toggler span {
-  display: block;
-  background-color: var(--primary-color);
-  height: 4px;
-  width: 27px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  transform: rotate(0deg);
-  left: 0;
-  opacity: 1;
-}
-
-.navbar-toggler:focus,
-.navbar-toggler:active {
-  outline: 0;
-}
-
-.navbar-toggler span:nth-child(1),
-.navbar-toggler span:nth-child(3) {
-  transition: transform 0.35s ease-in-out;
-  transition: transform 0.35s ease-in-out;
-}
-
-.navbar-toggler:not(.collapsed) span:nth-child(1) {
-  position: absolute;
-  left: 12px;
-  top: 10px;
-  transform: rotate(135deg);
-  opacity: 0.9;
-}
-
-.navbar-toggler:not(.collapsed) span:nth-child(2) {
-  height: 12px;
-  visibility: hidden;
-  background-color: transparent;
-}
-
-.navbar-toggler:not(.collapsed) span:nth-child(3) {
-  position: absolute;
-  left: 12px;
-  top: 10px;
-  transform: rotate(-135deg);
-  opacity: 0.9;
-}
-
-@media (max-width: 767px) {
-  .navbar {
-    padding: 1rem 2rem;
-    font-size: 1.4rem;
-    background-color: #181a27;
-  }
-
-  .navbar-nav .nav-item a::after {
-    display: none;
-  }
-}
-
-.navbar-brand {
-  color: rgb(250, 250, 250) !important;
-}
-
-.logo {
-  height: 1.4em;
-  width: 2.5em;
-}
-
-.navbar-nav .nav-link {
-  color: white !important;
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-.nav-link {
-  padding: 0.8rem 1rem;
-}
-
-@media (max-width: 767px) {
-  .nav-link {
-    padding: 0.7rem 1rem;
-  }
-}
-
-.navbar-nav .nav-item {
-  position: relative;
-  margin-left: 20px;
-}
-
-.navbar-nav .nav-item a {
-  font-weight: 400;
-  transition: all 0.3s ease-out 0s;
-  position: relative;
-  z-index: 1;
-}
-
-.navbar-nav .nav-item a::after {
-  content: "";
-  position: relative;
-  display: block;
-  height: 5px;
-  width: 0;
-  border-radius: 16px;
-  background: var(--secondary-color);
-  bottom: 1px;
-  left: 0;
-  z-index: -1;
   transition: all 0.3s ease-out 0s;
 }
 
-.navbar-nav .nav-item a:hover {
-  cursor: pointer;
-}
-
-.navbar-nav .nav-item a:hover::after {
-  width: 100%;
-}
-
-.navbar-nav .nav-item .active-nav-link::after {
-  width: 100%;
-  background: var(--primary-color);
-}
-
-.github-btn {
-  font-size: 1.1em !important;
-  padding-top: 10px !important;
-}
-
-.github-btn-inner {
-  line-height: 1.4em !important;
-  background-color: var(--primary-color) !important;
-  border-color: var(--primary-color) !important;
-  padding: 0.25rem 1.1rem !important;
-  vertical-align: middle !important;
-  text-align: center !important;
-}
-
+/* The base rule's `background` shorthand is !important, so the hover's own
+   background/border never applied - the lift is the whole hover effect. */
 .github-btn-inner:hover {
   transform: translateY(-2px);
-  background-color: #a24dd386;
-  border-color: #a24dd386;
-}
-.github-btn-inner::after {
-  display: none !important;
 }
 
 /* Reskin */
@@ -175,7 +21,6 @@
   top: 0;
   right: 0;
   left: 0;
-  padding: 0.65rem 1rem;
   border-bottom: 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.22) 13%, transparent 34%),
@@ -184,12 +29,10 @@
   backdrop-filter: blur(18px);
 }
 .navbar::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; pointer-events: none; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--secondary-color) 38%, transparent) 28%, color-mix(in srgb, var(--sun) 44%, transparent) 72%, transparent); opacity: .72; }
-.navbar-inner { width: 60vw; max-width: none; }
 .navbar-brand { color: var(--ink) !important; font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: -0.04em; text-shadow: 0 1px 0 rgba(255,255,255,.8); }
 .navbar-brand-name::before { content: "✦"; display: inline-block; margin-right: 8px; color: var(--sun); font-size: 0.8em; transform: rotate(-12deg); }
 .navbar-brand-os { display: inline-flex; align-items: center; gap: 6px; margin-left: 12px; padding: 5px 7px; border: 1px solid color-mix(in srgb, var(--secondary-color) 40%, var(--line)); border-radius: 4px; color: var(--muted); background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 94%, white), color-mix(in srgb, var(--surface-soft) 62%, var(--surface))); box-shadow: 1px 1px 0 rgba(255,255,255,.9), inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 color-mix(in srgb, var(--ink) 8%, transparent); font-family: "DM Mono", monospace; font-size: .52rem; font-weight: 500; letter-spacing: .08em; }
 .navbar-brand-os i { color: var(--primary-color); font-size: .46rem; font-style: normal; letter-spacing: .1em; }
-.os-start-launcher { position: relative; z-index: 21; margin-left: auto; }
 .os-start-button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border: 2px solid var(--ink); border-radius: 5px; color: #172b40; background: linear-gradient(180deg, color-mix(in srgb, var(--sun) 88%, white) 0%, var(--sun) 44%, color-mix(in srgb, var(--sun) 72%, var(--coral)) 100%); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 25%, transparent), inset 0 2px 0 rgba(255,255,255,.82), inset 0 -2px 0 color-mix(in srgb, var(--coral) 28%, transparent); cursor: pointer; font-family: "DM Mono", monospace; font-size: .62rem; font-weight: 500; letter-spacing: .08em; transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease; }
 .os-start-button span { color: var(--primary-color); font-size: .85rem; }
 .os-start-button:hover { filter: saturate(1.12); transform: translateY(-1px); }
@@ -211,15 +54,7 @@
 .os-start-menu-action-shutdown:hover { color: var(--surface); background: var(--primary-color); }
 .os-start-menu-footer { padding: 9px 12px; color: color-mix(in srgb, var(--surface) 78%, transparent); background: var(--ink); font-family: "DM Mono", monospace; font-size: .48rem; letter-spacing: .07em; }
 @keyframes os-menu-in { from { opacity: 0; transform: translateY(-5px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-.navbar-controls { display: flex; align-items: center; gap: 10px; margin-left: 14px; }
-.navbar-nav .nav-link { color: var(--muted) !important; font-size: 0.86rem; font-weight: 600; }
-.navbar-nav .nav-link { display: inline-flex; align-items: center; gap: 0.42rem; white-space: nowrap; }
-.navbar-nav .nav-link svg { display: inline-block; flex: 0 0 auto; width: 1.08em; height: 1.08em; vertical-align: middle; }
-.navbar-nav .nav-link:hover, .navbar-nav .nav-item .active-nav-link { color: var(--primary-color) !important; }
-.navbar .navbar-nav { align-items: center; gap: 1.25rem; }
-.navbar-nav .nav-item a::after { height: 3px; background: var(--primary-color); }
-.navbar-toggler span { background-color: var(--primary-color); }
-.github-btn { display: flex; align-items: center; height: 38px; padding-top: 0 !important; }.github-btn-inner { display: grid; place-items: center; width: 38px; height: 38px; padding: 0.25rem !important; border: 0 !important; border-radius: 50%; line-height: 1; background: linear-gradient(145deg, color-mix(in srgb, var(--primary-color) 82%, white), var(--primary-color)) !important; box-shadow: 2px 3px 0 color-mix(in srgb, var(--ink) 18%, transparent), inset 1px 2px 0 rgba(255,255,255,.42), inset -2px -2px 0 color-mix(in srgb, var(--primary-deep) 28%, transparent); }.github-btn-inner svg { display: block; margin: auto; }
-.theme-btn { display: flex; align-items: center; margin-left: 12px !important; }.theme-toggle { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid color-mix(in srgb, var(--ink) 14%, var(--line)); border-radius: 50%; color: var(--ink); background: linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--surface-soft) 72%, var(--surface))); box-shadow: 2px 3px 0 color-mix(in srgb, var(--ink) 12%, transparent), inset 1px 2px 0 rgba(255,255,255,.9), inset -2px -2px 0 color-mix(in srgb, var(--ink) 8%, transparent); cursor: pointer; transition: transform 180ms ease, border-color 180ms ease, color 180ms ease; }.theme-toggle:hover { color: var(--primary-color); border-color: var(--primary-color); transform: rotate(12deg) translateY(-1px); }
+.github-btn-inner { display: grid; line-height: 1.4em; vertical-align: middle; text-align: center; place-items: center; width: 38px; height: 38px; padding: 0.25rem !important; border: 0 !important; border-radius: 50%; background: linear-gradient(145deg, color-mix(in srgb, var(--primary-color) 82%, white), var(--primary-color)) !important; box-shadow: 2px 3px 0 color-mix(in srgb, var(--ink) 18%, transparent), inset 1px 2px 0 rgba(255,255,255,.42), inset -2px -2px 0 color-mix(in srgb, var(--primary-deep) 28%, transparent); }.github-btn-inner svg { display: block; margin: auto; }
+.theme-toggle { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid color-mix(in srgb, var(--ink) 14%, var(--line)); border-radius: 50%; color: var(--ink); background: linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--surface-soft) 72%, var(--surface))); box-shadow: 2px 3px 0 color-mix(in srgb, var(--ink) 12%, transparent), inset 1px 2px 0 rgba(255,255,255,.9), inset -2px -2px 0 color-mix(in srgb, var(--ink) 8%, transparent); cursor: pointer; transition: transform 180ms ease, border-color 180ms ease, color 180ms ease; }.theme-toggle:hover { color: var(--primary-color); border-color: var(--primary-color); transform: rotate(12deg) translateY(-1px); }
 .theme-toggle svg { display: block; margin: auto; }
-@media (max-width: 767px) { .navbar, .is-scrolled { padding: 0.75rem 1rem; background: var(--paper); }.navbar-inner { width: 100%; }.theme-btn { justify-content: center; margin: 0 !important; }.navbar-brand-os { display: none; }.os-start-button { margin-right: 8px; padding: 7px 9px; }.navbar-controls { gap: 6px; margin-left: 0; }.os-start-menu { top: calc(100% + 7px); } }
+@media (max-width: 767px) { .navbar, .is-scrolled { background: var(--paper); }.navbar-brand-os { display: none; }.os-start-button { margin-right: 8px; padding: 7px 9px; }.os-start-menu { top: calc(100% + 7px); } }

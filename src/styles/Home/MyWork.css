@@ -160,16 +160,6 @@
   #skills {
     padding: 10px 10px 30px 10px;
   }
-
-  /* Make GitHub calendar responsive */
-  .mywork-description .react-activity-calendar {
-    font-size: 12px;
-  }
-
-  .mywork-description .react-activity-calendar svg {
-    max-width: 100%;
-    height: auto;
-  }
 }
 
 /* Reskin */
@@ -183,23 +173,22 @@
 .skills-container { gap: 12px; }
 .skill { padding: 10px 18px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 8px 20px rgba(23, 51, 42, 0.07); }
 .skill .icon { color: var(--primary-color); }.skill p { color: var(--ink); text-shadow: none; }
-.mywork-description .secondary-heading { margin-top: 22px; }
 @media (max-width: 768px) { .mywork-section { padding: 75px 20px; }.mywork-body { margin-top: 30px; padding: 20px 10px; }.mywork-description > p { line-height: 1.65; } }
 
 /* Studio/workshop treatment */
-.mywork-section { padding: 120px 20px; background-color: var(--paper); background-image: none; }.mywork-description { max-width: 80rem; }.mywork-description .main-heading { text-align: left; }.mywork-description > p { max-width: 620px; margin: 18px 0 0; text-align: left; }.mywork-body { position: relative; max-width: 68rem; margin: 55px 0 0; padding: 32px; text-align: left; background: var(--surface); }.mywork-body::before { content: "THE DAY JOB"; position: absolute; top: -11px; left: 25px; padding: 4px 9px; border-radius: 4px; color: var(--surface); background: var(--primary-color); font-family: "DM Mono", monospace; font-size: 0.6rem; }.mywork-body p { margin: 0; }.mywork-mojlogo { max-width: 250px; }.mywork-description .secondary-heading { margin-top: 78px; text-align: left; }.mywork-description #skills { text-align: left; }.mywork-description #skills .skills-container { justify-content: flex-start; }.mywork-description > .secondary-heading + p { max-width: 620px; margin-left: 0; text-align: left; }
-@media (max-width: 768px) { .mywork-section { padding: 78px 20px; }.mywork-description .main-heading, .mywork-description > p, .mywork-description .secondary-heading, .mywork-description > .secondary-heading + p { text-align: center; }.mywork-body { margin-top: 45px; }.mywork-description #skills .skills-container { justify-content: center; } }
+.mywork-section { padding: 120px 20px; background-color: var(--paper); background-image: none; }.mywork-description { max-width: 80rem; }.mywork-description .main-heading { text-align: left; }.mywork-description > p { max-width: 620px; margin: 18px 0 0; text-align: left; }.mywork-body { position: relative; max-width: 68rem; margin: 55px 0 0; padding: 32px; text-align: left; background: var(--surface); }.mywork-body::before { content: "THE DAY JOB"; position: absolute; top: -11px; left: 25px; padding: 4px 9px; border-radius: 4px; color: var(--surface); background: var(--primary-color); font-family: "DM Mono", monospace; font-size: 0.6rem; }.mywork-body p { margin: 0; }.mywork-mojlogo { max-width: 250px; }.mywork-description #skills { text-align: left; }.mywork-description #skills .skills-container { justify-content: flex-start; }
+@media (max-width: 768px) { .mywork-section { padding: 78px 20px; }.mywork-description .main-heading, .mywork-description > p { text-align: center; }.mywork-body { margin-top: 45px; }.mywork-description #skills .skills-container { justify-content: center; } }
 
 /* The toolbox manifesto */
 .skills-manifesto { position: relative; display: grid; grid-template-columns: minmax(270px, 0.75fr) minmax(0, 1.25fr); gap: 50px; align-items: center; margin-top: 84px; padding: 42px; overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); box-shadow: 0 18px 45px rgba(23, 51, 42, 0.08); text-align: left; }
 .skills-manifesto::after { content: "✳"; position: absolute; right: 25px; bottom: -35px; color: color-mix(in srgb, var(--sun) 70%, transparent); font-size: 10rem; line-height: 1; transform: rotate(18deg); pointer-events: none; }
 .skills-manifesto-copy { position: relative; z-index: 1; }.skills-manifesto-copy .section-label { margin-bottom: 12px; }.skills-manifesto-copy h2 { margin: 0; color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: clamp(2.7rem, 5vw, 4.4rem); line-height: 0.9; letter-spacing: -0.08em; }.skills-manifesto-copy h2 em { color: var(--primary-color); font-style: normal; }.skills-manifesto-copy p { max-width: 360px; margin: 22px 0; color: var(--muted); line-height: 1.7; }.skills-manifesto-note { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-color); font-family: "DM Mono", monospace; font-size: 0.68rem; }.skills-manifesto-note span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; color: #172b40; background: var(--sun); }
-.skills-toolbox { position: relative; z-index: 1; padding: 20px; border-radius: 20px; background: var(--surface-soft); }.toolbox-topline { display: flex; justify-content: space-between; gap: 12px; margin: 0 4px 16px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 0.62rem; text-transform: uppercase; }.toolbox-count { color: var(--primary-color); white-space: nowrap; }.skills-toolbox .skills-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start; padding: 0; }.skills-toolbox .skill-wrapper { width: auto; }.skills-toolbox .skill { min-height: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: none; }.skills-toolbox .skill .icon { margin-right: 7px; font-size: 1.45rem; color: var(--primary-color); }.skills-toolbox .skill p { font-family: "DM Mono", monospace; font-size: 0.68rem; }.skills-toolbox .skill-wrapper:hover { transform: translateY(-3px) rotate(-1deg); }
+.skills-toolbox { position: relative; z-index: 1; padding: 20px; border-radius: 20px; background: var(--surface-soft); }.toolbox-topline { display: flex; justify-content: space-between; gap: 12px; margin: 0 4px 16px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 0.62rem; text-transform: uppercase; }.skills-toolbox .skills-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start; padding: 0; }.skills-toolbox .skill-wrapper { width: auto; }.skills-toolbox .skill { min-height: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: none; }.skills-toolbox .skill .icon { margin-right: 7px; font-size: 1.45rem; color: var(--primary-color); }.skills-toolbox .skill p { font-family: "DM Mono", monospace; font-size: 0.68rem; }.skills-toolbox .skill-wrapper:hover { transform: translateY(-3px) rotate(-1deg); }
 @media (max-width: 768px) { .skills-manifesto { grid-template-columns: 1fr; gap: 28px; margin-top: 62px; padding: 26px 20px; }.skills-manifesto-copy { text-align: center; }.skills-manifesto-copy p { margin-right: auto; margin-left: auto; }.skills-manifesto-note { justify-content: center; }.skills-toolbox { padding: 16px 12px; }.toolbox-topline { font-size: 0.55rem; }.skills-toolbox .skills-container { justify-content: center; }.skills-manifesto::after { right: -10px; bottom: -45px; font-size: 8rem; } }
 
 /* Centered work presentation */
-.mywork-description, .mywork-description .main-heading, .mywork-description > p, .mywork-description .secondary-heading, .mywork-description > .secondary-heading + p { text-align: center; }
-.mywork-description > p, .mywork-description > .secondary-heading + p { margin-right: auto; margin-left: auto; }
+.mywork-description, .mywork-description .main-heading, .mywork-description > p { text-align: center; }
+.mywork-description > p { margin-right: auto; margin-left: auto; }
 .mywork-body { max-width: 80rem; margin: 55px auto 0; padding: 44px; justify-items: center; text-align: center; }.mywork-body > div { width: 100%; }.mywork-body p { max-width: 650px; margin-right: auto; margin-left: auto; }.mywork-mojlogo { display: block; margin-right: auto; margin-left: auto; }
 .skills-manifesto { max-width: 80rem; margin-right: auto; margin-left: auto; text-align: center; }.skills-manifesto-copy p { margin-right: auto; margin-left: auto; }.skills-manifesto-note { justify-content: center; }.skills-toolbox .toolbox-topline { justify-content: center; }.skills-toolbox .skills-container { justify-content: center; }
 #skills.skills-manifesto { max-width: 80rem; margin: 84px auto 0; padding: 42px; }
