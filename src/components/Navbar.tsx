@@ -72,7 +72,7 @@ function NavBar({ onLock, onShutdown }: NavbarProps) {
     window.addEventListener("scroll", scrollHandler);
 
     return (
-        <nav className={`navbar ${navColour ? "sticky" : ""} fixed top-0 z-50 w-full`}>
+        <nav className={`navbar ${navColour ? "is-scrolled" : ""} fixed top-0 z-50 w-full`}>
             <div className="navbar-inner mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between gap-3 px-6">
                 <a href="/" className="navbar-brand inline-flex items-center">
                     <span className="navbar-brand-name">Dean Longstaff</span>

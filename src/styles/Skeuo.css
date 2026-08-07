@@ -7,6 +7,8 @@ body { background-image: radial-gradient(circle at 92% 38%, color-mix(in srgb, v
 .welcome-section { position: relative; }
 .aboutme-section, .mywork-section, .hobbies-section, .side-projects-section { position: relative; overflow: hidden; }
 .aboutme-section::after { content: "MAKE / BREAK / REPEAT"; position: absolute; bottom: 12%; left: 3%; padding: 11px 15px; border: 2px solid color-mix(in srgb, var(--ink) 22%, transparent); border-radius: 7px; color: var(--primary-deep); background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 96%, white), color-mix(in srgb, var(--sun) 28%, var(--surface))); box-shadow: 0 4px 0 color-mix(in srgb, var(--ink) 20%, transparent), inset 0 1px 0 rgba(255,255,255,.85); font-family: "DM Mono", monospace; font-size: .58rem; letter-spacing: .08em; transform: rotate(-8deg); }
+.aboutme-section::before, .aboutme-section::after { display: none !important; }
+.aboutme-section { background-image: none !important; }
 .mywork-section::before { content: "◉  SOLVE IT"; position: absolute; top: 11%; right: 4%; display: grid; place-items: center; width: 132px; height: 54px; border: 3px solid var(--primary-color); border-radius: 50%; color: var(--primary-color); background: var(--surface); box-shadow: 0 5px 0 color-mix(in srgb, var(--primary-color) 25%, transparent), inset 0 2px 3px color-mix(in srgb, var(--ink) 12%, transparent); font-family: "DM Mono", monospace; font-size: .62rem; transform: rotate(9deg); }
 .mywork-section::after { content: ""; position: absolute; bottom: 6%; left: 3%; width: 78px; height: 78px; border: 8px solid var(--coral); border-radius: 50%; box-shadow: inset 0 0 0 5px var(--sun), 5px 7px 0 color-mix(in srgb, var(--ink) 13%, transparent); opacity: .8; }
 .hobbies-section::before { content: "★"; position: absolute; top: 8%; left: 4%; display: grid; place-items: center; width: 82px; height: 82px; border: 5px solid var(--sun); border-radius: 22px 42px 28px 38px; color: var(--surface); background: linear-gradient(145deg, var(--coral), var(--primary-color)); box-shadow: 0 7px 0 color-mix(in srgb, var(--ink) 18%, transparent), inset 5px 5px 0 rgba(255,255,255,.25); font-size: 2.5rem; transform: rotate(-15deg); }
@@ -14,7 +16,7 @@ body { background-image: radial-gradient(circle at 92% 38%, color-mix(in srgb, v
 .side-projects-section::after { content: "PLAY"; position: absolute; top: 10%; left: 3%; width: 74px; height: 74px; display: grid; place-items: center; border: 4px solid var(--sun); border-radius: 50%; color: var(--surface); background: var(--primary-color); box-shadow: 0 6px 0 color-mix(in srgb, var(--ink) 18%, transparent), inset 4px 4px 0 rgba(255,255,255,.25); font-family: "Space Grotesk", sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: .08em; transform: rotate(-12deg); }
 @keyframes skeuo-float { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-7px) rotate(-5deg); } }
 .aboutme-section::after, .hobbies-section::after, .side-projects-section::after { animation: skeuo-float 5s ease-in-out infinite; }
-.navbar, .sticky { box-shadow: 0 2px 0 color-mix(in srgb, var(--surface) 90%, transparent), 0 12px 28px color-mix(in srgb, var(--ink) 12%, transparent); }
+.navbar, .is-scrolled { box-shadow: 0 2px 0 color-mix(in srgb, var(--surface) 90%, transparent), 0 12px 28px color-mix(in srgb, var(--ink) 12%, transparent); }
 .theme-toggle, .github-btn-inner { box-shadow: 0 3px 0 color-mix(in srgb, var(--ink) 22%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.65); }
 .theme-toggle:active, .github-btn-inner:active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 22%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.45); }
 .mywork-body, .skills-manifesto, .aboutme-photo-card, .hobbies-card-view { border-color: color-mix(in srgb, var(--ink) 16%, transparent); box-shadow: 0 2px 0 color-mix(in srgb, var(--surface) 95%, transparent), 0 18px 30px color-mix(in srgb, var(--ink) 13%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.7); }
@@ -27,4 +29,63 @@ body { background-image: radial-gradient(circle at 92% 38%, color-mix(in srgb, v
 
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle, .github-btn-inner, .skills-toolbox .skill-wrapper, .hobbies-card-view, .aboutme-section::after, .hobbies-section::after, .side-projects-section::after { transition: none; animation: none; }
+}
+
+/* Mobile polish: keep the playful desktop composition, but make the phone layout breathe. */
+@media (max-width: 767px) {
+  .navbar, .is-scrolled { padding: .5rem .75rem !important; }
+  .navbar-inner { display: grid !important; grid-template-columns: minmax(0, 1fr) auto auto; flex-wrap: nowrap !important; gap: .5rem !important; width: 100%; padding: 0 !important; }
+  .navbar-brand { min-width: 0; font-size: 1.15rem; }
+  .navbar-brand-name { white-space: nowrap; }
+  .navbar-brand-name::before { margin-right: 4px; }
+  .os-start-launcher { margin-left: 0; }
+  .os-start-button { margin: 0; padding: 6px 8px; font-size: .52rem; }
+  .navbar-controls { gap: 4px; margin-left: 0; }
+  .theme-btn, .github-btn { height: 32px; }
+  .theme-toggle, .github-btn-inner { width: 32px !important; height: 32px !important; }
+
+  .welcome-content { gap: 1rem; padding: 5.5rem .75rem 2rem; }
+  .welcome-system-strip { margin-bottom: 10px; }
+  .heading-name { font-size: clamp(2.8rem, 14vw, 4.4rem); }
+  .welcome-lede { max-width: 23rem; font-size: .95rem; }
+  .welcome-command { padding-left: 0 !important; text-align: center; }
+  .welcome-tags { gap: 6px; }
+  .welcome-tags span { padding: 7px 9px; font-size: .6rem; }
+  .welcome-photo { padding-top: 1rem !important; }
+  .welcome-bridge { bottom: -.75rem; width: calc(100% - 1rem); }
+  .welcome-bridge-label { padding: 9px 8px; font-size: .48rem; }
+  .welcome-bridge-message { padding-left: 12px; font-size: .5rem; }
+
+  .aboutme-section, .mywork-section, .side-projects-section { padding-top: 58px; padding-bottom: 50px; }
+  .aboutme-section { padding-right: 14px; padding-left: 14px; }
+  .aboutme-description { padding-top: 20px; }
+  .aboutme-body { font-size: .95rem; line-height: 1.55; }
+  .aboutme-body br { line-height: .55; }
+  .aboutme-photo-card { max-width: 360px; }
+  .aboutme-photo-card figcaption { flex-wrap: wrap; padding: 11px 4px 13px; }
+
+  .mywork-section { padding-right: 14px; padding-left: 14px; }
+  .mywork-description > p { font-size: .95rem; line-height: 1.55; }
+  .mywork-body { margin-top: 28px; padding: 18px 14px; border-radius: 18px; }
+  .mywork-body p { font-size: .95rem; line-height: 1.55; }
+  #skills.skills-manifesto { margin-top: 48px; padding: 22px 14px; border-radius: 20px; }
+  .skills-manifesto-copy h2 { font-size: 2.65rem; }
+  .skills-manifesto-copy p { font-size: .95rem; line-height: 1.55; }
+
+  .side-projects-section { padding-right: 14px; padding-left: 14px; }
+  .side-projects-intro { margin-bottom: 26px; padding: 0 4px; font-size: .95rem; line-height: 1.55; }
+  .binminder-card { gap: 22px; padding: 24px 16px; border-radius: 18px; }
+  .binminder-copy h2 { font-size: 2rem; }
+  .binminder-copy p { font-size: .95rem; line-height: 1.55; }
+  .binminder-preview { height: 280px; border-radius: 16px; }
+  .binminder-phone { height: 245px; }
+
+  .hobbies-section { padding: 62px 14px 46px; }
+  .hobbies-section > div > p { margin-bottom: 24px; font-size: .95rem; line-height: 1.55; }
+  .hobbies-card { max-width: 360px; padding: 14px 7px; }
+  .hobbies-card-view .card-body { padding: 16px 14px 18px; }
+  .hobbies-card-view .card-text { font-size: .95rem; line-height: 1.55; }
+
+  /* These stickers are fun on desktop but compete with copy at phone width. */
+  .aboutme-section::before, .aboutme-section::after, .mywork-section::before, .mywork-section::after, .side-projects-section::after, .hobbies-section::before, .hobbies-section::after { display: none; }
 }
