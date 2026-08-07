@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the footer component that is used to display the footer on the bottom of the page.
+ * DESCRIPTION: Footer shown at the bottom of every page.
  *
  * Author: Dean Longstaff
  */

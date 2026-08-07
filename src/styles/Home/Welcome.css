@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This stylesheet contains the styling for the welcome component of the home page (Welcome.tsx).
+ * DESCRIPTION: Styling for the welcome section of the home page (Welcome.tsx).
  *
  * Layout, spacing, colour and type live in Welcome.tsx as Tailwind utilities.
  * What stays here is the Y2K launch-screen character: the perspective grid and
@@ -63,11 +63,11 @@
     linear-gradient(135deg, color-mix(in srgb, var(--surface) 74%, var(--secondary-color)), var(--paper) 58%);
 }
 
-/* These two decorations are a genuine layering accident that became the look:
-   an earlier hero left `width: 150px` / `height: 90px` / `filter: blur(2px)` /
-   `opacity: .35` behind, and the Y2K rules below never reset them. So the
-   "perspective grid" actually renders as a narrow blurred strip and the "orb"
-   as a squashed ellipse. Kept deliberately - resetting them redesigns the hero. */
+/* `::before`/`::after` are set here as small blurred dots, then redefined
+   further down as the perspective grid and chrome orb without resetting every
+   property from this block - so the "grid" renders as a narrow blurred strip
+   and the "orb" as a squashed ellipse. That's load-bearing for the look, so
+   leave it alone. */
 .welcome-section::before,
 .welcome-section::after {
   content: "";

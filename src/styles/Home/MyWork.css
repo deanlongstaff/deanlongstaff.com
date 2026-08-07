@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This stylesheet contains the styling for the mywork component of the home page (MyWork.tsx).
+ * DESCRIPTION: Styling for the My Work section of the home page (MyWork.tsx).
  *
  * Layout, spacing, colour and type live in MyWork.tsx as Tailwind utilities.
  * What stays here is what Tailwind cannot express: pseudo-element labels, the

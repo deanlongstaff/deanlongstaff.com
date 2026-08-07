@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the welcome component that is used to display the welcome section on the home page.
+ * DESCRIPTION: Welcome/hero section of the home page.
  *
  * Author: Dean Longstaff
  */

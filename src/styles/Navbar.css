@@ -1,8 +1,8 @@
 /**
  * DESCRIPTION: Styling for the navbar component (Navbar.tsx).
  *
- * Everything except this keyframe now lives in Navbar.tsx as Tailwind
- * utilities. Keyframes have no utility equivalent, so they stay here.
+ * Layout and colour live in Navbar.tsx as Tailwind utilities. Keyframes have
+ * no utility equivalent, so this one stays here.
  *
  * Author: Dean Longstaff
  */

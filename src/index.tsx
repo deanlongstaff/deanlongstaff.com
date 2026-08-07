@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the index file for the react app. This ultimately renders the App component to the DOM at runtime.
+ * DESCRIPTION: Entry point. Renders the App component to the DOM.
  *
  * Author: Dean Longstaff
  */

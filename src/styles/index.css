@@ -92,7 +92,7 @@
 }
 
 /**
- * DESCRIPTION: This stylesheet acts as an index for all the stylesheets in the app. This sheet is imported into App.tsx.
+ * DESCRIPTION: Entry point for every stylesheet in the app, imported from App.tsx.
  *
  * Author: Dean Longstaff
  */

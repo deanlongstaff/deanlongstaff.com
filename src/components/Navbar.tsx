@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the navbar component that is used to display the navbar on the page.
+ * DESCRIPTION: Site navbar, fixed to the top of every page.
  *
  * Author: Dean Longstaff
  */
@@ -60,7 +60,7 @@ const navbarItems = [
 function NavBar({ onLock, onShutdown }: NavbarProps) {
     const [navColour, updateNavbar] = useState(false);
 
-    // Bind once: registering on every render leaked a listener per re-render.
+    // Empty deps: register the scroll listener once, not on every render.
     useEffect(() => {
         const scrollHandler = () => updateNavbar(window.scrollY >= 20);
         window.addEventListener("scroll", scrollHandler, { passive: true });

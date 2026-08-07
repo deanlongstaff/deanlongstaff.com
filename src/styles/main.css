@@ -91,9 +91,9 @@ body {
   transition: background-color 220ms ease, color 220ms ease;
 }
 
-/* Base element styles belong in @layer base. Unlayered, `a { color: inherit }`
-   outranks every Tailwind text-colour utility on links (unlayered CSS beats
-   @layer utilities), which is why link colours previously needed !important. */
+/* Base element styles belong in @layer base: unlayered CSS beats @layer
+   utilities, so an unlayered `a { color: inherit }` would outrank every
+   Tailwind text-colour utility on links. */
 @layer base {
   a {
     color: inherit;

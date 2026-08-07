@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the index file for the Home component. This combines all the Home components into one component.
+ * DESCRIPTION: Combines all the home page sections into one component.
  *
  * Author: Dean Longstaff
  */

@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the my work component that is used to display my work on the page.
+ * DESCRIPTION: My Work section of the home page.
  *
  * Author: Dean Longstaff
  */
@@ -62,8 +62,7 @@ const skills = [
 
 // Each pill is tipped at its own angle so the tray reads as hand-filled rather
 // than machine-aligned. Cycled by index, so adding a skill keeps the scatter
-// going - the previous version hard-coded 13 rules in CSS and left the last
-// eight tiles lying flat.
+// going instead of leaving new tiles flat.
 const SCATTER = [
   "rotate(-2deg) translateY(3px)",
   "rotate(1.5deg) translateY(-2px)",

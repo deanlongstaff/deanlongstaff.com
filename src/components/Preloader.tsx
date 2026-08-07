@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the preloader component that is used to display a preloader when the page is loading.
+ * DESCRIPTION: Preloader shown while the page loads, plus the lock/shutdown screens.
  *
  * Author: Dean Longstaff
  */

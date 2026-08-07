@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the AboutMe component that is used to display the about me section on the home page.
+ * DESCRIPTION: About Me section of the home page.
  *
  * Author: Dean Longstaff
  */

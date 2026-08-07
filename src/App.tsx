@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the main App component that is rendered to the DOM at runtime.
+ * DESCRIPTION: Root component. Owns top-level app state and renders to the DOM.
  *
  * Author: Dean Longstaff
  */

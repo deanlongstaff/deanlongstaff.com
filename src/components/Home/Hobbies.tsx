@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the my hobbies component that is used to display my hobbies on the home page.
+ * DESCRIPTION: Hobbies section of the home page.
  *
  * Author: Dean Longstaff
  */

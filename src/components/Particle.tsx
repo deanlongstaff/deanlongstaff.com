@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the particle component that is used to display particles on the home page.
+ * DESCRIPTION: Background particle effect for the home page.
  *
  * Author: Dean Longstaff
  */
