@@ -47,7 +47,7 @@ function index() {
               <img
                 src={aboutPhoto}
                 alt="Dean working on a DIY project"
-                className="block h-[260px] w-full rounded-t-[13px] rounded-b-[5px] object-cover md:h-[330px]"
+                className="block h-[260px] w-full rounded-t-[13px] rounded-b-[5px] object-cover [object-position:center_65%] md:h-[330px]"
               />
               <figcaption className="flex flex-wrap items-center justify-between gap-3 px-1 pt-[11px] pb-[13px] text-left md:flex-nowrap md:pt-3.5 md:pb-[15px]">
                 <span className="font-mono text-[0.62rem] text-muted">Current status</span>
