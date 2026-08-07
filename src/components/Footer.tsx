@@ -29,9 +29,7 @@ function Footer() {
       <div className="mx-auto flex min-h-[58px] w-[min(100%,1600px)] flex-col items-center justify-center gap-3 px-6 md:flex-row md:gap-[clamp(4rem,10vw,12rem)] md:px-[clamp(2rem,8vw,8rem)]">
         <div className="text-center">
           <h3 className={HEADING}><span className="text-sun">✦</span> DEAN_OS</h3>
-          <p className="mt-1 mb-0 font-mono text-[0.46rem] tracking-[0.08em] text-[rgba(247,244,235,0.68)]">
-            SYSTEM ONLINE // THANKS FOR VISITING
-          </p>
+
         </div>
         <div className="text-center">
           <h3 className={HEADING}>Copyright © {year}</h3>
