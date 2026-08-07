@@ -7,7 +7,7 @@
 // ----- Import the required modules
 
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { clarity } from "react-microsoft-clarity";
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -50,6 +50,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
       </div>
