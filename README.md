@@ -1,74 +1,45 @@
 # deanlongstaff.com
 
-## Brief Description
+This is my personal corner of the internet. Part portfolio, part digital
+scrapbook — my work, my hobbies, Rex the dog, some skiing, some DIY, and
+whatever else I've been tinkering with lately. It's built with the belief
+that anything is possible if you're curious enough to figure it out.
 
-deanlongstaff.com is a personal and professional showcase, offering a unique window into who I am. It reflects my work, skills, hobbies, and interests - highlighting my development expertise through engaging and innovative web solutions.
+It leans into a nostalgic, tactile 2000s-web look on top of a modern React
+stack — raised paper cards, chunky borders, and a general refusal to look
+like a corporate SaaS landing page.
 
-## Features
+## Running it locally
 
-- Interactive UI with engaging navigation and elements.
-- Responsive design for a smooth experience across various devices and screen sizes.
-- Dynamic content delivery using React.
+You'll need [Node.js](https://nodejs.org/) (npm comes bundled with it).
 
-## Getting Started
+```bash
+git clone https://github.com/deanlongstaff/deanlongstaff.com
+cd deanlongstaff.com
+npm install
+npm start
+```
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Then open [http://localhost:5173](http://localhost:5173) and poke around.
+Edits hot-reload, so go wild.
 
-### Prerequisites
+## Scripts
 
-What things you need to install the software and how to install them:
+| Command | What it does |
+|---|---|
+| `npm start` | Fires up the dev server with Vite |
+| `npm test` | Runs the test suite (Vitest) |
+| `npm run build` | Type-checks and builds for production into `dist` |
+| `npm run preview` | Serves the `dist` build locally, for a final sanity check |
 
-- **Node.js:** Ensure you have Node.js installed on your system. You can download it from [Node.js official site](https://nodejs.org/).
-- **npm:** npm (Node Package Manager) is distributed with Node.js, which means that when you download Node.js, you automatically get npm installed on your computer.
+## Built with
 
-### Installation
+React 19 + TypeScript, Vite, Tailwind CSS 4, and daisyUI. If you're curious
+about the design system and the "why" behind the look and feel, the full
+rundown lives in [AGENTS.md](AGENTS.md).
 
-1. **Clone the Repo:**
-   ```bash
-   git clone https://github.com/deanlongstaff/deanlongstaff.com
-2. **Navigate to the project directory**
-   ```cd deanlongstaff.com```
-3. **Install Dependencies**
-   ```npm install```
-4. **Start the Development Server**
-   ```npm start```
+## Poking around the code
 
-After running the above command, the development server will start. Open http://localhost:3000 to view it in the browser.
-
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Feel free to look around, fork it, or steal ideas — it's a personal site,
+not a product, so there's no license gatekeeping here beyond the usual
+"don't pretend to be me."
