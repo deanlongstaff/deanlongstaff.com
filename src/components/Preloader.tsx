@@ -149,15 +149,15 @@ function Preloader({ load, mode = "ready", onWake }: PreloaderProps) {
                             </span>
                         </div>
 
-                        <div className="flex flex-col items-start gap-6 bg-[linear-gradient(135deg,color-mix(in_srgb,var(--surface-soft)_72%,var(--surface)),var(--surface))] px-[26px] pt-[34px] pb-[30px] min-[561px]:flex-row min-[561px]:items-center min-[561px]:gap-[22px] min-[561px]:px-11 min-[561px]:pt-[42px] min-[561px]:pb-9">
+                        <div className="flex flex-col items-start gap-6 px-[26px] pt-[34px] pb-[30px] min-[561px]:flex-row min-[561px]:items-center min-[561px]:gap-[22px] min-[561px]:px-11 min-[561px]:pt-[42px] min-[561px]:pb-9">
                             <div className="relative grid h-[84px] w-[72px] basis-[72px] rotate-[5deg] place-items-center overflow-hidden rounded-[22px_30px_18px_32px] border-4 border-ink bg-[linear-gradient(145deg,var(--secondary-color),#258aa4)] font-display text-[1.65rem] font-bold tracking-[-.12em] text-surface shadow-[5px_6px_0_color-mix(in_srgb,var(--ink)_22%,transparent),inset_5px_5px_0_rgba(255,255,255,.28),inset_-5px_-6px_0_rgba(23,43,64,.14)] shrink-0 grow-0 min-[561px]:h-[108px] min-[561px]:w-auto min-[561px]:basis-[92px] min-[561px]:text-[2.05rem]" aria-hidden="true">
                                 <span className="absolute -top-[21px] -right-3 animate-[preloader-bob_1.2s_ease-in-out_infinite] text-[1.7rem] text-coral [text-shadow:2px_2px_0_var(--ink)] motion-reduce:animate-none">✦</span>
-                                <img src={photo} alt="" fetchPriority="high" decoding="sync" className="size-full rounded-[18px_26px_14px_28px] object-cover object-[center_bottom]" />
+                                <img src={photo} alt="" fetchPriority="high" decoding="sync" className="size-full rounded-[18px_26px_14px_28px] object-cover [object-position:center_bottom]" />
                             </div>
                             <div className="text-left">
                                 <p className="m-0 mb-2.5 font-mono text-[0.66rem] font-medium tracking-[0.13em] text-signal-deep">{isLocked ? "PERSONAL WORKSPACE // DEAN.EXE NAPPING" : isShutdown ? "PERSONAL WORKSPACE // DEAN.EXE HAS LEFT THE CHAT" : "WELCOME, FELLOW CURIOUS HUMAN"}</p>
                                 <h1 className="m-0 font-display text-[clamp(1.65rem,5vw,2.45rem)] leading-none tracking-[-.07em] text-ink [&_span]:text-signal">{isLocked ? <>Dean.exe <span>deactivated</span></> : isShutdown ? <>Dean.exe <span>taking five</span></> : <>Loading <span>Dean&apos;s world</span><b className="animate-[preloader-blink_.8s_steps(2,jump-none)_infinite] font-medium text-aqua motion-reduce:animate-none">_</b></>}</h1>
-                                <p className="mt-4 mb-0 flex items-center gap-[7px] font-mono text-[0.72rem] text-muted"><span className="size-[7px] shrink-0 animate-[preloader-pulse_1s_ease-in-out_infinite] rounded-[50%] bg-aqua shadow-[0_0_0_4px_color-mix(in_srgb,var(--secondary-color)_20%,transparent)] motion-reduce:animate-none" /> {isLocked ? "waiting for someone to press the big button..." : isShutdown ? "the pixels are having a lie down..." : <>assembling the <span>DEAN.EXE</span> experience...</>}</p>
+                                <p className="mt-4 mb-0 flex items-center gap-[7px] font-mono text-[0.72rem] text-muted"><span className="size-[7px] shrink-0 animate-[preloader-pulse_1s_ease-in-out_infinite] rounded-[50%] bg-aqua shadow-[0_0_0_4px_color-mix(in_srgb,var(--secondary-color)_20%,transparent)] motion-reduce:animate-none" /> {isLocked ? "waiting for a reason to exist..." : isShutdown ? "going dark..." : <>preparing to <span>shine</span>...</>}</p>
                                 {isLocked && (
                                     <button type="button" className="mt-[18px] inline-flex cursor-pointer items-center gap-2 rounded border-2 border-ink bg-[linear-gradient(180deg,var(--sun),color-mix(in_srgb,var(--sun)_75%,var(--coral)))] px-3 py-[9px] font-mono text-[0.52rem] tracking-[0.08em] text-ink shadow-[3px_3px_0_color-mix(in_srgb,var(--ink)_22%,transparent),inset_0_1px_0_rgba(255,255,255,.7)] transition-[transform,box-shadow] duration-[120ms] ease-[ease] hover:-translate-y-px active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0_color-mix(in_srgb,var(--ink)_22%,transparent)] min-[561px]:text-[0.58rem]" onClick={onWake}>
                                         <span>{isLocked ? "↻" : "▶"}</span> {isLocked ? "WAKE DEAN.EXE" : "REBOOT THE CHAOS"}
@@ -168,8 +168,8 @@ function Preloader({ load, mode = "ready", onWake }: PreloaderProps) {
 
                         <div className="px-[26px] pb-[22px] min-[561px]:px-11 min-[561px]:pb-[25px]">
                             <div className="mb-2 flex justify-between font-mono text-[0.62rem] tracking-[0.08em] text-muted">
-                                <span>{isLocked ? "DEAN.EXE DEACTIVATED" : isShutdown ? "PUTTING DEAN.EXE TO BED" : "BOOTING DEAN.EXE"}</span>
-                                <span>{isLocked || isShutdown ? "READY" : `${progress}%`}</span>
+                                <span>{isLocked ? "DEAN.EXE" : isShutdown ? "PUTTING DEAN.EXE TO BED" : "BOOTING DEAN.EXE"}</span>
+                                <span>{isLocked || isShutdown ? "STOPPED" : `${progress}%`}</span>
                             </div>
                             <div className="h-4 rounded border-2 border-[color-mix(in_srgb,var(--ink)_26%,transparent)] bg-[color-mix(in_srgb,var(--ink)_8%,var(--surface))] p-[3px] shadow-[inset_0_2px_3px_color-mix(in_srgb,var(--ink)_15%,transparent)]" aria-hidden="true">
                                 <span className="block size-full origin-left animate-[preloader-progress_4s_cubic-bezier(.25,.8,.25,1)_both] rounded-[1px] bg-[repeating-linear-gradient(135deg,var(--primary-color)_0_11px,var(--coral)_11px_22px)] shadow-[inset_0_1px_0_rgba(255,255,255,.35)] motion-reduce:animate-none" />

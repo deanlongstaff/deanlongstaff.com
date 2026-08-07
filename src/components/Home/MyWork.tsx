@@ -125,7 +125,7 @@ function SkillsSection() {
           I don&apos;t believe in staying in one lane. When there&apos;s a problem to solve, I learn whatever helps me move it forward. The technology is just the set of tools on the bench.
         </p>
         <div className="inline-flex items-center justify-center gap-2 font-mono text-[0.68rem] text-signal md:justify-start">
-          <span className="grid size-10 place-items-center rounded-[50%] bg-sun text-[1.15rem] text-navy shadow-[0_5px_0_color-mix(in_srgb,var(--sun)_55%,var(--paper))]">✦</span> Curiosity is the real superpower
+          <span className="hidden size-10 place-items-center rounded-[50%] bg-sun text-[1.15rem] text-navy shadow-[0_5px_0_color-mix(in_srgb,var(--sun)_55%,var(--paper))] md:grid">✦</span> Curiosity is the real superpower
         </div>
       </div>
       <div className="skills-toolbox relative z-[1] rotate-[-1deg] rounded-[20px] border border-[color-mix(in_srgb,var(--primary-color)_22%,transparent)] px-3 py-4 md:p-5">

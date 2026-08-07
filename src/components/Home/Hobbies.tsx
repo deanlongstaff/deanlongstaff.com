@@ -23,6 +23,10 @@ type Hobby = {
   sticker: string;
   /** Angle the photo is dropped onto the pile at; straightened on hover. */
   tilt: string;
+  /** Photo height override; used when the source photo is too tall/narrow for the default crop. */
+  imageHeight?: string;
+  /** object-position override for the photo crop. */
+  imagePosition?: string;
 };
 
 const hobbies: Hobby[] = [
@@ -53,6 +57,8 @@ const hobbies: Hobby[] = [
     description: "Chief morale officer, tennis-ball consultant and full-time snack detector. Management is mostly paws-off.",
     sticker: "R&D BUDDY",
     tilt: "rotate(2.5deg) translateY(-2px)",
+    imageHeight: "340px",
+    imagePosition: "center bottom",
   },
   {
     image: rc_car,
@@ -60,20 +66,23 @@ const hobbies: Hobby[] = [
     description: "Cars, drones, boats, If it has a remote, I want to drive it. Rex remains my most enthusiastic crash-test dummy.",
     sticker: "FULL SEND",
     tilt: "rotate(-1.5deg) translateY(13px)",
+    imageHeight: "340px",
+    imagePosition: "center 85%",
   },
 ];
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Custom Functions
 
 // Hobby card
-function HobbyCard({ image, title, description }: Hobby) {
+function HobbyCard({ image, title, description, imageHeight, imagePosition }: Hobby) {
   return (
     <article className="hobbies-card-view card relative overflow-hidden rounded-[22px] border-2 border-surface bg-surface transition-shadow duration-300 ease-[ease] group-hover:shadow-[0_18px_30px_-12px_color-mix(in_srgb,var(--ink)_35%,transparent)]">
       <figure className="overflow-hidden rounded-t-[16px] rounded-b-[5px]">
         <img
           src={image}
           alt={title}
-          className="block h-[225px] w-full origin-center scale-100 object-cover object-center shadow-[inset_0_-3px_0_color-mix(in_srgb,var(--ink)_15%,transparent)] transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:rotate-1"
+          style={{ height: imageHeight, objectPosition: imagePosition }}
+          className="block h-[260px] w-full origin-center scale-100 object-cover object-center shadow-[inset_0_-3px_0_color-mix(in_srgb,var(--ink)_15%,transparent)] transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:rotate-1"
         />
       </figure>
       <div className="card-body px-3.5 pt-4 pb-[18px] text-center md:p-[18px] md:pb-[21px]">
