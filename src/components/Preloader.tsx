@@ -13,6 +13,8 @@ import photo from "../assets/images/me.jpeg";
 
 type PreloaderProps = {
     load: boolean;
+    mode?: "ready" | "locked" | "shutdown";
+    onWake?: () => void;
 };
 
 // -- Must stay in sync with the progress bar's CSS animation duration/easing (Preloader.css)
@@ -43,7 +45,10 @@ function cubicBezierEase(t: number, [x1, y1, x2, y2]: [number, number, number, n
     return sampleY(u);
 }
 
-function Preloader({ load }: PreloaderProps) {
+function Preloader({ load, mode = "ready", onWake }: PreloaderProps) {
+    const visible = load || mode !== "ready";
+    const isLocked = mode === "locked";
+    const isShutdown = mode === "shutdown";
     const [progress, setProgress] = useState(0);
 
     // -- Count the progress label up to 100% using the same duration/easing as the progress bar
@@ -68,15 +73,15 @@ function Preloader({ load }: PreloaderProps) {
 
     return (
         <div
-            id={load ? "preloader" : "preloader-none"}
+            id={visible ? "preloader" : "preloader-none"}
             className="preloader-shell"
-            aria-hidden={!load}
+            aria-hidden={!visible}
         >
             <div className="preloader-noise" aria-hidden="true" />
-            <div className="preloader-window" role="status" aria-label="Loading Dean Longstaff's website">
-                <div className="preloader-titlebar">
-                    <span className="preloader-titlebar-icon">✦</span>
-                    <span>DEAN_OS // STARTUP</span>
+                <div className="preloader-window" role="status" aria-label={isLocked ? "Dean OS is locked" : isShutdown ? "Dean OS is shut down" : "Loading Dean Longstaff's website"}>
+                    <div className="preloader-titlebar">
+                        <span className="preloader-titlebar-icon">✦</span>
+                        <span>{isLocked ? "DEAN_OS // LOCKED" : isShutdown ? "DEAN_OS // SHUTDOWN" : "DEAN_OS // STARTUP"}</span>
                     <span className="preloader-titlebar-lights" aria-hidden="true">
                         <i />
                         <i />
@@ -90,16 +95,21 @@ function Preloader({ load }: PreloaderProps) {
                         <img src={photo} alt="" className="preloader-brandmark-photo" />
                     </div>
                     <div className="preloader-copy">
-                        <p className="preloader-kicker">WELCOME, FELLOW CURIOUS HUMAN</p>
-                        <h1>Loading <span>Dean's world</span><b className="preloader-cursor">_</b></h1>
-                        <p className="preloader-status"><span className="preloader-status-dot" /> assembling the <span>DEAN.EXE</span> experience...</p>
+                        <p className="preloader-kicker">{isLocked ? "PERSONAL WORKSPACE // DEAN.EXE NAPPING" : isShutdown ? "PERSONAL WORKSPACE // DEAN.EXE HAS LEFT THE CHAT" : "WELCOME, FELLOW CURIOUS HUMAN"}</p>
+                        <h1>{isLocked ? <>Dean.exe <span>deactivated</span></> : isShutdown ? <>Dean.exe <span>taking five</span></> : <>Loading <span>Dean&apos;s world</span><b className="preloader-cursor">_</b></>}</h1>
+                        <p className="preloader-status"><span className="preloader-status-dot" /> {isLocked ? "waiting for someone to press the big button..." : isShutdown ? "the pixels are having a lie down..." : <>assembling the <span>DEAN.EXE</span> experience...</>}</p>
+                        {(isLocked || isShutdown) && (
+                            <button type="button" className="preloader-action" onClick={onWake}>
+                                <span>{isLocked ? "↻" : "▶"}</span> {isLocked ? "WAKE DEAN.EXE" : "REBOOT THE CHAOS"}
+                            </button>
+                        )}
                     </div>
                 </div>
 
                 <div className="preloader-progress-wrap">
                     <div className="preloader-progress-label">
-                        <span>BOOTING DEAN.EXE</span>
-                        <span>{progress}%</span>
+                        <span>{isLocked ? "PUTTING DEAN.EXE TO BED" : isShutdown ? "PUTTING FUN.EXE TO BED" : "BOOTING DEAN.EXE"}</span>
+                        <span>{isLocked || isShutdown ? "READY" : `${progress}%`}</span>
                     </div>
                     <div className="preloader-progress-track" aria-hidden="true">
                         <span className="preloader-progress-bar" />
@@ -108,7 +118,7 @@ function Preloader({ load }: PreloaderProps) {
 
                 <div className="preloader-footer">
                     <span>© 2001—{new Date().getFullYear()} DEAN LONGSTAFF</span>
-                    <span className="preloader-footer-blink">PLEASE WAIT<span>...</span></span>
+                    <span className="preloader-footer-blink">{isLocked ? "DO NOT DISTURB" : isShutdown ? "GOODNIGHT, INTERNET" : <>PLEASE WAIT<span>...</span></>}</span>
                 </div>
             </div>
         </div>

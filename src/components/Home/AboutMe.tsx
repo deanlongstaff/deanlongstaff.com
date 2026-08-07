@@ -22,22 +22,19 @@ function index() {
             <div className="aboutme-copy">
               <span className="section-label">The short version</span>
               <p className="aboutme-body">
-              I'm the Swiss Army knife of tech - sharp, handy, and a tad bit quirky.
-              <br />
-              <br />
-              Jack of all trades, master of <b>one</b> - where versatility meets mastery.
-              <br />
-              <br />
-              Coding? <b className="primary-color">Check</b>. Innovating? <b className="primary-color">Always</b>. DIY projects? <b className="primary-color">Bring 'em on</b>.
-              <br />
-              <br />
-              I dive into development with a splash of creativity and a toolbox full of skills. My mantra: Why just play one tune when you can rock the whole concert?
-              <br />
-              <br />
-              Stick around for a mix of tech magic, crafty coding, and the occasional robot I built from a toaster. It's not just about making things work - it's about making them awesome!
-              <br />
-              <br />
-              Yes, I am a <b className="ryobi">Ryobi</b> fanboy. No, I will not apologize for it.
+                I'm the Swiss Army knife of tech - sharp, handy, and a tad bit quirky.
+                <br />
+                <br />
+                Jack of all trades, master of <b>one</b> - where versatility meets mastery.
+                <br />
+                <br />
+                Coding? <b className="primary-color">Check</b>. Innovating? <b className="primary-color">Always</b>. DIY projects? <b className="primary-color">Bring 'em on</b>.
+                <br />
+                <br />
+                I dive into development with a splash of creativity and a toolbox full of skills. My mantra: Why just play one tune when you can rock the whole concert?
+                <br />
+                <br />
+                Stick around for a mix of tech magic, crafty coding, and the occasional robot I built from a toaster. It's not just about making things work. It's about making them awesome!
               </p>
             </div>
             <figure className="aboutme-photo-card">

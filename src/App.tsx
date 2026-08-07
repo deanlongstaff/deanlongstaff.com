@@ -23,11 +23,14 @@ import Footer from "./components/Footer";
 // ----- Import the app styles
 
 import "./styles/index.css";
+
+type SystemMode = "ready" | "locked" | "shutdown";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the App component
 
 function App() {
   const [load, upadateLoad] = useState(true);
+  const [systemMode, setSystemMode] = useState<SystemMode>("ready");
 
   // -- Initialise Microsoft Clarity
   useEffect(() => {
@@ -46,9 +49,9 @@ function App() {
   // -- Render the App component
   return (
     <Router>
-      <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
+      <Preloader load={load} mode={systemMode} onWake={() => setSystemMode("ready")} />
+      <div className="App" id={load || systemMode !== "ready" ? "no-scroll" : "scroll"}>
+        <Navbar onLock={() => setSystemMode("locked")} onShutdown={() => setSystemMode("shutdown")} />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />

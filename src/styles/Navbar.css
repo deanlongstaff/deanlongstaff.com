@@ -177,7 +177,7 @@
 .navbar-brand-os { display: inline-flex; align-items: center; gap: 6px; margin-left: 12px; padding: 5px 7px; border: 1px solid color-mix(in srgb, var(--secondary-color) 40%, var(--line)); border-radius: 4px; color: var(--muted); background: color-mix(in srgb, var(--surface) 70%, transparent); font-family: "DM Mono", monospace; font-size: .52rem; font-weight: 500; letter-spacing: .08em; }
 .navbar-brand-os i { color: var(--primary-color); font-size: .46rem; font-style: normal; letter-spacing: .1em; }
 .os-start-launcher { position: relative; z-index: 21; margin-left: auto; }
-.os-start-button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border: 2px solid var(--ink); border-radius: 5px; color: var(--ink); background: linear-gradient(180deg, var(--sun), color-mix(in srgb, var(--sun) 72%, var(--coral))); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 25%, transparent), inset 0 1px 0 rgba(255,255,255,.75); cursor: pointer; font-family: "DM Mono", monospace; font-size: .62rem; font-weight: 500; letter-spacing: .08em; transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease; }
+.os-start-button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border: 2px solid var(--ink); border-radius: 5px; color: #172b40; background: linear-gradient(180deg, var(--sun), color-mix(in srgb, var(--sun) 72%, var(--coral))); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 25%, transparent), inset 0 1px 0 rgba(255,255,255,.75); cursor: pointer; font-family: "DM Mono", monospace; font-size: .62rem; font-weight: 500; letter-spacing: .08em; transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease; }
 .os-start-button span { color: var(--primary-color); font-size: .85rem; }
 .os-start-button:hover { filter: saturate(1.12); transform: translateY(-1px); }
 .os-start-button:active, .os-start-button.is-open { transform: translate(2px, 2px); box-shadow: 1px 1px 0 color-mix(in srgb, var(--ink) 25%, transparent), inset 0 1px 0 rgba(255,255,255,.55); }
@@ -192,6 +192,10 @@
 .os-start-menu-icon { display: grid; width: 22px; place-items: center; color: var(--primary-color); }
 .os-start-menu-icon svg { width: 1rem; height: 1rem; }
 .os-start-menu-arrow { margin-left: auto; color: var(--secondary-color); font-family: "DM Mono", monospace; font-size: 1.2rem; line-height: .7; }
+.os-start-menu-actions { display: grid; grid-template-columns: 1fr 1.35fr; gap: 6px; padding: 0 8px 9px; }
+.os-start-menu-action { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 5px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); background: color-mix(in srgb, var(--surface-soft) 58%, transparent); cursor: pointer; font-family: "DM Mono", monospace; font-size: .5rem; letter-spacing: .06em; transition: color 120ms ease, background 120ms ease, transform 120ms ease; }
+.os-start-menu-action:hover { color: var(--primary-deep); background: color-mix(in srgb, var(--sun) 22%, var(--surface)); transform: translateY(-1px); }
+.os-start-menu-action-shutdown:hover { color: var(--surface); background: var(--primary-color); }
 .os-start-menu-footer { padding: 9px 12px; color: color-mix(in srgb, var(--surface) 78%, transparent); background: var(--ink); font-family: "DM Mono", monospace; font-size: .48rem; letter-spacing: .07em; }
 @keyframes os-menu-in { from { opacity: 0; transform: translateY(-5px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .navbar-controls { display: flex; align-items: center; gap: 10px; margin-left: 14px; }

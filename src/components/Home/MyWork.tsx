@@ -9,11 +9,25 @@
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Import Icons/Images/Sounds
 
-import { SiTypescript, SiJavascript, SiPython, SiReact, SiGithub, SiElectron, SiRedis } from "react-icons/si";
-import { FaNodeJs } from "react-icons/fa";
+import {
+  SiTypescript,
+  SiJavascript,
+  SiPython,
+  SiReact,
+  SiGithub,
+  SiElectron,
+  SiRedis,
+  SiKubernetes,
+  SiDocker,
+  SiPostgresql,
+  SiVite,
+  SiTailwindcss,
+  SiExpo,
+} from "react-icons/si";
+import { FaNodeJs, FaAws } from "react-icons/fa";
 import { DiGit, DiMsqlServer } from "react-icons/di";
 import { VscAzure } from "react-icons/vsc";
-import { TbBrandPowershell } from "react-icons/tb";
+import { TbBrandPowershell, TbBrandReactNative } from "react-icons/tb";
 import { PiCodeBold } from "react-icons/pi";
 import mojLogo from "../../assets/images/moj.jpeg";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,6 +47,14 @@ const skills = [
   { name: "Git", logo: <DiGit />, link: "https://git-scm.com/" },
   { name: "Redis", logo: <SiRedis />, link: "https://redis.io/" },
   { name: "SQL Server", logo: <DiMsqlServer />, link: "https://www.microsoft.com/en-gb/sql-server/sql-server-2019" },
+  { name: "AWS", logo: <FaAws />, link: "https://aws.amazon.com/" },
+  { name: "Kubernetes", logo: <SiKubernetes />, link: "https://kubernetes.io/" },
+  { name: "Docker", logo: <SiDocker />, link: "https://www.docker.com/" },
+  { name: "Postgres", logo: <SiPostgresql />, link: "https://www.postgresql.org/" },
+  { name: "React Native", logo: <TbBrandReactNative />, link: "https://reactnative.dev/" },
+  { name: "Vite", logo: <SiVite />, link: "https://vitejs.dev/" },
+  { name: "Tailwind CSS", logo: <SiTailwindcss />, link: "https://tailwindcss.com/" },
+  { name: "Expo", logo: <SiExpo />, link: "https://expo.dev/" },
 ];
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Custom Functions
@@ -77,7 +99,7 @@ function MyWork() {
           My <strong className="primary-color">Work</strong>
         </h1>
         <p>
-          I thrive working remotely, where I transform concepts into polished digital experiences. While I value the focus of independent work, I equally embrace collaboration and the energy that comes from working with others.
+          I turn half-formed ideas into polished digital experiences, then jump into the group chat to make them even better together.
         </p>
         <div className="mywork-body grid items-center gap-8 md:grid-cols-2">
           <div>

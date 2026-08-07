@@ -230,19 +230,26 @@
 }
 
 .welcome-content { z-index: 1; }
-.welcome-system-strip { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; padding: 7px 9px; border: 2px solid color-mix(in srgb, var(--ink) 70%, transparent); border-radius: 5px; color: var(--surface); background: var(--ink); box-shadow: 4px 4px 0 var(--primary-color), inset 0 1px 0 color-mix(in srgb, white 20%, transparent); font-family: "DM Mono", monospace; font-size: .58rem; letter-spacing: .08em; transform: rotate(-1.2deg); }
+.welcome-system-strip { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; padding: 7px 9px; border: 2px solid color-mix(in srgb, #172b40 70%, transparent); border-radius: 5px; color: #eef4f3; background: #172b40; box-shadow: 4px 4px 0 var(--primary-color), inset 0 1px 0 color-mix(in srgb, white 20%, transparent); font-family: "DM Mono", monospace; font-size: .58rem; letter-spacing: .08em; transform: rotate(-1.2deg); }
 .welcome-system-title { color: var(--sun); }
-.welcome-system-title b { color: color-mix(in srgb, var(--surface) 68%, transparent); font-weight: 400; }
+.welcome-system-title b { color: rgba(238, 244, 243, 0.68); font-weight: 400; }
 .welcome-system-item { display: inline-flex; align-items: center; gap: 5px; color: var(--secondary-color); }
 .welcome-system-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--secondary-color); box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary-color) 18%, transparent); animation: welcome-system-pulse 1.5s ease-in-out infinite; }
 .welcome-system-item:last-child i { background: var(--sun); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sun) 18%, transparent); animation-delay: .35s; }
+.welcome-command { padding-left: 0 !important; text-align: left; }
 .welcome-kicker { border-color: color-mix(in srgb, var(--secondary-color) 36%, var(--line)); border-radius: 7px; box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 12%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.75); }
 .welcome-kicker::after { content: "ONLINE"; margin-left: 7px; padding-left: 8px; border-left: 1px solid var(--line); color: var(--primary-color); font-size: 0.6rem; letter-spacing: 0.12em; }
 .welcome-photo::after { content: "DEAN.EXE"; position: absolute; right: 6%; bottom: 4%; z-index: 2; padding: 7px 10px; border: 1px solid color-mix(in srgb, var(--secondary-color) 48%, var(--line)); border-radius: 4px; color: var(--primary-deep); background: color-mix(in srgb, var(--surface) 86%, transparent); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 14%, transparent); font-family: "DM Mono", monospace; font-size: 0.58rem; letter-spacing: 0.08em; transform: rotate(-5deg); }
 .welcome-photo img { border-color: var(--surface); box-shadow: 14px 18px 0 var(--primary-color), 0 0 0 4px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 24px 50px color-mix(in srgb, var(--ink) 20%, transparent) !important; }
 .welcome-section { z-index: 2; overflow: visible; }
-.welcome-bridge { position: absolute; bottom: -1.2rem; left: 50%; z-index: 3; display: flex; align-items: center; width: min(86%, 940px); overflow: hidden; border: 2px solid var(--ink); border-radius: 6px; color: var(--surface); background: var(--ink); box-shadow: 7px 7px 0 var(--primary-color), inset 0 1px 0 color-mix(in srgb, white 24%, transparent); transform: translateX(-50%) rotate(-1.2deg); }
-.welcome-bridge-label { position: relative; z-index: 2; flex: 0 0 auto; padding: 11px 15px; color: var(--ink); background: var(--sun); font-family: "DM Mono", monospace; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.08em; }
+.welcome-bridge { position: absolute; bottom: -1.2rem; left: 50%; z-index: 3; display: flex; align-items: center; width: min(86%, 940px); overflow: hidden; border: 2px solid #172b40; border-radius: 6px; color: #eef4f3; background: #172b40; box-shadow: 7px 7px 0 var(--primary-color), inset 0 1px 0 color-mix(in srgb, white 24%, transparent); transform: translateX(-50%) rotate(-1.2deg); padding: 0; font: inherit; cursor: pointer; }
+.welcome-bridge:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+.welcome-bridge-label { position: relative; overflow: hidden; box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent), inset 0 -3px 4px color-mix(in srgb, black 12%, transparent); transition: filter 0.15s ease, box-shadow 0.15s ease; }
+.welcome-bridge-label::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(115deg, color-mix(in srgb, white 55%, transparent) 0%, color-mix(in srgb, white 12%, transparent) 22%, transparent 45%, transparent 70%, color-mix(in srgb, white 18%, transparent) 100%); opacity: 0.35; transition: opacity 0.2s ease, background-position 0.4s ease; background-size: 220% 220%; background-position: 0% 0%; }
+.welcome-bridge:hover .welcome-bridge-label, .welcome-bridge:focus-visible .welcome-bridge-label { filter: brightness(1.1); box-shadow: inset 0 1px 0 color-mix(in srgb, white 55%, transparent), inset 0 -5px 8px color-mix(in srgb, black 20%, transparent); }
+.welcome-bridge:hover .welcome-bridge-label::after, .welcome-bridge:focus-visible .welcome-bridge-label::after { opacity: 0.6; background-position: 100% 100%; }
+.welcome-bridge:active .welcome-bridge-label { filter: brightness(0.94); box-shadow: inset 0 2px 6px color-mix(in srgb, black 35%, transparent); }
+.welcome-bridge-label { position: relative; z-index: 2; flex: 0 0 auto; padding: 11px 15px; color: #172b40; background: var(--sun); font-family: "DM Mono", monospace; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.08em; }
 .welcome-bridge-window { flex: 1 1 auto; min-width: 0; overflow: hidden; }
 .welcome-bridge-track { display: flex; width: max-content; color: var(--secondary-color); font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.16em; animation: welcome-marquee 24s linear infinite; }
 .welcome-bridge-message { display: block; flex: 0 0 auto; padding-left: 20px; }
@@ -253,6 +260,7 @@
   .welcome-section::before { right: -55%; left: -55%; height: 55%; opacity: 0.46; background-size: 42px 42px; }
   .welcome-section::after { top: 12%; right: -16%; width: 12rem; }
   .welcome-system-strip { gap: 8px; margin-bottom: 14px; font-size: .5rem; }
+  .welcome-command { text-align: left; }
   .welcome-system-item:last-child { display: none; }
   .welcome-kicker::after { display: none; }
   .welcome-photo::after { right: 10%; bottom: 1%; }
@@ -262,8 +270,28 @@
   .welcome-bridge-message { padding-left: 14px; font-size: 0.56rem; }
 }
 
+/* Photo border effect: always-on expanding colour ripples */
+.welcome-photo-inner { position: relative; }
+
+.welcome-photo-ripple { position: absolute; inset: 0; z-index: 0; border-radius: 50%; border: 2px solid var(--primary-color); opacity: 0; pointer-events: none; animation: welcome-photo-ripple 3.6s cubic-bezier(0.25, 0.65, 0.4, 1) infinite; }
+.welcome-photo-ripple--1 { border-color: var(--primary-color); animation-delay: 0s; }
+.welcome-photo-ripple--2 { border-color: var(--sun); animation-delay: 1.2s; }
+.welcome-photo-ripple--3 { border-color: var(--secondary-color); animation-delay: 2.4s; }
+
+@keyframes welcome-photo-ripple {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.welcome-photo img { position: relative; z-index: 1; }
+
+.welcome-photo::before, .welcome-photo::after { transition: transform 0.35s ease; }
+.welcome-photo:hover::before { transform: rotate(-2deg) scale(1.08); }
+.welcome-photo:hover::after { transform: rotate(3deg) scale(1.08); }
+
 @media (prefers-reduced-motion: reduce) {
   .wave { animation: none; }
   .welcome-system-item i { animation: none; }
   .welcome-bridge-track { animation: none; }
+  .welcome-photo-ripple { animation: none; opacity: 0.25; }
 }

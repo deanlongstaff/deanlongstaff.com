@@ -4,9 +4,9 @@ import binminderMark from "../../assets/images/binminder-mark.svg";
 import binminderToday from "../../assets/images/binminder-today.png";
 
 const highlights = [
-  { icon: <MdCalendarMonth />, label: "Local collection dates" },
+  { icon: <MdCalendarMonth />, label: "Live collection dates" },
   { icon: <MdNotificationsActive />, label: "Helpful reminders" },
-  { icon: <MdWidgets />, label: "Widgets & shortcuts" },
+  { icon: <MdWidgets />, label: "Widgets & Shortcuts" },
 ];
 
 function SideProjects() {
@@ -22,7 +22,7 @@ function SideProjects() {
           Side <strong className="side-projects-accent">Projects</strong>
         </h1>
         <p className="side-projects-intro">
-          Useful ideas, made real. Binminder is my app for making bin day one less thing to remember.
+          Useful ideas, made real. One side quest that escaped the notebook and became something handy.
         </p>
 
         <article className="binminder-card">
@@ -34,7 +34,7 @@ function SideProjects() {
             <span className="binminder-status badge badge-outline"><span /> Launching August 2026</span>
             <h2>Never miss <span>bin day</span> again.</h2>
             <p>
-              Keep your local bin collections in reach with live updates, reminders, widgets and shortcuts—all without an account.
+              Keep your local bin collections in reach with live updates, reminders, widgets and shortcuts.
             </p>
             <div className="binminder-highlights">
               {highlights.map((highlight) => (

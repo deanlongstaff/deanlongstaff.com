@@ -105,7 +105,7 @@
   display: grid;
   place-items: center;
   flex: 0 0 92px;
-  height: 92px;
+  height: 108px;
   overflow: hidden;
   border: 4px solid var(--ink);
   border-radius: 22px 30px 18px 32px;
@@ -128,6 +128,9 @@
 .preloader-cursor { color: var(--secondary-color); font-weight: 500; animation: preloader-blink .8s steps(2, jump-none) infinite; }
 .preloader-status { display: flex; align-items: center; gap: 7px; margin: 16px 0 0; color: var(--muted); font-family: "DM Mono", monospace; font-size: .72rem; }
 .preloader-status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--secondary-color); box-shadow: 0 0 0 4px color-mix(in srgb, var(--secondary-color) 20%, transparent); animation: preloader-pulse 1s ease-in-out infinite; }
+.preloader-action { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 9px 12px; border: 2px solid var(--ink); border-radius: 4px; color: var(--ink); background: linear-gradient(180deg, var(--sun), color-mix(in srgb, var(--sun) 75%, var(--coral))); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 22%, transparent), inset 0 1px 0 rgba(255,255,255,.7); cursor: pointer; font-family: "DM Mono", monospace; font-size: .58rem; letter-spacing: .08em; transition: transform 120ms ease, box-shadow 120ms ease; }
+.preloader-action:hover { transform: translateY(-1px); }
+.preloader-action:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 color-mix(in srgb, var(--ink) 22%, transparent); }
 
 .preloader-progress-wrap { padding: 0 44px 25px; }
 .preloader-progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--muted); }
@@ -147,9 +150,10 @@
 
 @media (max-width: 560px) {
   .preloader-screen { flex-direction: column; align-items: flex-start; gap: 24px; padding: 34px 26px 30px; }
-  .preloader-brandmark { flex-basis: 72px; width: 72px; height: 72px; font-size: 1.65rem; }
+  .preloader-brandmark { flex-basis: 72px; width: 72px; height: 84px; font-size: 1.65rem; }
   .preloader-progress-wrap { padding: 0 26px 22px; }
   .preloader-footer { font-size: .52rem; }
+  .preloader-action { font-size: .52rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

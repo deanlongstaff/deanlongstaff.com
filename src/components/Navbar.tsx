@@ -17,6 +17,12 @@ import { FaPersonSkiing } from "react-icons/fa6";
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { MdOutlineHomeWork, MdOutlineAutoAwesome } from "react-icons/md";
 import ThemeToggle from "./ThemeToggle";
+import { getAge } from "../utils/age";
+
+type NavbarProps = {
+    onLock: () => void;
+    onShutdown: () => void;
+};
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the navbar items
 
@@ -51,7 +57,7 @@ const navbarItems = [
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the NavBar component
 
-function NavBar() {
+function NavBar({ onLock, onShutdown }: NavbarProps) {
     const [navColour, updateNavbar] = useState(false);
     const [startOpen, updateStartOpen] = useState(false);
 
@@ -86,7 +92,7 @@ function NavBar() {
                         <div className="os-start-menu" id="dean-os-start-menu">
                             <div className="os-start-menu-title">
                                 <span>DEAN_OS // NAVIGATOR</span>
-                                <i>v2.0</i>
+                                <i>v{getAge()}</i>
                             </div>
                             <div className="os-start-menu-status"><span /> SYSTEM READY</div>
                             <div className="os-start-menu-items">
@@ -104,6 +110,14 @@ function NavBar() {
                                         <span className="os-start-menu-arrow">›</span>
                                     </Link>
                                 ))}
+                            </div>
+                            <div className="os-start-menu-actions">
+                                <button type="button" className="os-start-menu-action" onClick={() => { updateStartOpen(false); onLock(); }}>
+                                    <span aria-hidden="true">▣</span> LOCK
+                                </button>
+                                <button type="button" className="os-start-menu-action os-start-menu-action-shutdown" onClick={() => { updateStartOpen(false); onShutdown(); }}>
+                                    <span aria-hidden="true">⏻</span> SHUT DOWN
+                                </button>
                             </div>
                             <div className="os-start-menu-footer">PRESS A DESTINATION TO CONTINUE</div>
                         </div>

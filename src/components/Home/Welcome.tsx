@@ -7,9 +7,9 @@
 // ----- Import the required modules
 
 import Typewriter from "typewriter-effect";
-import Tilt from "react-parallax-tilt";
 import { FiCloud, FiSettings, FiStar } from "react-icons/fi";
 import Particle from "../Particle";
+import { getAge } from "../../utils/age";
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import images
@@ -44,11 +44,10 @@ function index() {
         <div className="welcome-content mx-auto grid max-w-screen-2xl items-center gap-20 px-6 md:grid-cols-[1.15fr_0.85fr] lg:gap-28">
           <div className="welcome-header">
             <div className="welcome-system-strip" aria-label="DEAN OS system status">
-              <span className="welcome-system-title">DEAN_OS <b>v2.0</b></span>
+              <span className="welcome-system-title">DEAN_OS <b>v{getAge()}</b></span>
               <span className="welcome-system-item"><i /> CURIOUS</span>
-              <span className="welcome-system-item"><i /> BUILD MODE</span>
+              <span className="welcome-system-item"><i /> BUILDING</span>
             </div>
-            <div className="welcome-kicker"><span className="kicker-dot" /> Developer, builder &amp; enthusiastic tinkerer</div>
             <h1 style={{ paddingBottom: 15 }} className="heading">
               Hello!{" "}
               <span className="wave" role="img" aria-labelledby="wave">
@@ -63,13 +62,15 @@ function index() {
             <p className="welcome-lede">I make useful things for the web, the cloud, and the real world.</p>
             <div className="welcome-tags"><span><FiCloud aria-hidden="true" /> Cloud</span><span><FiSettings aria-hidden="true" /> Automation</span><span><FiStar aria-hidden="true" /> Side quests</span></div>
 
-            <div className="welcome-command hidden h-[50px] py-5 pl-[50px] md:block md:pb-10">
-              <span className="welcome-command-prompt">&gt; </span>
+            <div className="welcome-command hidden h-[50px] py-5 md:block md:pb-10">
               <Type />
             </div>
           </div>
           <div className="welcome-photo flex items-center justify-center py-5">
-            <Tilt className="flex w-full max-w-[450px] items-center justify-center">
+            <div className="welcome-photo-inner flex w-full max-w-[450px] items-center justify-center">
+              <span className="welcome-photo-ripple welcome-photo-ripple--1" aria-hidden="true" />
+              <span className="welcome-photo-ripple welcome-photo-ripple--2" aria-hidden="true" />
+              <span className="welcome-photo-ripple welcome-photo-ripple--3" aria-hidden="true" />
               <img
                 src={photo}
                 alt="Dean Longstaff"
@@ -84,16 +85,27 @@ function index() {
                   boxShadow: "0 0 20px 8px rgba(0, 0, 0, 0.5)",
                 }}
               />
-            </Tilt>
+            </div>
           </div>
           <div className="md:hidden">
-            <div className="welcome-command h-[50px] px-5 py-5 text-center">
-              <span className="welcome-command-prompt">&gt; </span>
+            <div className="welcome-command h-[50px] px-5 py-5 text-left">
               <Type />
             </div>
           </div>
         </div>
-        <div className="welcome-bridge" aria-hidden="true">
+        <button
+          type="button"
+          className="welcome-bridge"
+          onClick={() => {
+            const target = document.getElementById("aboutme");
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth" });
+            } else {
+              window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+            }
+          }}
+          aria-label="Scroll to explore"
+        >
           <span className="welcome-bridge-label">SCROLL TO EXPLORE</span>
           <span className="welcome-bridge-window">
             <span className="welcome-bridge-track">
@@ -101,7 +113,7 @@ function index() {
               <span className="welcome-bridge-message" aria-hidden="true">BUILT IT &nbsp;✦&nbsp; BROKE IT &nbsp;✦&nbsp; FIXED IT &nbsp;✦&nbsp; PRESSED BUTTONS &nbsp;✦&nbsp; SAW WHAT HAPPENED &nbsp;✦&nbsp; DONE IT AGAIN &nbsp;✦&nbsp;</span>
             </span>
           </span>
-        </div>
+        </button>
       </section>
     </section>
   );
