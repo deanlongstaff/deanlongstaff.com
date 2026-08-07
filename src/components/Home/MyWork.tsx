@@ -85,8 +85,7 @@ function MyWork() {
           </div>
           <div>
             <p>
-              At the Ministry of Justice UK, I lead a pioneering automation initiative across the EUCS department, driving efficiency and innovation at scale. I engage multiple product teams, upskilling them into programmatic workflows and delivering
-              tangible cost savings for us taxpayers.
+              At the Ministry of Justice, I help teams swap repetitive clicks for code that does it for them. I focus on upskilling the EUCS department to work more efficiently and securely, turning good ideas into practical workflows that can keep up with an ever changing security climate.
             </p>
           </div>
         </div>

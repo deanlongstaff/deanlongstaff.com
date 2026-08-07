@@ -183,3 +183,77 @@
 .welcome-photo { position: relative; }.welcome-photo::before { content: "HEY THERE"; position: absolute; top: 5%; right: -3%; z-index: 2; padding: 11px 14px; border-radius: 8px; color: #17332a; background: var(--sun); font-family: "DM Mono", monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; transform: rotate(8deg); }
 .welcome-photo img { position: relative; z-index: 1; border: 12px solid var(--surface); box-shadow: 16px 18px 0 var(--primary-color), 0 24px 50px rgba(23, 51, 42, 0.2) !important; }
 @media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { width: 100%; padding-top: 7rem; }.welcome-kicker { font-size: 0.62rem; }.welcome-lede { margin: 20px auto 16px; font-size: 1rem; }.welcome-tags { justify-content: center; }.welcome-photo::before { right: 6%; }.welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 18px 35px rgba(23, 51, 42, 0.17) !important; } }
+
+/* Y2K launch screen */
+.welcome-section {
+  isolation: isolate;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 76% 22%, color-mix(in srgb, var(--secondary-color) 25%, transparent) 0 7rem, transparent 7.35rem),
+    radial-gradient(circle at 76% 22%, transparent 0 9.5rem, color-mix(in srgb, var(--secondary-color) 18%, transparent) 9.6rem 9.75rem, transparent 9.85rem),
+    linear-gradient(135deg, color-mix(in srgb, var(--surface) 74%, var(--secondary-color)), var(--paper) 58%);
+}
+
+.welcome-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -10%;
+  bottom: -20%;
+  left: -10%;
+  height: 72%;
+  opacity: 0.62;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--secondary-color) 34%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--secondary-color) 34%, transparent) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 24%, black 78%, transparent 100%);
+  transform: perspective(520px) rotateX(57deg) scale(1.24);
+  transform-origin: center bottom;
+  pointer-events: none;
+}
+
+.welcome-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 15%;
+  right: 9%;
+  width: clamp(10rem, 22vw, 19rem);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--surface) 85%, transparent);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--surface) 78%, transparent), color-mix(in srgb, var(--secondary-color) 32%, transparent) 38%, transparent 70%);
+  box-shadow: 0 0 0 12px color-mix(in srgb, var(--secondary-color) 9%, transparent), 0 0 65px color-mix(in srgb, var(--secondary-color) 28%, transparent), inset 10px 10px 22px rgba(255, 255, 255, 0.38);
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+.welcome-content { z-index: 1; }
+.welcome-kicker { border-color: color-mix(in srgb, var(--secondary-color) 36%, var(--line)); border-radius: 7px; box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 12%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.75); }
+.welcome-kicker::after { content: "ONLINE"; margin-left: 7px; padding-left: 8px; border-left: 1px solid var(--line); color: var(--primary-color); font-size: 0.6rem; letter-spacing: 0.12em; }
+.welcome-photo::after { content: "DEAN.EXE"; position: absolute; right: 6%; bottom: 4%; z-index: 2; padding: 7px 10px; border: 1px solid color-mix(in srgb, var(--secondary-color) 48%, var(--line)); border-radius: 4px; color: var(--primary-deep); background: color-mix(in srgb, var(--surface) 86%, transparent); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 14%, transparent); font-family: "DM Mono", monospace; font-size: 0.58rem; letter-spacing: 0.08em; transform: rotate(-5deg); }
+.welcome-photo img { border-color: var(--surface); box-shadow: 14px 18px 0 var(--primary-color), 0 0 0 4px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 24px 50px color-mix(in srgb, var(--ink) 20%, transparent) !important; }
+.welcome-section { z-index: 2; overflow: visible; }
+.welcome-bridge { position: absolute; bottom: -1.2rem; left: 50%; z-index: 3; display: flex; align-items: center; width: min(86%, 940px); overflow: hidden; border: 2px solid var(--ink); border-radius: 6px; color: var(--surface); background: var(--ink); box-shadow: 7px 7px 0 var(--primary-color), inset 0 1px 0 color-mix(in srgb, white 24%, transparent); transform: translateX(-50%) rotate(-1.2deg); }
+.welcome-bridge-label { position: relative; z-index: 2; flex: 0 0 auto; padding: 11px 15px; color: var(--ink); background: var(--sun); font-family: "DM Mono", monospace; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.08em; }
+.welcome-bridge-window { flex: 1 1 auto; min-width: 0; overflow: hidden; }
+.welcome-bridge-track { display: flex; width: max-content; color: var(--secondary-color); font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.16em; animation: welcome-marquee 24s linear infinite; }
+.welcome-bridge-message { display: block; flex: 0 0 auto; padding-left: 20px; }
+@keyframes welcome-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+@media (max-width: 767px) {
+  .welcome-section::before { right: -55%; left: -55%; height: 55%; opacity: 0.46; background-size: 42px 42px; }
+  .welcome-section::after { top: 12%; right: -16%; width: 12rem; }
+  .welcome-kicker::after { display: none; }
+  .welcome-photo::after { right: 10%; bottom: 1%; }
+  .welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 0 0 3px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 18px 35px color-mix(in srgb, var(--ink) 18%, transparent) !important; }
+  .welcome-bridge { bottom: -1rem; width: calc(100% - 2rem); }
+  .welcome-bridge-label { padding: 10px 9px; font-size: 0.5rem; }
+  .welcome-bridge-message { padding-left: 14px; font-size: 0.56rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave { animation: none; }
+  .welcome-bridge-track { animation: none; }
+}

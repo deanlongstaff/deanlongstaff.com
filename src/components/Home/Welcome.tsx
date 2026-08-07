@@ -86,6 +86,15 @@ function index() {
             </div>
           </div>
         </div>
+        <div className="welcome-bridge" aria-hidden="true">
+          <span className="welcome-bridge-label">SCROLL TO EXPLORE</span>
+          <span className="welcome-bridge-window">
+            <span className="welcome-bridge-track">
+              <span className="welcome-bridge-message">BUILT IT &nbsp;✦&nbsp; BROKE IT &nbsp;✦&nbsp; FIXED IT &nbsp;✦&nbsp; PRESSED BUTTONS &nbsp;✦&nbsp; SAW WHAT HAPPENED &nbsp;✦&nbsp; DONE IT AGAIN &nbsp;✦&nbsp;</span>
+              <span className="welcome-bridge-message" aria-hidden="true">BUILT IT &nbsp;✦&nbsp; BROKE IT &nbsp;✦&nbsp; FIXED IT &nbsp;✦&nbsp; PRESSED BUTTONS &nbsp;✦&nbsp; SAW WHAT HAPPENED &nbsp;✦&nbsp; DONE IT AGAIN &nbsp;✦&nbsp;</span>
+            </span>
+          </span>
+        </div>
       </section>
     </section>
   );
