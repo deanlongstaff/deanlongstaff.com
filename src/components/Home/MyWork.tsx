@@ -158,7 +158,7 @@ function MyWork() {
         </p>
         <div className="mywork-body relative mx-auto mt-7 grid max-w-7xl grid-cols-1 items-center justify-center justify-items-center gap-8 rounded-[18px] border border-line bg-surface px-3.5 py-[18px] text-center md:mt-[55px] md:grid-cols-2 md:rounded-3xl md:p-11 md:text-[1.2em]">
           <div className="w-full">
-            <img src={mojLogo} alt="Ministry of Justice UK" className="mx-auto block h-auto w-full max-w-[250px] rounded-[10px] object-contain max-md:mb-10" />
+            <img src={mojLogo} alt="Ministry of Justice UK" className="mx-auto block h-auto w-full max-w-[250px] rounded-[10px] object-contain max-md:pt-8 max-md:mb-2" />
           </div>
           <div className="w-full">
             <p className="mx-auto m-0 max-w-[650px] leading-[1.75] max-md:text-[0.95rem] max-md:leading-[1.55]">

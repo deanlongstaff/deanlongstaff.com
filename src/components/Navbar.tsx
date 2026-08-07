@@ -97,7 +97,7 @@ function NavBar({ onLock, onShutdown }: NavbarProps) {
                                 {navbarItems.map(item => (
                                     <Link
                                         key={`start-${item.to}`}
-                                        className="flex items-center gap-2.5 rounded px-2 py-[9px] text-[0.82rem] font-semibold text-ink no-underline transition-[color,background,padding] duration-[120ms] ease-[ease] hover:bg-[color-mix(in_srgb,var(--primary-color)_12%,transparent)] hover:pl-3 hover:text-signal-deep"
+                                        className="flex items-center cursor-pointer gap-2.5 rounded px-2 py-[9px] text-[0.82rem] font-semibold text-ink no-underline transition-[color,background,padding] duration-[120ms] ease-[ease] hover:bg-[color-mix(in_srgb,var(--primary-color)_12%,transparent)] hover:pl-3 hover:text-signal-deep"
                                         to={item.to}
                                         duration={1000}
                                         spy={true}
