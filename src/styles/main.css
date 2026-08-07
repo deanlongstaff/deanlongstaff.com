@@ -14,6 +14,10 @@
   --coral: #ef5b5b;
   --section-background-color: var(--paper);
   --image-gradient: linear-gradient(135deg, rgba(247, 244, 235, 0.64), rgba(229, 241, 241, 0.8));
+  --chrome-bg: #172b40;
+  --chrome-border: color-mix(in srgb, #172b40 70%, transparent);
+  --chip-bg: color-mix(in srgb, var(--primary-color) 14%, transparent);
+  --chip-text: var(--primary-deep);
   text-align: center;
 }
 
@@ -34,6 +38,10 @@
     --coral: #ff7070;
     --section-background-color: var(--paper);
     --image-gradient: linear-gradient(135deg, rgba(16, 29, 45, 0.62), rgba(36, 62, 80, 0.8));
+    --chrome-bg: #2a4967;
+    --chrome-border: color-mix(in srgb, var(--secondary-color) 32%, transparent);
+    --chip-bg: color-mix(in srgb, var(--primary-color) 20%, transparent);
+    --chip-text: var(--primary-color);
   }
 }
 
@@ -53,6 +61,10 @@
   --coral: #ff7070;
   --section-background-color: var(--paper);
   --image-gradient: linear-gradient(135deg, rgba(16, 29, 45, 0.62), rgba(36, 62, 80, 0.8));
+  --chrome-bg: #2a4967;
+  --chrome-border: color-mix(in srgb, var(--secondary-color) 32%, transparent);
+  --chip-bg: color-mix(in srgb, var(--primary-color) 20%, transparent);
+  --chip-text: var(--primary-color);
 }
 
 :root[data-theme="dean-light"] {

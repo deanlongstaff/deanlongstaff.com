@@ -47,7 +47,7 @@ function index() {
         <div className="relative z-[1] mx-auto grid w-full grid-cols-1 items-center gap-4 px-3 pt-22 pb-8 text-left md:grid-cols-[1.15fr_0.85fr] md:gap-8 md:px-6 md:pt-44 md:pb-20 desk:w-[60vw] desk:gap-28">
           <div className="pt-5 pb-2.5 text-center md:p-0 md:text-left">
             <div
-              className="mb-[26px] inline-flex rotate-[-1.2deg] items-center gap-2 rounded-[5px] border-2 border-[color-mix(in_srgb,#172b40_70%,transparent)] bg-navy px-[9px] py-[7px] font-mono text-[0.5rem] tracking-[0.08em] text-mist shadow-[4px_4px_0_var(--primary-color),inset_0_1px_0_color-mix(in_srgb,white_20%,transparent)] md:mb-[18px] md:gap-3 md:text-[0.58rem]"
+              className="mb-[26px] inline-flex rotate-[-1.2deg] items-center gap-2 rounded-[5px] border-2 border-[var(--chrome-border)] bg-[var(--chrome-bg)] px-[9px] py-[7px] font-mono text-[0.5rem] tracking-[0.08em] text-mist shadow-[4px_4px_0_var(--primary-color),inset_0_1px_0_color-mix(in_srgb,white_20%,transparent)] md:mb-[18px] md:gap-3 md:text-[0.58rem]"
               aria-label="DEAN OS system status"
             >
               <span className="text-sun">DEAN_OS <b className="font-normal text-[rgba(238,244,243,0.68)]">v{getAge()}</b></span>
@@ -77,7 +77,7 @@ function index() {
               ].map(({ Icon, label }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-2 rounded-lg bg-[color-mix(in_srgb,var(--primary-color)_14%,transparent)] px-[9px] py-[7px] font-mono text-[0.6rem] text-signal-deep md:px-[11px] md:py-2 md:text-[0.68rem]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[var(--chip-bg)] px-[9px] py-[7px] font-mono text-[0.6rem] text-[var(--chip-text)] md:px-[11px] md:py-2 md:text-[0.68rem]"
                 >
                   <Icon aria-hidden="true" className="block size-[1.05rem] [stroke-width:2.3]" /> {label}
                 </span>
@@ -114,7 +114,7 @@ function index() {
         </div>
         <button
           type="button"
-          className="welcome-bridge absolute bottom-[-0.75rem] left-1/2 z-[3] flex w-[calc(100%-1rem)] -translate-x-1/2 rotate-[-1.2deg] cursor-pointer items-center overflow-hidden rounded-md border-2 border-navy bg-navy p-0 font-inherit text-mist shadow-[7px_7px_0_var(--primary-color),inset_0_1px_0_color-mix(in_srgb,white_24%,transparent)] md:bottom-[-1.2rem] md:w-[min(86%,940px)]"
+          className="welcome-bridge absolute bottom-[-0.75rem] left-1/2 z-[3] flex w-[calc(100%-1rem)] -translate-x-1/2 rotate-[-1.2deg] cursor-pointer items-center overflow-hidden rounded-md border-2 border-[var(--chrome-border)] bg-[var(--chrome-bg)] p-0 font-inherit text-mist shadow-[7px_7px_0_var(--primary-color),inset_0_1px_0_color-mix(in_srgb,white_24%,transparent)] md:bottom-[-1.2rem] md:w-[min(86%,940px)]"
           onClick={() => {
             const target = document.getElementById("aboutme");
             if (target) {
