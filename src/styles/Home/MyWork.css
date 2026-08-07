@@ -1,203 +1,39 @@
 /**
  * DESCRIPTION: This stylesheet contains the styling for the mywork component of the home page (MyWork.tsx).
  *
+ * Layout, spacing, colour and type live in MyWork.tsx as Tailwind utilities.
+ * What stays here is what Tailwind cannot express: pseudo-element labels, the
+ * toolbox's layered background, and the per-tile scatter that makes the skill
+ * pills look tipped into a tray rather than aligned on a grid.
+ *
  * Author: Dean Longstaff
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/* The ambient gradients are painted in Skeuo.css; this blends them together. */
 .mywork-section {
-  position: relative;
-  padding-bottom: 70px;
-  padding-top: 70px;
-  background-image: var(--image-gradient), url(../../assets/images/office.jpeg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
+  background-blend-mode: soft-light;
 }
 
-.mywork-description {
-  color: white;
-  padding-top: 100px;
-  padding-bottom: 20px;
-  text-align: center;
+.skills-toolbox {
+  background:
+    radial-gradient(circle at 85% 12%, color-mix(in srgb, var(--secondary-color) 28%, transparent) 0 10%, transparent 32%),
+    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--sun) 20%, transparent) 0 8%, transparent 30%),
+    var(--surface-soft);
 }
 
-.mywork-body {
-  padding-top: 50px;
-  font-size: 1.2em;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+/* The angle itself is data, supplied per tile from MyWork.tsx as --tilt so the
+   scatter scales with the skills list. Hover straightens and lifts the pill. */
+.skills-toolbox .skill-wrapper {
+  transform: var(--tilt, none);
+  transition: transform 180ms ease;
 }
 
-.mywork-mojlogo {
-  border-radius: 10px;
-  width: 50%;
-  height: 50%;
-  object-fit: contain;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.skills-toolbox .skill-wrapper:hover {
+  z-index: 2;
+  transform: translateY(-7px) rotate(0deg) scale(1.04);
 }
 
-#skills {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 20px;
-  text-align: center;
+.skills-toolbox .skill {
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--primary-color) 12%, transparent);
 }
-
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.skill-wrapper {
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: block;
-}
-
-.skill-wrapper:hover {
-  transform: translateY(-4px);
-  cursor: pointer;
-}
-
-.skill {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 10px 50px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  height: 100%;
-  min-height: 60px;
-}
-
-.skill .icon {
-  font-size: 2.5rem;
-  color: #ffffff;
-  margin-right: 10px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.skill p {
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin: 0;
-  color: #ffffff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 768px) {
-  .mywork-section {
-    padding-bottom: 40px;
-    padding-top: 40px;
-  }
-
-  .mywork-description {
-    padding-top: 40px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .mywork-description > p {
-    font-size: 0.95em;
-    line-height: 1.7;
-  }
-
-  .mywork-body {
-    padding-top: 30px;
-    font-size: 1em;
-  }
-
-  .mywork-body p {
-    text-align: center;
-    line-height: 1.7;
-  }
-
-  .skills-container {
-    gap: 0.75rem;
-    padding: 20px 10px;
-  }
-
-  .skill-wrapper {
-    width: 120px;
-  }
-
-  .skill {
-    padding: 8px 20px;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-  }
-
-  .skill .icon {
-    font-size: 1.8rem;
-    margin-right: 0;
-    margin-bottom: 5px;
-  }
-
-  .skill p {
-    font-size: 0.75rem;
-  }
-
-  .mywork-mojlogo {
-    margin-bottom: 40px;
-    width: 70%;
-    max-width: 250px;
-  }
-
-  #skills {
-    padding: 10px 10px 30px 10px;
-  }
-}
-
-/* Reskin */
-.mywork-section { padding: 110px 20px; background-color: var(--paper); background-image: var(--image-gradient), url(../../assets/images/office.jpeg); background-blend-mode: soft-light; border-bottom: 1px solid var(--line); }
-.mywork-description { max-width: 1100px; padding: 0; color: var(--muted); }
-.mywork-description > p { max-width: 760px; margin: 20px auto 0; color: var(--muted) !important; line-height: 1.75; }
-.mywork-body { margin-top: 50px; padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: color-mix(in srgb, var(--surface) 78%, transparent); box-shadow: 0 16px 40px rgba(23, 51, 42, 0.08); }
-.mywork-body p { color: var(--muted); line-height: 1.75; }
-.mywork-mojlogo { max-width: 250px; width: 100%; height: auto; }
-#skills { padding: 45px 0; }
-.skills-container { gap: 12px; }
-.skill { padding: 10px 18px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 8px 20px rgba(23, 51, 42, 0.07); }
-.skill .icon { color: var(--primary-color); }.skill p { color: var(--ink); text-shadow: none; }
-@media (max-width: 768px) { .mywork-section { padding: 75px 20px; }.mywork-body { margin-top: 30px; padding: 20px 10px; }.mywork-description > p { line-height: 1.65; } }
-
-/* Studio/workshop treatment */
-.mywork-section { padding: 120px 20px; background-color: var(--paper); background-image: none; }.mywork-description { max-width: 80rem; }.mywork-description .main-heading { text-align: left; }.mywork-description > p { max-width: 620px; margin: 18px 0 0; text-align: left; }.mywork-body { position: relative; max-width: 68rem; margin: 55px 0 0; padding: 32px; text-align: left; background: var(--surface); }.mywork-body::before { content: "THE DAY JOB"; position: absolute; top: -11px; left: 25px; padding: 4px 9px; border-radius: 4px; color: var(--surface); background: var(--primary-color); font-family: "DM Mono", monospace; font-size: 0.6rem; }.mywork-body p { margin: 0; }.mywork-mojlogo { max-width: 250px; }.mywork-description #skills { text-align: left; }.mywork-description #skills .skills-container { justify-content: flex-start; }
-@media (max-width: 768px) { .mywork-section { padding: 78px 20px; }.mywork-description .main-heading, .mywork-description > p { text-align: center; }.mywork-body { margin-top: 45px; }.mywork-description #skills .skills-container { justify-content: center; } }
-
-/* The toolbox manifesto */
-.skills-manifesto { position: relative; display: grid; grid-template-columns: minmax(270px, 0.75fr) minmax(0, 1.25fr); gap: 50px; align-items: center; margin-top: 84px; padding: 42px; overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); box-shadow: 0 18px 45px rgba(23, 51, 42, 0.08); text-align: left; }
-.skills-manifesto::after { content: "✳"; position: absolute; right: 25px; bottom: -35px; color: color-mix(in srgb, var(--sun) 70%, transparent); font-size: 10rem; line-height: 1; transform: rotate(18deg); pointer-events: none; }
-.skills-manifesto-copy { position: relative; z-index: 1; }.skills-manifesto-copy .section-label { margin-bottom: 12px; }.skills-manifesto-copy h2 { margin: 0; color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: clamp(2.7rem, 5vw, 4.4rem); line-height: 0.9; letter-spacing: -0.08em; }.skills-manifesto-copy h2 em { color: var(--primary-color); font-style: normal; }.skills-manifesto-copy p { max-width: 360px; margin: 22px 0; color: var(--muted); line-height: 1.7; }.skills-manifesto-note { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-color); font-family: "DM Mono", monospace; font-size: 0.68rem; }.skills-manifesto-note span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; color: #172b40; background: var(--sun); }
-.skills-toolbox { position: relative; z-index: 1; padding: 20px; border-radius: 20px; background: var(--surface-soft); }.toolbox-topline { display: flex; justify-content: space-between; gap: 12px; margin: 0 4px 16px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 0.62rem; text-transform: uppercase; }.skills-toolbox .skills-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start; padding: 0; }.skills-toolbox .skill-wrapper { width: auto; }.skills-toolbox .skill { min-height: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: none; }.skills-toolbox .skill .icon { margin-right: 7px; font-size: 1.45rem; color: var(--primary-color); }.skills-toolbox .skill p { font-family: "DM Mono", monospace; font-size: 0.68rem; }.skills-toolbox .skill-wrapper:hover { transform: translateY(-3px) rotate(-1deg); }
-@media (max-width: 768px) { .skills-manifesto { grid-template-columns: 1fr; gap: 28px; margin-top: 62px; padding: 26px 20px; }.skills-manifesto-copy { text-align: center; }.skills-manifesto-copy p { margin-right: auto; margin-left: auto; }.skills-manifesto-note { justify-content: center; }.skills-toolbox { padding: 16px 12px; }.toolbox-topline { font-size: 0.55rem; }.skills-toolbox .skills-container { justify-content: center; }.skills-manifesto::after { right: -10px; bottom: -45px; font-size: 8rem; } }
-
-/* Centered work presentation */
-.mywork-description, .mywork-description .main-heading, .mywork-description > p { text-align: center; }
-.mywork-description > p { margin-right: auto; margin-left: auto; }
-.mywork-body { max-width: 80rem; margin: 55px auto 0; padding: 44px; justify-items: center; text-align: center; }.mywork-body > div { width: 100%; }.mywork-body p { max-width: 650px; margin-right: auto; margin-left: auto; }.mywork-mojlogo { display: block; margin-right: auto; margin-left: auto; }
-.skills-manifesto { max-width: 80rem; margin-right: auto; margin-left: auto; text-align: center; }.skills-manifesto-copy p { margin-right: auto; margin-left: auto; }.skills-manifesto-note { justify-content: center; }.skills-toolbox .toolbox-topline { justify-content: center; }.skills-toolbox .skills-container { justify-content: center; }
-#skills.skills-manifesto { max-width: 80rem; margin: 84px auto 0; padding: 42px; }
-.skills-manifesto-copy { text-align: left; }.skills-manifesto-copy p { margin-left: 0; margin-right: 0; text-align: left; }.skills-manifesto-copy .skills-manifesto-note { justify-content: flex-start; }
-.skills-manifesto-note span { width: 40px; height: 40px; font-size: 1.15rem; box-shadow: 0 5px 0 color-mix(in srgb, var(--sun) 55%, var(--paper)); }
-.skills-toolbox { border: 1px solid color-mix(in srgb, var(--primary-color) 22%, transparent); background: radial-gradient(circle at 85% 12%, color-mix(in srgb, var(--secondary-color) 28%, transparent) 0 10%, transparent 32%), radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--sun) 20%, transparent) 0 8%, transparent 30%), var(--surface-soft); transform: rotate(-1deg); }
-.skills-toolbox .skills-container { align-items: flex-start; justify-content: center !important; width: 100%; padding: 5px 6px 12px; }
-.skills-toolbox .skill-wrapper { transition: transform 180ms ease; }
-.skills-toolbox .skill-wrapper-1 { transform: rotate(-2deg) translateY(3px); }.skills-toolbox .skill-wrapper-2 { transform: rotate(1.5deg) translateY(-2px); }.skills-toolbox .skill-wrapper-3 { transform: rotate(-1deg) translateY(5px); }.skills-toolbox .skill-wrapper-4 { transform: rotate(2deg) translateY(-3px); }.skills-toolbox .skill-wrapper-5 { transform: rotate(-1.5deg) translateY(2px); }.skills-toolbox .skill-wrapper-6 { transform: rotate(1deg) translateY(-4px); }.skills-toolbox .skill-wrapper-7 { transform: rotate(-2deg) translateY(4px); }.skills-toolbox .skill-wrapper-8 { transform: rotate(1.5deg) translateY(-2px); }.skills-toolbox .skill-wrapper-9 { transform: rotate(-1deg) translateY(3px); }.skills-toolbox .skill-wrapper-10 { transform: rotate(2deg) translateY(-4px); }.skills-toolbox .skill-wrapper-11 { transform: rotate(-1.5deg) translateY(2px); }.skills-toolbox .skill-wrapper-12 { transform: rotate(1deg) translateY(-3px); }.skills-toolbox .skill-wrapper-13 { transform: rotate(-2deg) translateY(3px); }
-.skills-toolbox .skill { border-radius: 13px; box-shadow: 0 5px 0 color-mix(in srgb, var(--primary-color) 12%, transparent); }.skills-toolbox .skill-wrapper:nth-child(3n) .skill { background: color-mix(in srgb, var(--sun) 13%, var(--surface)); }.skills-toolbox .skill-wrapper:nth-child(4n) .skill { background: color-mix(in srgb, var(--secondary-color) 12%, var(--surface)); }.skills-toolbox .skill-wrapper:hover { z-index: 2; transform: translateY(-7px) rotate(0deg) scale(1.04); }
-@media (max-width: 768px) { #skills.skills-manifesto { margin-top: 62px; padding: 26px 20px; } }
-@media (max-width: 768px) { .skills-manifesto-copy { text-align: center; }.skills-manifesto-copy p { margin-right: auto; margin-left: auto; text-align: center; }.skills-manifesto-copy .skills-manifesto-note { justify-content: center; } }

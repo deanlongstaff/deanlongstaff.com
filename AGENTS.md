@@ -68,9 +68,96 @@ Binminder is the exception: its featured project card intentionally retains Binm
 3. Component styles.
 4. `Skeuo.css` last, so the tactile visual layer can intentionally override generic component rules.
 
-Keep bespoke CSS for personality-specific details: hero portrait framing, photo rotations, background shapes, the Binminder phone preview, playful labels, duck interactions, and custom typography. Use Tailwind/daisyUI for ordinary layout and controls instead of creating another one-off abstraction.
+### Theme tokens
 
-There are some historical/reskin overrides in the section CSS files. When editing, check selector specificity—especially older ID rules such as `#skills`, which have previously overridden newer class-based rules. Prefer removing obsolete rules or using a clear final override rather than adding increasingly fragile selectors.
+The palette and typefaces are registered as Tailwind theme tokens in
+`index.css`, so markup reads `text-muted bg-surface font-mono`, not
+`text-[var(--muted)]`. Use the named utilities:
+
+| Token | Utility | Raw variable |
+|---|---|---|
+| ink / muted | `text-ink` `text-muted` | `--ink` `--muted` |
+| paper / surface / surface-soft | `bg-paper` `bg-surface` `bg-surface-soft` | `--paper` … |
+| line | `border-line` | `--line` |
+| signal / signal-deep | `text-signal` `bg-signal` | `--primary-color` `--primary-deep` |
+| aqua / sun / coral | `text-aqua` `bg-sun` | `--secondary-color` `--sun` `--coral` |
+| navy / cream / mist / brick / bone | `text-navy` `bg-brick` | fixed, theme-independent |
+| bin / bin-deep / bin-ink | `bg-bin` | Binminder brand green only |
+| type | `font-mono` `font-display` | DM Mono / Space Grotesk |
+
+They indirect through the raw variables in `main.css`, so light/dark switching
+still happens there. Add a token rather than reaching for `[var(--x)]` again.
+
+Note the opacity shorthand (`bg-signal/14`) mixes in **oklab**, while the
+existing tints use `color-mix(in srgb, …)`. Those are not the same colour, so
+tints stay as arbitrary values where the exact original shade matters.
+
+**Tailwind is the default. CSS is the exception.** Layout, spacing, sizing,
+colour, type and simple shadows belong in the component's `className`. A rule
+only earns a place in a `.css` file when Tailwind genuinely cannot express it:
+
+- `::before` / `::after` decoration with `content` (the section stickers, the
+  "THE DAY JOB" tab, the hobby photo labels).
+- `@keyframes` and the animations that use them.
+- Multi-layer background paints, gradient meshes and `mask-image`.
+- Per-index variation, such as the scattered angles on the skill pills.
+- Base and theme rules with no element to attach to (`:root` tokens, `body`).
+- Overrides that must beat a daisyUI component (see below).
+
+### Cascade and utility traps
+
+Each of these caused a real regression during the Tailwind migration, and each
+one fails *silently* - the class is present and simply does nothing.
+
+1. **Plain CSS beats Tailwind utilities.** Anything in a `.css` file outside a
+   `@layer` outranks `@layer utilities`. So if a bespoke class sets
+   `margin-bottom`, an `mb-3` on the same element is ignored. Do not declare a
+   property in CSS *and* in Tailwind for the same element. Where a shared class
+   needs different values per call site, leave the property out of the CSS rule
+   entirely and set it in the markup.
+   - Base element styles therefore belong in `@layer base`. `a { color: inherit }`
+     unlayered defeats every text-colour utility on every link in the site,
+     which is why link colours used to need `!important`.
+2. **Tailwind class names can collide with daisyUI components.** `table` is a
+   display utility *and* a daisyUI component that adds `width: 100%`,
+   `text-align: left` and `position: relative`. `footer` is likewise a daisyUI
+   grid component. Using `table` to mean `display: table` silently drags the
+   component in; write `[display:table]` instead. Check any short, noun-like
+   utility name against daisyUI before using it.
+3. **Some utilities set more than they say.** `text-base` also sets
+   `line-height: 1.5`; an arbitrary size like `text-[1rem]` does not. The
+   `transition-*` utilities default to `cubic-bezier(0.4, 0, 0.2, 1)`, not
+   `ease` - pass `ease-[ease]` when matching hand-written CSS.
+4. **Don't half-use a daisyUI component.** If you find yourself overriding most
+   of `btn` or `badge`, drop the component class and write plain Tailwind - the
+   binminder controls do this, because they carry Binminder's green brand
+   rather than the site theme. Keeping the component *and* fighting it is the
+   worst of both.
+
+### Breakpoints
+
+Use Tailwind's `md:` (min-width 768px) and `max-md:` (max-width 767px). Some
+older CSS used `max-width: 768px`, which left a one-pixel band where a section
+rendered mobile while its neighbours rendered desktop - visible at iPad portrait
+width. MyWork was the last section with that bug; it has been normalised. Do not
+reintroduce a `768px` max-width media query.
+
+There is a third breakpoint, `desk` (75rem / 1200px), declared in `index.css`.
+The tablet band (768-1199px) runs full-bleed; only true desktop gets the narrow
+60vw hero shell. Two things to know:
+
+- **Declare custom breakpoints in `rem`.** Tailwind orders media queries by the
+  literal declared value, so `--breakpoint-desk: 1200px` sorts *before*
+  `48rem` and `md:` then wins at 1440px. `75rem` sorts correctly.
+- For the same reason, prefer a registered breakpoint over an arbitrary
+  `min-[1200px]:` variant, which has the identical ordering problem.
+
+### Verifying a refactor
+
+`tools/visual-regression/` captures every element's computed style across five
+widths and both themes and diffs them. Use it before and after any restyle -
+`DIFFS: 0` means nothing moved. `dead-css.cjs` in the same folder lists
+selectors that match nothing in the rendered DOM.
 
 ## Page structure
 

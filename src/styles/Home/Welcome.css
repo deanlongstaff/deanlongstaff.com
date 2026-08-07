@@ -1,16 +1,19 @@
 /**
  * DESCRIPTION: This stylesheet contains the styling for the welcome component of the home page (Welcome.tsx).
  *
+ * Layout, spacing, colour and type live in Welcome.tsx as Tailwind utilities.
+ * What stays here is the Y2K launch-screen character: the perspective grid and
+ * chrome orb behind the hero, the pseudo-element stickers on the portrait, the
+ * marquee, and the keyframes driving them.
+ *
  * Author: Dean Longstaff
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .wave {
-  animation-name: wave-animation;
-  animation-duration: 2.1s;
-  animation-iteration-count: infinite;
-  transform-origin: 70% 70%;
   display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave-animation 2.1s infinite;
 }
 
 @keyframes wave-animation {
@@ -22,7 +25,6 @@
     transform: rotate(14deg);
   }
 
-  /* The following five values can be played with to make the waving more or less extreme */
   20% {
     transform: rotate(-8deg);
   }
@@ -43,135 +45,15 @@
     transform: rotate(0deg);
   }
 
-  /* Reset for the last half to pause */
+  /* Hold still for the second half so the wave has a rest between takes. */
   100% {
     transform: rotate(0deg);
   }
 }
 
-/* ----- Welcome Section ----- */
-/* Padding if on tablet/laptop */
-@media screen and (min-width: 768px) {
-  .welcome-section {
-    padding-bottom: 100px;
-    padding-top: 30px;
-  }
-}
-
-.welcome-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.background-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: var(--image-gradient), url(../../assets/images/background.jpg);
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-}
-
-.welcome-content {
-  padding: 9rem 0 2rem;
-  color: whitesmoke;
-  text-align: left;
-}
-
-.heading {
-  font-size: 2.4em;
-  padding-left: 50px;
-}
-
-.heading-name {
-  font-size: 2.5em;
-  padding-left: 45px;
-}
-
-.Typewriter__wrapper {
-  font-size: 2.2em;
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.Typewriter__cursor {
-  font-size: 2.4em;
-  color: var(--primary-color);
-}
-
-@media (max-width: 767px) {
-  .welcome-section {
-    min-height: auto;
-    padding: 20px 0;
-  }
-
-  .welcome-content {
-    padding: 5rem 0 2rem;
-  }
-
-  .welcome-header {
-    text-align: center;
-    padding: 20px 0 10px 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  .heading {
-    font-size: 1.8em;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .heading-name {
-    font-size: 1.6em;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 0 !important;
-  }
-
-  .Typewriter__wrapper {
-    font-size: 1.2em;
-    font-weight: 500;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .Typewriter__cursor {
-    display: none;
-  }
-}
-
-/* Reskin */
-.welcome-section { min-height: 720px; padding: 0; background: var(--paper); overflow: hidden; }
-.background-container { opacity: 0.18; background-image: linear-gradient(110deg, var(--paper) 10%, transparent 70%), url(../../assets/images/background.jpg); mask-image: linear-gradient(to right, black, transparent 82%); }
-.welcome-content { position: relative; z-index: 1; width: 60vw; max-width: none; padding: 9rem 1.5rem 5rem; color: var(--ink); }
-.welcome-header { text-align: left; }
-.heading { margin: 0 0 1.1rem; padding: 0; color: var(--muted); font-family: "DM Mono", monospace; font-size: 1rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
-.heading-name { max-width: 680px; margin: 0; padding: 0; color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: clamp(3.8rem, 8vw, 7.2rem); line-height: 0.92; letter-spacing: -0.09em; }
-.heading-name strong { color: var(--primary-color); }
-.Typewriter__wrapper { color: var(--primary-color); font-size: 1.15rem; font-weight: 600; }
-.Typewriter__cursor { color: var(--sun); font-size: 1.3rem; }
-.welcome-photo img { border: 10px solid var(--surface); box-shadow: 14px 18px 0 var(--sun), 0 22px 45px rgba(23, 51, 42, 0.2) !important; }
-@media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { padding: 7rem 1rem 4rem; }.welcome-header { text-align: center; }.heading { font-size: 0.8rem; }.heading-name { font-size: clamp(3rem, 16vw, 4.8rem); }.Typewriter__wrapper { font-size: 1rem; } }
-
-/* Personality-led hero */
-.welcome-section { min-height: 790px; background: var(--paper); }
-.background-container { display: none; }
-.welcome-section::before, .welcome-section::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
-.welcome-section::before { top: 110px; right: 7%; width: 150px; height: 150px; background: var(--secondary-color); opacity: 0.35; filter: blur(2px); }
-.welcome-section::after { bottom: 12%; left: 5%; width: 90px; height: 90px; background: var(--pink); opacity: 0.35; }
-.welcome-content { padding-top: 11rem; }
-.welcome-lede { max-width: 500px; margin: 26px 0 18px; color: var(--muted); font-size: 1.15rem; line-height: 1.6; }
-.welcome-tags { display: flex; flex-wrap: wrap; gap: 8px; }.welcome-tags span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 11px; border-radius: 8px; color: var(--primary-deep); background: color-mix(in srgb, var(--primary-color) 14%, transparent); font-family: "DM Mono", monospace; font-size: 0.68rem; }.welcome-tags svg { display: block; width: 1.05rem; height: 1.05rem; stroke-width: 2.3; }
-.welcome-photo { position: relative; }.welcome-photo::before { content: "HEY THERE"; position: absolute; top: 5%; right: -3%; z-index: 2; padding: 11px 14px; border-radius: 8px; color: #17332a; background: var(--sun); font-family: "DM Mono", monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; transform: rotate(8deg); }
-.welcome-photo img { position: relative; z-index: 1; border: 12px solid var(--surface); box-shadow: 16px 18px 0 var(--primary-color), 0 24px 50px rgba(23, 51, 42, 0.2) !important; }
-@media (max-width: 767px) { .welcome-section { min-height: 0; }.welcome-content { width: 100%; padding-top: 7rem; }.welcome-lede { margin: 20px auto 16px; font-size: 1rem; }.welcome-tags { justify-content: center; }.welcome-photo::before { right: 6%; }.welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 18px 35px rgba(23, 51, 42, 0.17) !important; } }
-
-/* Y2K launch screen */
+/* ----- Y2K launch screen ----------------------------------------------------
+   A cyan sun low on the horizon, a receding perspective grid, and a chrome orb.
+   Stacked gradients and a masked, rotated grid: not expressible as utilities. */
 .welcome-section {
   isolation: isolate;
   background-color: var(--paper);
@@ -179,6 +61,38 @@
     radial-gradient(circle at 76% 22%, color-mix(in srgb, var(--secondary-color) 25%, transparent) 0 7rem, transparent 7.35rem),
     radial-gradient(circle at 76% 22%, transparent 0 9.5rem, color-mix(in srgb, var(--secondary-color) 18%, transparent) 9.6rem 9.75rem, transparent 9.85rem),
     linear-gradient(135deg, color-mix(in srgb, var(--surface) 74%, var(--secondary-color)), var(--paper) 58%);
+}
+
+/* These two decorations are a genuine layering accident that became the look:
+   an earlier hero left `width: 150px` / `height: 90px` / `filter: blur(2px)` /
+   `opacity: .35` behind, and the Y2K rules below never reset them. So the
+   "perspective grid" actually renders as a narrow blurred strip and the "orb"
+   as a squashed ellipse. Kept deliberately - resetting them redesigns the hero. */
+.welcome-section::before,
+.welcome-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.welcome-section::before {
+  top: 110px;
+  right: 7%;
+  width: 150px;
+  height: 150px;
+  background: var(--secondary-color);
+  opacity: 0.35;
+  filter: blur(2px);
+}
+
+.welcome-section::after {
+  bottom: 12%;
+  left: 5%;
+  width: 90px;
+  height: 90px;
+  background: var(--pink);
+  opacity: 0.35;
 }
 
 .welcome-section::before {
@@ -216,66 +130,171 @@
   pointer-events: none;
 }
 
-.welcome-content { z-index: 1; }
-.welcome-system-strip { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; padding: 7px 9px; border: 2px solid color-mix(in srgb, #172b40 70%, transparent); border-radius: 5px; color: #eef4f3; background: #172b40; box-shadow: 4px 4px 0 var(--primary-color), inset 0 1px 0 color-mix(in srgb, white 20%, transparent); font-family: "DM Mono", monospace; font-size: .58rem; letter-spacing: .08em; transform: rotate(-1.2deg); }
-.welcome-system-title { color: var(--sun); }
-.welcome-system-title b { color: rgba(238, 244, 243, 0.68); font-weight: 400; }
-.welcome-system-item { display: inline-flex; align-items: center; gap: 5px; color: var(--secondary-color); }
-.welcome-system-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--secondary-color); box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary-color) 18%, transparent); animation: welcome-system-pulse 1.5s ease-in-out infinite; }
-.welcome-system-item:last-child i { background: var(--sun); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sun) 18%, transparent); animation-delay: .35s; }
-.welcome-command { padding-left: 0 !important; text-align: left; }
-.welcome-photo::after { content: "DEAN.EXE"; position: absolute; right: 6%; bottom: 4%; z-index: 2; padding: 7px 10px; border: 1px solid color-mix(in srgb, var(--secondary-color) 48%, var(--line)); border-radius: 4px; color: var(--primary-deep); background: color-mix(in srgb, var(--surface) 86%, transparent); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 14%, transparent); font-family: "DM Mono", monospace; font-size: 0.58rem; letter-spacing: 0.08em; transform: rotate(-5deg); }
-.welcome-photo img { border-color: var(--surface); box-shadow: 14px 18px 0 var(--primary-color), 0 0 0 4px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 24px 50px color-mix(in srgb, var(--ink) 20%, transparent) !important; }
-.welcome-section { z-index: 2; overflow: visible; }
-.welcome-bridge { position: absolute; bottom: -1.2rem; left: 50%; z-index: 3; display: flex; align-items: center; width: min(86%, 940px); overflow: hidden; border: 2px solid #172b40; border-radius: 6px; color: #eef4f3; background: #172b40; box-shadow: 7px 7px 0 var(--primary-color), inset 0 1px 0 color-mix(in srgb, white 24%, transparent); transform: translateX(-50%) rotate(-1.2deg); padding: 0; font: inherit; cursor: pointer; }
-.welcome-bridge:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
-.welcome-bridge-label { position: relative; overflow: hidden; box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent), inset 0 -3px 4px color-mix(in srgb, black 12%, transparent); transition: filter 0.15s ease, box-shadow 0.15s ease; }
-.welcome-bridge-label::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(115deg, color-mix(in srgb, white 55%, transparent) 0%, color-mix(in srgb, white 12%, transparent) 22%, transparent 45%, transparent 70%, color-mix(in srgb, white 18%, transparent) 100%); opacity: 0.35; transition: opacity 0.2s ease, background-position 0.4s ease; background-size: 220% 220%; background-position: 0% 0%; }
-.welcome-bridge:hover .welcome-bridge-label, .welcome-bridge:focus-visible .welcome-bridge-label { filter: brightness(1.1); box-shadow: inset 0 1px 0 color-mix(in srgb, white 55%, transparent), inset 0 -5px 8px color-mix(in srgb, black 20%, transparent); }
-.welcome-bridge:hover .welcome-bridge-label::after, .welcome-bridge:focus-visible .welcome-bridge-label::after { opacity: 0.6; background-position: 100% 100%; }
-.welcome-bridge:active .welcome-bridge-label { filter: brightness(0.94); box-shadow: inset 0 2px 6px color-mix(in srgb, black 35%, transparent); }
-.welcome-bridge-label { position: relative; z-index: 2; flex: 0 0 auto; padding: 11px 15px; color: #172b40; background: var(--sun); font-family: "DM Mono", monospace; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.08em; }
-.welcome-bridge-window { flex: 1 1 auto; min-width: 0; overflow: hidden; }
-.welcome-bridge-track { display: flex; width: max-content; color: var(--secondary-color); font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.16em; animation: welcome-marquee 24s linear infinite; }
-.welcome-bridge-message { display: block; flex: 0 0 auto; padding-left: 20px; }
-@keyframes welcome-system-pulse { 50% { opacity: .38; transform: scale(.72); } }
-@keyframes welcome-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-@media (max-width: 767px) {
-  .welcome-section::before { right: -55%; left: -55%; height: 55%; opacity: 0.46; background-size: 42px 42px; }
-  .welcome-section::after { top: 12%; right: -16%; width: 12rem; }
-  .welcome-system-strip { gap: 8px; margin-bottom: 14px; font-size: .5rem; }
-  .welcome-command { text-align: left; }
-  .welcome-system-item:last-child { display: inline-flex; }
-  .welcome-photo::after { right: 10%; bottom: 1%; }
-  .welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 0 0 3px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 18px 35px color-mix(in srgb, var(--ink) 18%, transparent) !important; }
-  .welcome-bridge { bottom: -1rem; width: calc(100% - 2rem); }
-  .welcome-bridge-label { padding: 10px 9px; font-size: 0.5rem; }
-  .welcome-bridge-message { padding-left: 14px; font-size: 0.56rem; }
+/* Blinking status LEDs in the DEAN_OS strip. */
+.welcome-system-item i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary-color) 18%, transparent);
+  animation: welcome-system-pulse 1.5s ease-in-out infinite;
 }
 
-/* Photo border effect: always-on expanding colour ripples */
-.welcome-photo-inner { position: relative; }
+.welcome-system-item:last-child i {
+  background: var(--sun);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--sun) 18%, transparent);
+  animation-delay: .35s;
+}
 
-.welcome-photo-ripple { position: absolute; inset: 0; z-index: 0; border-radius: 50%; border: 2px solid var(--primary-color); opacity: 0; pointer-events: none; animation: welcome-photo-ripple 3.6s cubic-bezier(0.25, 0.65, 0.4, 1) infinite; }
-.welcome-photo-ripple--1 { border-color: var(--primary-color); animation-delay: 0s; }
-.welcome-photo-ripple--2 { border-color: var(--sun); animation-delay: 1.2s; }
-.welcome-photo-ripple--3 { border-color: var(--secondary-color); animation-delay: 2.4s; }
+@keyframes welcome-system-pulse {
+  50% {
+    opacity: .38;
+    transform: scale(.72);
+  }
+}
+
+/* Always-on colour ripples expanding out from behind the portrait. */
+.welcome-photo-ripple {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  opacity: 0;
+  pointer-events: none;
+  animation: welcome-photo-ripple 3.6s cubic-bezier(0.25, 0.65, 0.4, 1) infinite;
+}
+
+.welcome-photo-ripple--1 {
+  border-color: var(--primary-color);
+  animation-delay: 0s;
+}
+
+.welcome-photo-ripple--2 {
+  border-color: var(--sun);
+  animation-delay: 1.2s;
+}
+
+.welcome-photo-ripple--3 {
+  border-color: var(--secondary-color);
+  animation-delay: 2.4s;
+}
 
 @keyframes welcome-photo-ripple {
-  0% { transform: scale(1); opacity: 0.55; }
-  100% { transform: scale(1.4); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
 
-.welcome-photo img { position: relative; z-index: 1; }
+/* Glossy pressable key on the scroll bridge, plus its scrolling ticker. */
+.welcome-bridge:focus-visible {
+  outline: 2px solid var(--sun);
+  outline-offset: 2px;
+}
 
-.welcome-photo::before, .welcome-photo::after { transition: transform 0.35s ease; }
-.welcome-photo:hover::before { transform: rotate(-2deg) scale(1.08); }
-.welcome-photo:hover::after { transform: rotate(3deg) scale(1.08); }
+.welcome-bridge-label {
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 35%, transparent), inset 0 -3px 4px color-mix(in srgb, black 12%, transparent);
+  transition: filter 0.15s ease, box-shadow 0.15s ease;
+}
+
+.welcome-bridge-label::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(115deg, color-mix(in srgb, white 55%, transparent) 0%, color-mix(in srgb, white 12%, transparent) 22%, transparent 45%, transparent 70%, color-mix(in srgb, white 18%, transparent) 100%);
+  background-size: 220% 220%;
+  background-position: 0% 0%;
+  opacity: 0.35;
+  transition: opacity 0.2s ease, background-position 0.4s ease;
+}
+
+.welcome-bridge:hover .welcome-bridge-label,
+.welcome-bridge:focus-visible .welcome-bridge-label {
+  filter: brightness(1.1);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 55%, transparent), inset 0 -5px 8px color-mix(in srgb, black 20%, transparent);
+}
+
+.welcome-bridge:hover .welcome-bridge-label::after,
+.welcome-bridge:focus-visible .welcome-bridge-label::after {
+  opacity: 0.6;
+  background-position: 100% 100%;
+}
+
+.welcome-bridge:active .welcome-bridge-label {
+  filter: brightness(0.94);
+  box-shadow: inset 0 2px 6px color-mix(in srgb, black 35%, transparent);
+}
+
+.welcome-bridge-track {
+  animation: welcome-marquee 24s linear infinite;
+}
+
+@keyframes welcome-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* typewriter-effect renders its own markup, so these classes must stay CSS. */
+.Typewriter__wrapper {
+  color: var(--primary-color);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.Typewriter__cursor {
+  color: var(--sun);
+  font-size: 1.3rem;
+}
+
+@media (max-width: 767px) {
+  .welcome-section::before {
+    right: -55%;
+    left: -55%;
+    height: 55%;
+    opacity: 0.46;
+    background-size: 42px 42px;
+  }
+
+  .welcome-section::after {
+    top: 12%;
+    right: -16%;
+    width: 12rem;
+  }
+
+
+
+  .Typewriter__wrapper {
+    font-size: 1rem;
+  }
+
+  .Typewriter__cursor {
+    display: none;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .wave { animation: none; }
-  .welcome-system-item i { animation: none; }
-  .welcome-bridge-track { animation: none; }
-  .welcome-photo-ripple { animation: none; opacity: 0.25; }
+
+  .wave,
+  .welcome-system-item i,
+  .welcome-bridge-track {
+    animation: none;
+  }
+
+  .welcome-photo-ripple {
+    animation: none;
+    opacity: 0.25;
+  }
 }

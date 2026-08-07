@@ -52,4 +52,9 @@
   text-decoration: none;
   transition: transform 180ms ease, background 180ms ease;
 }
-.binminder-link:hover { color: #fff; transform: translateY(-2px); background: #0b5940; }
+
+.binminder-link:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  background: #0b5940;
+}

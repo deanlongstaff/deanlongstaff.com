@@ -55,22 +55,90 @@
   --image-gradient: linear-gradient(135deg, rgba(16, 29, 45, 0.62), rgba(36, 62, 80, 0.8));
 }
 
-:root[data-theme="dean-light"] { color-scheme: light; }
+:root[data-theme="dean-light"] {
+  color-scheme: light;
+}
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 5rem; overflow-x: hidden; }
-body { margin: 0; color: var(--ink); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; background: radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--secondary-color) 12%, transparent), transparent 24%), radial-gradient(circle at 90% 65%, color-mix(in srgb, var(--pink) 10%, transparent), transparent 28%), var(--paper); overflow-x: hidden; transition: background-color 220ms ease, color 220ms ease; }
-a { color: inherit; }
-#tsparticles { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.16; }
-.primary-color { color: var(--primary-color); }
-.secondary-color { color: var(--secondary-color); }
-.main-heading { margin: 0; color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: clamp(2.35rem, 4vw, 3.5rem); font-weight: 600; letter-spacing: -0.065em; }
-button:focus-visible, a:focus-visible { outline: 3px solid var(--sun); outline-offset: 4px; }
-::selection { color: var(--surface); background: var(--primary-color); }
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--paper); }
-::-webkit-scrollbar-thumb { border-radius: 99px; background: var(--primary-color); }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--secondary-color) 12%, transparent), transparent 24%), radial-gradient(circle at 90% 65%, color-mix(in srgb, var(--pink) 10%, transparent), transparent 28%), var(--paper);
+  overflow-x: hidden;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+/* Base element styles belong in @layer base. Unlayered, `a { color: inherit }`
+   outranks every Tailwind text-colour utility on links (unlayered CSS beats
+   @layer utilities), which is why link colours previously needed !important. */
+@layer base {
+  a {
+    color: inherit;
+  }
+}
+
+#tsparticles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.16;
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.secondary-color {
+  color: var(--secondary-color);
+}
+
+.main-heading {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.35rem, 4vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--surface);
+  background: var(--primary-color);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 99px;
+  background: var(--primary-color);
+}
 
 @media (max-width: 767px) {
-  .main-heading { font-size: 2.2rem; }
+  .main-heading {
+    font-size: 2.2rem;
+  }
 }
