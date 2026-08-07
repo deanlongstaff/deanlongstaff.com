@@ -71,9 +71,9 @@ function index() {
             </p>
             <div className="flex flex-wrap gap-1.5 max-md:justify-center md:gap-2">
               {[
-                { Icon: FiCloud, label: "Cloud Engineering" },
+                { Icon: FiCloud, label: "Cloud Wrangler" },
                 { Icon: FiSettings, label: "Automation Maniac" },
-                { Icon: FiStar, label: "Side Quests" },
+                { Icon: FiStar, label: "Side Quest Chaser" },
               ].map(({ Icon, label }) => (
                 <span
                   key={label}
