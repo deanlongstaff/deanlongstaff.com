@@ -9,7 +9,6 @@
     "react-microsoft-clarity": "^2.0.0",
     "react-router-dom": "^7.13.1",
     "react-scroll": "^1.9.3",
-    "react-tsparticles": "^2.0.0",
     "typewriter-effect": "^2.22.0"
   },
   "scripts": {

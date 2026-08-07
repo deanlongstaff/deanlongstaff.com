@@ -100,14 +100,6 @@ body {
   }
 }
 
-#tsparticles {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.16;
-}
-
 .primary-color {
   color: var(--primary-color);
 }

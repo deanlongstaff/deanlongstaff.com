@@ -8,7 +8,6 @@
 
 import Typewriter from "typewriter-effect";
 import { FiCloud, FiSettings, FiStar } from "react-icons/fi";
-import Particle from "../Particle";
 import { getAge } from "../../utils/age";
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -38,7 +37,6 @@ function Type() {
 function index() {
   return (
     <section id="welcome">
-      <Particle />
       {/* The tablet shell (768-1199px) runs full-bleed; only true desktop gets the 60vw column. */}
       <section
         className="welcome-section relative z-[2] flex min-h-0 items-center overflow-visible p-0 md:min-h-[790px]"
