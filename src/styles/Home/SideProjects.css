@@ -1,14 +1,5 @@
 /**
- * DESCRIPTION: Styling for the side projects (Binminder) section of the home page.
- *
- * Layout, spacing, colour and type live in SideProjects.tsx as Tailwind utilities.
- * Only the layered background paints stay here - Tailwind has no good way to
- * express a masked dot field or a stacked radial/solid backdrop.
- *
- * Binminder intentionally keeps its own green brand colours so the product stays
- * recognisable; that palette is scoped to this section only.
- *
- * Author: Dean Longstaff
+ * DESCRIPTION: Styling for the side projects (Binminder) section; layered backgrounds Tailwind can't express, plus Binminder's scoped brand colours.
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 

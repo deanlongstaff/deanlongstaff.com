@@ -1,12 +1,5 @@
 /**
- * DESCRIPTION: Styling for the welcome section of the home page (Welcome.tsx).
- *
- * Layout, spacing, colour and type live in Welcome.tsx as Tailwind utilities.
- * What stays here is the Y2K launch-screen character: the perspective grid and
- * chrome orb behind the hero, the pseudo-element stickers on the portrait, the
- * marquee, and the keyframes driving them.
- *
- * Author: Dean Longstaff
+ * DESCRIPTION: Styling for the welcome section (Welcome.tsx); the Y2K grid, chrome orb, stickers, marquee, and their keyframes.
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 

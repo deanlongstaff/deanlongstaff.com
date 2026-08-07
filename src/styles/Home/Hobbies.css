@@ -1,12 +1,5 @@
 /**
- * DESCRIPTION: Styling for the hobbies section of the home page (Hobbies.tsx).
- *
- * Layout, spacing, colour and type live in Hobbies.tsx as Tailwind utilities.
- * What stays here is the collage character: the handwritten-looking sticker on
- * each photo and the per-card scatter angles, neither of which Tailwind can
- * express (pseudo-element content, and a different angle per index).
- *
- * Author: Dean Longstaff
+ * DESCRIPTION: Styling for the hobbies section (Hobbies.tsx); the collage stickers and per-card tilt Tailwind can't express.
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
