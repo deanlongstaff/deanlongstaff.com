@@ -34,7 +34,7 @@ function SideProjects() {
               <img src={binminderMark} alt="" className="size-[38px] rounded-[11px]" />
               <span>binminder</span>
             </div>
-            <span className="mt-[26px] inline-flex h-6 min-h-0 items-center justify-center gap-2 rounded-[999px] border border-[rgba(24,122,90,0.2)] bg-[rgba(24,122,90,0.08)] px-3 py-[7px] align-middle text-[0.75rem] leading-[1.5] font-bold text-bin outline-bin">
+            <span className="badge mt-[26px] h-6 min-h-0 gap-2 rounded-[999px] border border-[rgba(24,122,90,0.2)] bg-[rgba(24,122,90,0.08)] px-3 py-[7px] align-middle text-[0.75rem] leading-[1.5] font-bold text-bin outline-bin">
               <span className="size-[7px] rounded-[50%] bg-bin" /> Launching August 2026
             </span>
             <h2 className="mt-[18px] mb-3 text-[2rem] leading-[1.05] tracking-[-0.055em] text-ink md:text-[clamp(2rem,4vw,3.35rem)]">

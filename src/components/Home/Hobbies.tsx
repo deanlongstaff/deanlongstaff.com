@@ -69,13 +69,13 @@ const hobbies: Hobby[] = [
 function HobbyCard({ image, title, description }: Hobby) {
   return (
     <article className="hobbies-card-view card relative overflow-hidden rounded-[22px] border-2 border-surface bg-surface transition-shadow duration-300 ease-[ease] group-hover:shadow-[0_18px_30px_-12px_color-mix(in_srgb,var(--ink)_35%,transparent)]">
-      <div className="overflow-hidden rounded-t-[16px] rounded-b-[5px]">
+      <figure className="overflow-hidden rounded-t-[16px] rounded-b-[5px]">
         <img
           src={image}
           alt={title}
           className="block h-[225px] w-full origin-center scale-100 object-cover object-center shadow-[inset_0_-3px_0_color-mix(in_srgb,var(--ink)_15%,transparent)] transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:rotate-1"
         />
-      </div>
+      </figure>
       <div className="card-body px-3.5 pt-4 pb-[18px] text-center md:p-[18px] md:pb-[21px]">
         <h3 className="card-title mb-3 font-display text-[1.3rem] font-semibold text-signal md:mb-0">{title}</h3>
         <p className="text-[0.95rem] leading-[1.55] text-muted md:text-sm md:leading-[1.65]">{description}</p>

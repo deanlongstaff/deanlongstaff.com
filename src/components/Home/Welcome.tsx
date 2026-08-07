@@ -77,7 +77,7 @@ function index() {
               ].map(({ Icon, label }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-2 rounded-lg bg-[var(--chip-bg)] px-[9px] py-[7px] font-mono text-[0.6rem] text-[var(--chip-text)] md:px-[11px] md:py-2 md:text-[0.68rem]"
+                  className="badge h-auto items-center gap-2 rounded-lg border-none bg-[var(--chip-bg)] px-[9px] py-[7px] font-mono text-[0.6rem] text-[var(--chip-text)] md:px-[11px] md:py-2 md:text-[0.68rem]"
                 >
                   <Icon aria-hidden="true" className="block size-[1.05rem] [stroke-width:2.3]" /> {label}
                 </span>
