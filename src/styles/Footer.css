@@ -36,6 +36,8 @@
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+.footer-os-mark { color: var(--sun); }
+.footer-os-status { margin: -3px 0 8px; color: color-mix(in srgb, var(--paper) 68%, transparent); font-family: "DM Mono", monospace; font-size: .52rem; letter-spacing: .08em; }
 .footer a { color: var(--paper) !important; transition: color 180ms ease, transform 180ms ease; }.footer a:hover { color: var(--sun) !important; }
 
 .footer-icons {

@@ -230,6 +230,12 @@
 }
 
 .welcome-content { z-index: 1; }
+.welcome-system-strip { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; padding: 7px 9px; border: 2px solid color-mix(in srgb, var(--ink) 70%, transparent); border-radius: 5px; color: var(--surface); background: var(--ink); box-shadow: 4px 4px 0 var(--primary-color), inset 0 1px 0 color-mix(in srgb, white 20%, transparent); font-family: "DM Mono", monospace; font-size: .58rem; letter-spacing: .08em; transform: rotate(-1.2deg); }
+.welcome-system-title { color: var(--sun); }
+.welcome-system-title b { color: color-mix(in srgb, var(--surface) 68%, transparent); font-weight: 400; }
+.welcome-system-item { display: inline-flex; align-items: center; gap: 5px; color: var(--secondary-color); }
+.welcome-system-item i { width: 6px; height: 6px; border-radius: 50%; background: var(--secondary-color); box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary-color) 18%, transparent); animation: welcome-system-pulse 1.5s ease-in-out infinite; }
+.welcome-system-item:last-child i { background: var(--sun); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sun) 18%, transparent); animation-delay: .35s; }
 .welcome-kicker { border-color: color-mix(in srgb, var(--secondary-color) 36%, var(--line)); border-radius: 7px; box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 12%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.75); }
 .welcome-kicker::after { content: "ONLINE"; margin-left: 7px; padding-left: 8px; border-left: 1px solid var(--line); color: var(--primary-color); font-size: 0.6rem; letter-spacing: 0.12em; }
 .welcome-photo::after { content: "DEAN.EXE"; position: absolute; right: 6%; bottom: 4%; z-index: 2; padding: 7px 10px; border: 1px solid color-mix(in srgb, var(--secondary-color) 48%, var(--line)); border-radius: 4px; color: var(--primary-deep); background: color-mix(in srgb, var(--surface) 86%, transparent); box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 14%, transparent); font-family: "DM Mono", monospace; font-size: 0.58rem; letter-spacing: 0.08em; transform: rotate(-5deg); }
@@ -240,11 +246,14 @@
 .welcome-bridge-window { flex: 1 1 auto; min-width: 0; overflow: hidden; }
 .welcome-bridge-track { display: flex; width: max-content; color: var(--secondary-color); font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.16em; animation: welcome-marquee 24s linear infinite; }
 .welcome-bridge-message { display: block; flex: 0 0 auto; padding-left: 20px; }
+@keyframes welcome-system-pulse { 50% { opacity: .38; transform: scale(.72); } }
 @keyframes welcome-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 @media (max-width: 767px) {
   .welcome-section::before { right: -55%; left: -55%; height: 55%; opacity: 0.46; background-size: 42px 42px; }
   .welcome-section::after { top: 12%; right: -16%; width: 12rem; }
+  .welcome-system-strip { gap: 8px; margin-bottom: 14px; font-size: .5rem; }
+  .welcome-system-item:last-child { display: none; }
   .welcome-kicker::after { display: none; }
   .welcome-photo::after { right: 10%; bottom: 1%; }
   .welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 0 0 3px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 18px 35px color-mix(in srgb, var(--ink) 18%, transparent) !important; }
@@ -255,5 +264,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .wave { animation: none; }
+  .welcome-system-item i { animation: none; }
   .welcome-bridge-track { animation: none; }
 }

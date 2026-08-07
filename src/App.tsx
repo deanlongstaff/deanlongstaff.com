@@ -34,11 +34,11 @@ function App() {
     clarity.init("mqgrxsm7hq");
   }, []);
 
-  // -- Set a timer to remove the preloader after 1.2 seconds
+  // -- Set a timer to remove the preloader after 4 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       upadateLoad(false);
-    }, 1200);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);

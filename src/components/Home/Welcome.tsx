@@ -43,6 +43,11 @@ function index() {
         <div className="background-container"></div>
         <div className="welcome-content mx-auto grid max-w-screen-2xl items-center gap-20 px-6 md:grid-cols-[1.15fr_0.85fr] lg:gap-28">
           <div className="welcome-header">
+            <div className="welcome-system-strip" aria-label="DEAN OS system status">
+              <span className="welcome-system-title">DEAN_OS <b>v2.0</b></span>
+              <span className="welcome-system-item"><i /> CURIOUS</span>
+              <span className="welcome-system-item"><i /> BUILD MODE</span>
+            </div>
             <div className="welcome-kicker"><span className="kicker-dot" /> Developer, builder &amp; enthusiastic tinkerer</div>
             <h1 style={{ paddingBottom: 15 }} className="heading">
               Hello!{" "}
@@ -58,7 +63,8 @@ function index() {
             <p className="welcome-lede">I make useful things for the web, the cloud, and the real world.</p>
             <div className="welcome-tags"><span><FiCloud aria-hidden="true" /> Cloud</span><span><FiSettings aria-hidden="true" /> Automation</span><span><FiStar aria-hidden="true" /> Side quests</span></div>
 
-            <div className="hidden h-[50px] py-5 pl-[50px] md:block md:pb-10">
+            <div className="welcome-command hidden h-[50px] py-5 pl-[50px] md:block md:pb-10">
+              <span className="welcome-command-prompt">&gt; </span>
               <Type />
             </div>
           </div>
@@ -81,7 +87,8 @@ function index() {
             </Tilt>
           </div>
           <div className="md:hidden">
-            <div className="h-[50px] px-5 py-5 text-center">
+            <div className="welcome-command h-[50px] px-5 py-5 text-center">
+              <span className="welcome-command-prompt">&gt; </span>
               <Type />
             </div>
           </div>

@@ -70,7 +70,7 @@ function index() {
     <section id="hobbies">
       <div className="hobbies-section">
         <div className="mx-auto max-w-7xl">
-          <span className="hobbies-eyebrow">When the laptop is closed</span>
+          <span className="hobbies-eyebrow">When the laptop is closed<br />Just kidding, it's always open</span>
           <h1 className="main-heading">
             My <strong className="primary-color">Hobbies </strong>
           </h1>
