@@ -31,6 +31,14 @@ body { background-image: radial-gradient(circle at 92% 38%, color-mix(in srgb, v
   .theme-toggle, .github-btn-inner, .skills-toolbox .skill-wrapper, .hobbies-card-view, .aboutme-section::after, .hobbies-section::after, .side-projects-section::after { transition: none; animation: none; }
 }
 
+/* Tablet shells use the full viewport; the narrow desktop shell leaves the
+   hero photo cramped and creates unnecessary gutters around the chrome. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .welcome-content, .navbar-inner, .footer-inner { width: 100%; }
+  .welcome-content { gap: 2rem; }
+  .welcome-photo-inner { max-width: min(34vw, 360px); }
+}
+
 /* Mobile polish: keep the playful desktop composition, but make the phone layout breathe. */
 @media (max-width: 767px) {
   .navbar, .is-scrolled { padding: .5rem .75rem !important; }
@@ -45,7 +53,7 @@ body { background-image: radial-gradient(circle at 92% 38%, color-mix(in srgb, v
   .theme-toggle, .github-btn-inner { width: 32px !important; height: 32px !important; }
 
   .welcome-content { gap: 1rem; padding: 5.5rem .75rem 2rem; }
-  .welcome-system-strip { margin-bottom: 10px; }
+  .welcome-system-strip { margin-bottom: 26px; }
   .heading-name { font-size: clamp(2.8rem, 14vw, 4.4rem); }
   .welcome-lede { max-width: 23rem; font-size: .95rem; }
   .welcome-command { padding-left: 0 !important; text-align: center; }

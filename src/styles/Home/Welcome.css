@@ -261,7 +261,7 @@
   .welcome-section::after { top: 12%; right: -16%; width: 12rem; }
   .welcome-system-strip { gap: 8px; margin-bottom: 14px; font-size: .5rem; }
   .welcome-command { text-align: left; }
-  .welcome-system-item:last-child { display: none; }
+  .welcome-system-item:last-child { display: inline-flex; }
   .welcome-kicker::after { display: none; }
   .welcome-photo::after { right: 10%; bottom: 1%; }
   .welcome-photo img { box-shadow: 10px 12px 0 var(--primary-color), 0 0 0 3px color-mix(in srgb, var(--secondary-color) 46%, transparent), 0 18px 35px color-mix(in srgb, var(--ink) 18%, transparent) !important; }
