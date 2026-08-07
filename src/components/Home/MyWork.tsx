@@ -79,6 +79,26 @@ const SCATTER = [
   "rotate(1deg) translateY(-3px)",
 ];
 
+// Liquid float timing per pill. Each entry picks one of several drift
+// *shapes* (skill-float-1..5, defined in MyWork.css - some lean left, some
+// right, some barely move vertically) plus its own delay/duration, so
+// neighbouring pills don't all bob up and down in the same direction at the
+// same time. Values are hand-jittered rather than a clean sequence so the
+// cycle doesn't read as a repeating pattern once it wraps.
+const FLOAT = [
+  { shape: 1, delay: "-0.8s", duration: "7.4s" },
+  { shape: 3, delay: "-3.6s", duration: "8.9s" },
+  { shape: 5, delay: "-1.1s", duration: "7.9s" },
+  { shape: 2, delay: "-5.2s", duration: "9.6s" },
+  { shape: 4, delay: "-2.3s", duration: "8.1s" },
+  { shape: 1, delay: "-6.4s", duration: "9.1s" },
+  { shape: 3, delay: "-0.4s", duration: "7.6s" },
+  { shape: 5, delay: "-4.1s", duration: "8.6s" },
+  { shape: 2, delay: "-1.7s", duration: "9.3s" },
+  { shape: 4, delay: "-3.9s", duration: "7.7s" },
+  { shape: 1, delay: "-5.6s", duration: "8.4s" },
+];
+
 // Every third pill picks up a warm tint and every fourth a cool one, so the
 // tray never reads as one flat block of chips. Fourth wins where they collide.
 function tileTint(position: number) {
@@ -125,7 +145,16 @@ function SkillsSection() {
               style={{ "--tilt": SCATTER[index % SCATTER.length] } as CSSProperties}
               key={skill.name}
             >
-              <div className={`skill flex h-full items-center justify-start rounded-[13px] border border-line px-3 py-[9px] max-md:flex-col max-md:text-center ${tileTint(index + 1)}`}>
+              <div
+                className={`skill flex h-full items-center justify-start rounded-[13px] border border-line px-3 py-[9px] max-md:flex-col max-md:text-center ${tileTint(index + 1)}`}
+                style={
+                  {
+                    "--float-name": `skill-float-${FLOAT[index % FLOAT.length].shape}`,
+                    "--float-delay": FLOAT[index % FLOAT.length].delay,
+                    "--float-duration": FLOAT[index % FLOAT.length].duration,
+                  } as CSSProperties
+                }
+              >
                 <div className="mr-[7px] text-[1.45rem] text-signal drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] max-md:mb-[5px]">{skill.logo}</div>
                 <p className="m-0 font-mono text-[0.68rem] font-medium text-ink">{skill.name}</p>
               </div>
