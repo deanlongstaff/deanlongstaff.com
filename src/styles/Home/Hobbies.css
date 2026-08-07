@@ -1,95 +1,29 @@
 /**
- * DESCRIPTION: This stylesheet contains the styling for the hobbies component of the home page (Hobbies.tsx).
- *
- * Author: Dean Longstaff
+ * DESCRIPTION: Styling for the hobbies section (Hobbies.tsx); the collage stickers and per-card tilt Tailwind can't express.
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.hobbies-section {
-  position: relative;
-  padding-top: 150px;
-  padding-bottom: 30px;
-  background-image: var(--image-gradient),
-    url(../../assets/images/background.jpg);
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
+/* The angle is data, supplied per card from Hobbies.tsx as --tilt. Hover
+   straightens the photo and lifts it clear of its neighbours with a bit of
+   springy overshoot rather than a flat ease-out. */
 .hobbies-card {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-left: 25px;
-  padding-right: 25px;
-  height: auto;
+  transform: var(--tilt, none);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.hobbies-card-img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  object-position: center;
+.hobbies-card:hover {
+  z-index: 4;
+  transform: translateY(-10px) scale(1.04) rotate(0deg) !important;
 }
 
-.hobbies-card-view {
-  box-shadow: 0 0 5px 1px var(--primary-color);
-  color: white !important;
-  background-color: transparent !important;
-  opacity: 0.9;
-  transition: all 0.5s ease 0s;
-  height: 100% !important;
-}
-
-.hobbies-card-view:hover {
-  transform: scale(1.02);
-  overflow: hidden;
-  box-shadow: 0 0 5px 5px var(--primary-color);
-}
-
+/* The collage angles are desktop-only; on a phone the cards stack and tilting
+   them just costs readable width. */
 @media (max-width: 767px) {
-  .hobbies-section {
-    padding-top: 60px;
-    padding-bottom: 40px;
-  }
-
-  .hobbies-section > div > h1 {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .hobbies-section > div > p {
-    font-size: 0.95em;
-    line-height: 1.7;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   .hobbies-card {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
+    transform: none;
   }
 
-  .hobbies-card-img {
-    height: 200px;
-  }
-
-  .hobbies-card-view {
-    opacity: 0.95;
-  }
-
-  .hobbies-card-view .card-body {
-    padding: 1rem;
-  }
-
-  .hobbies-card-view .card-title {
-    font-size: 1.3em;
-    margin-bottom: 0.75rem;
-  }
-
-  .hobbies-card-view .card-text {
-    font-size: 0.9em;
-    line-height: 1.6;
+  .hobbies-card:hover {
+    transform: translateY(-5px) scale(1.02) !important;
   }
 }

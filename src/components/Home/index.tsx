@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the index file for the Home component. This combines all the Home components into one component.
+ * DESCRIPTION: Combines all the home page sections into one component.
  *
  * Author: Dean Longstaff
  */
@@ -9,6 +9,7 @@
 import Welcome from "./Welcome";
 import AboutMe from "./AboutMe";
 import MyWork from "./MyWork";
+import SideProjects from "./SideProjects";
 import Hobbies from "./Hobbies";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the Home component
@@ -19,6 +20,7 @@ function Home() {
             <Welcome />
             <AboutMe />
             <MyWork />
+            <SideProjects />
             <Hobbies />
         </section>
     );

@@ -1,5 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+/* The site palette and type, registered as Tailwind theme tokens so the markup
+   reads `text-muted` / `font-mono` instead of `text-[var(--muted)]`. The values
+   indirect through the raw tokens in main.css, so light/dark switching still
+   happens there and these follow automatically.
+
+   Names deliberately avoid daisyUI's own `--color-primary` / `--color-secondary`
+   / `--color-base-*`, which are the theme's semantic slots. */
+@theme {
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-line: var(--line);
+  --color-signal: var(--primary-color);
+  --color-signal-deep: var(--primary-deep);
+  --color-aqua: var(--secondary-color);
+  --color-sun: var(--sun);
+  --color-coral: var(--coral);
+
+  /* Fixed inks that must not follow the theme. */
+  --color-navy: #172b40;
+  --color-cream: #f7f4eb;
+  --color-mist: #eef4f3;
+  --color-brick: #b94736;
+  --color-bone: #f6f5ed;
+
+  /* Binminder keeps its own brand green so the product stays recognisable. */
+  --color-bin: #187a5a;
+  --color-bin-deep: #0b5940;
+  --color-bin-ink: #17332a;
+
+  --font-mono: "DM Mono", monospace;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+/* The tablet band (768-1199px) runs full-bleed; only true desktop gets the
+   narrow 60vw hero shell. Registered as a real breakpoint rather than an
+   arbitrary `min-[1200px]:` variant. Declared in rem to match the built-in
+   breakpoints: Tailwind orders media queries by the literal value, so a px
+   breakpoint sorts before `48rem` and `md:` would win at 1440px. */
+@theme {
+  --breakpoint-desk: 75rem;
+  /* 1200px */
+}
+
+@plugin "daisyui" {
+  themes: dean-light --default, dean-dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: "dean-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #e5f1f1;
+  --color-base-300: #d4e5e5;
+  --color-base-content: #172b40;
+  --color-primary: #ee6c4d;
+  --color-primary-content: #ffffff;
+  --color-secondary: #43b9d2;
+  --color-secondary-content: #172b40;
+  --color-accent: #f5c857;
+  --color-accent-content: #172b40;
+  --color-neutral: #172b40;
+  --color-neutral-content: #f7f4eb;
+  --radius-box: 1.25rem;
+}
+
+@plugin "daisyui/theme" {
+  name: "dean-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #1b3043;
+  --color-base-200: #243e50;
+  --color-base-300: #38586a;
+  --color-base-content: #eef4f3;
+  --color-primary: #ff8667;
+  --color-primary-content: #101d2d;
+  --color-secondary: #6fd7e5;
+  --color-secondary-content: #101d2d;
+  --color-accent: #ffd86a;
+  --color-accent-content: #172b40;
+  --color-neutral: #0d1724;
+  --color-neutral-content: #eef4f3;
+  --radius-box: 1.25rem;
+}
+
 /**
- * DESCRIPTION: This stylesheet acts as an index for all the stylesheets in the app. This sheet is imported into App.tsx.
+ * DESCRIPTION: Entry point for every stylesheet in the app, imported from App.tsx.
  *
  * Author: Dean Longstaff
  */
@@ -7,8 +100,8 @@
 @import "./main.css";
 @import "./Preloader.css";
 @import "./Navbar.css";
-@import "./Footer.css";
 @import "./Home/Welcome.css";
 @import "./Home/Hobbies.css";
-@import "./Home/AboutMe.css";
 @import "./Home/MyWork.css";
+@import "./Home/SideProjects.css";
+@import "./Skeuo.css";

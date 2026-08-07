@@ -1,5 +1,5 @@
 /**
- * DESCRIPTION: This is the scroll to top component that is used to scroll to the top of the page when a link is clicked.
+ * DESCRIPTION: Scrolls to the top of the page on every route change.
  *
  * Author: Dean Longstaff
  */

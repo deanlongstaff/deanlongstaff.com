@@ -1,15 +1,12 @@
 /**
- * DESCRIPTION: This is the my hobbies component that is used to display my hobbies on the home page.
+ * DESCRIPTION: Hobbies section of the home page.
  *
  * Author: Dean Longstaff
  */
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// ----- Import the required modules
-
-import { Container, Row, Col, Card } from "react-bootstrap";
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Import images
 
+import type { CSSProperties } from "react";
 import skiing from "../../assets/images/me-skiing.jpeg";
 import programming from "../../assets/images/programming.jpeg";
 import diy from "../../assets/images/diy.jpeg";
@@ -18,53 +15,81 @@ import rc_car from "../../assets/images/rc_car.jpeg";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the Hobbies to be displayed
 
-const hobbies = [
+type Hobby = {
+  image: string;
+  title: string;
+  description: string;
+  /** Sticker slapped on the photo corner. */
+  sticker: string;
+  /** Angle the photo is dropped onto the pile at; straightened on hover. */
+  tilt: string;
+  /** Photo height override; used when the source photo is too tall/narrow for the default crop. */
+  imageHeight?: string;
+  /** object-position override for the photo crop. */
+  imagePosition?: string;
+};
+
+const hobbies: Hobby[] = [
   {
     image: skiing,
     title: "Skiing",
-    description:
-      "An Infrequent but Thrilling Adventure - When the rare opportunity arises, I hit the slopes with friends, immersing myself in the exhilarating world of skiing. It's more than just a hobby; it's a cherished passion that awakens with every snowy trail and heart-pounding descent. These moments, though few, are always cherished and unforgettable.",
+    description: "Occasional mountain menace. I ski for the views, the adrenaline, and the optimistic belief that I can definitely stop.",
+    sticker: "SNOW DAY",
+    tilt: "rotate(-2.5deg) translateY(8px)",
   },
   {
     image: programming,
     title: "Programming",
-    description:
-      "A Creative Outlet - I'm a programmer, and I love it. I'm always on the lookout for new projects and challenges, and I'm constantly learning new skills and languages. It's a creative outlet that allows me to explore new ideas and concepts, and it's a hobby that I'll never get tired of.",
+    description: "My favourite hobby is turning “this should be easy” into a weekend project with documentation.",
+    sticker: "ALWAYS LEARNING",
+    tilt: "rotate(1.5deg) translateY(-8px)",
   },
   {
     image: diy,
     title: "DIY",
-    description:
-      "The Art of Creation - I'm a DIYer at heart. I love building things with my hands, and I'm always on the lookout for new projects. Whether it's a new piece of furniture, a new gadget, or building a beautiful deck and pergola as shown above. I'm always looking for a new challenge and new ways to improve my skills.",
+    description: "If it can be measured, drilled, glued or painted, I’ll probably make it harder than necessary.",
+    sticker: "MADE BY HAND",
+    tilt: "rotate(-1deg) translateY(18px)",
   },
   {
     image: rex,
     title: "Rex",
-    description:
-      "My Labrador Sidekick - Our hobbies include endless games of fetch that test both our agility and patience, daily walks that are as much about exploration as exercise, and the occasional beach escapade where the sand and waves add to our adventurous spirit. Together, we embrace the simple joys of play and the outdoors.",
+    description: "Chief morale officer, tennis-ball consultant and full-time snack detector. Management is mostly paws-off.",
+    sticker: "R&D BUDDY",
+    tilt: "rotate(2.5deg) translateY(-2px)",
+    imageHeight: "340px",
+    imagePosition: "center bottom",
   },
   {
     image: rc_car,
     title: "Remote Control Anything",
-    description:
-      "High-Speed Thrills - My Traxxas XRT delivers endless entertainment, whether tearing across trails or watching Rex sprint after it with pure joy. Remote control anything captures my fascination; cars, drones or boats. Though I'm no hardcore enthusiast, the simple pleasure of piloting these machines never gets old, especially when Rex decides he's part of the action.",
+    description: "Cars, drones, boats, If it has a remote, I want to drive it. Rex remains my most enthusiastic crash-test dummy.",
+    sticker: "FULL SEND",
+    tilt: "rotate(-1.5deg) translateY(13px)",
+    imageHeight: "340px",
+    imagePosition: "center 85%",
   },
 ];
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Custom Functions
 
 // Hobby card
-function HobbyCard(props: any) {
+function HobbyCard({ image, title, description, imageHeight, imagePosition }: Hobby) {
   return (
-    <Card className="hobbies-card-view">
-      <Card.Img variant="top" src={props.image} alt="card-img" className="hobbies-card-img" />
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "center" }}>{props.description}</Card.Text>
-        {"\n"}
-        {"\n"}
-      </Card.Body>
-    </Card>
+    <article className="hobbies-card-view card relative overflow-hidden rounded-[22px] border-2 border-surface bg-surface transition-shadow duration-300 ease-[ease] group-hover:shadow-[0_18px_30px_-12px_color-mix(in_srgb,var(--ink)_35%,transparent)]">
+      <figure className="overflow-hidden rounded-t-[16px] rounded-b-[5px]">
+        <img
+          src={image}
+          alt={title}
+          style={{ height: imageHeight, objectPosition: imagePosition }}
+          className="block h-[260px] w-full origin-center scale-100 object-cover object-center shadow-[inset_0_-3px_0_color-mix(in_srgb,var(--ink)_15%,transparent)] transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:rotate-1"
+        />
+      </figure>
+      <div className="card-body px-3.5 pt-4 pb-[18px] text-center md:p-[18px] md:pb-[21px]">
+        <h3 className="card-title mb-3 font-display text-[1.3rem] font-semibold text-signal md:mb-0">{title}</h3>
+        <p className="text-[0.95rem] leading-[1.55] text-muted md:text-sm md:leading-[1.65]">{description}</p>
+      </div>
+    </article>
   );
 }
 
@@ -74,23 +99,41 @@ function HobbyCard(props: any) {
 function index() {
   return (
     <section id="hobbies">
-      <Container fluid className="hobbies-section">
-        <Container>
-          <h1 className="main-heading">
+      <div className="hobbies-section relative overflow-hidden px-[14px] pt-[62px] pb-[46px] md:px-5 md:pt-[125px] md:pb-[100px]">
+        <div className="mx-auto max-w-7xl">
+          <span className="mb-3 block text-center font-mono text-[0.7rem] tracking-[0.13em] text-signal uppercase">
+            When the laptop is closed
+            <span className="mx-auto mt-1.5 [display:table] rotate-[-2deg] rounded-md border-[1.5px] border-dashed border-signal bg-[color-mix(in_srgb,var(--primary-color)_12%,transparent)] px-2.5 py-[3px] font-display text-[0.8rem] font-semibold tracking-normal normal-case italic">
+              Just kidding, it's always open
+            </span>
+          </span>
+          <h1 className="main-heading max-md:px-5">
             My <strong className="primary-color">Hobbies </strong>
           </h1>
-          <p style={{ color: "white" }}>
-            My world isn't just about pixels and code. When I'm not conjuring up digital magic, I'm on a constant quest to discover new hobbies and experiences. It's all about embracing the unexpected and adding a dash of variety to life!
+          <p className="mx-auto mt-[18px] mb-6 max-w-[620px] px-5 text-[0.95rem] leading-[1.55] text-muted md:mb-[42px] md:px-0 md:text-base md:leading-[1.75]">
+            The things that keep me curious, make me laugh, and occasionally leave me covered in sawdust.
           </p>
-          <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-center gap-x-12 gap-y-6 pb-2.5 md:gap-y-9">
             {hobbies.map((hobby, index) => (
-              <Col key={index} md={4} className="hobbies-card">
-                <HobbyCard image={hobby.image} title={hobby.title} description={hobby.description} />
-              </Col>
+              <div
+                key={hobby.title}
+                className="hobbies-card group relative w-full max-w-[360px] px-[7px] py-3.5 md:w-[calc(33.333%-2rem)] md:max-w-[350px] md:px-3.5 md:py-7"
+                // A custom property, not `transform`: an inline transform would
+                // outrank the :hover rule that straightens the photo.
+                style={{ "--tilt": hobby.tilt } as CSSProperties}
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute top-7 right-5 z-[2] m-0 rounded-[5px] bg-sun px-[9px] py-[5px] font-mono text-[0.58rem] tracking-[0.04em] text-navy transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-6 group-hover:scale-110 md:top-9 md:right-7"
+                >
+                  {hobby.sticker}
+                </span>
+                <HobbyCard {...hobby} />
+              </div>
             ))}
-          </Row>
-        </Container>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

@@ -1,27 +1,139 @@
 /**
- * DESCRIPTION: This stylesheet contains the styling for the preloader component (Preloader.tsx).
- *
- * Author: Dean Longstaff
+ * DESCRIPTION: Keyframes for the preloader / lock / shutdown screen (Preloader.tsx); rest is Tailwind.
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999999;
-  background-color: #000000;
-  background-image: url(../assets/preloader.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+
+@keyframes preloader-window-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) rotate(-4deg) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(-1.2deg);
+  }
 }
 
-#preloader-none {
-  opacity: 0;
+@keyframes preloader-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
 }
 
-#no-scroll {
-  overflow: hidden;
-  height: 100vh;
+@keyframes preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-bob {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(12deg);
+  }
+}
+
+@keyframes preloader-pulse {
+  50% {
+    opacity: .4;
+    transform: scale(.75);
+  }
+}
+
+@keyframes preloader-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* CRT power-off: squash to a horizontal line, then to a bright dot, then fade. */
+@keyframes crt-off {
+  0% {
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+
+  55% {
+    transform: scaleY(.018) scaleX(1);
+    filter: brightness(2.4);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scaleY(.018) scaleX(.012);
+    filter: brightness(3.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(.018) scaleX(.012);
+    filter: brightness(3.6);
+    opacity: 0;
+  }
+}
+
+@keyframes crt-off-glow-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes crt-static {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(1px);
+  }
+}
+
+/* CRT power-on: the reverse of crt-off — a bright dot expands to a line, then fills out. */
+@keyframes crt-on {
+  0% {
+    transform: scaleY(.018) scaleX(.012);
+    filter: brightness(3.6);
+    opacity: 0;
+  }
+
+  14% {
+    opacity: 1;
+  }
+
+  42% {
+    transform: scaleY(.018) scaleX(1);
+    filter: brightness(3.2);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scaleY(.55) scaleX(1);
+    filter: brightness(1.7);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
 }
