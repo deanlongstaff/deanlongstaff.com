@@ -1,51 +1,16 @@
 /**
- * DESCRIPTION: Styling for the side projects (Binminder) section; layered backgrounds Tailwind can't express, plus Binminder's scoped brand colours.
+ * DESCRIPTION: Keyframe for the side projects (Binminder) section's "PLAY" sticker; rest is Tailwind.
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.side-projects-dots {
-  background-image: radial-gradient(var(--secondary-color) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: linear-gradient(to bottom, black 5%, transparent 85%);
-}
+@keyframes side-project-sticker-float {
 
-.binminder-preview {
-  background: radial-gradient(circle at 50% 10%, rgba(144, 199, 236, 0.48), transparent 48%), #dff1e8;
-}
+  0%,
+  100% {
+    transform: translateY(0) rotate(-12deg);
+  }
 
-/* These two sit on top of daisyUI's `btn` and `badge`. They stay as plain
-   (unlayered) CSS on purpose: unlayered rules beat daisyUI's `components`
-   layer, whereas Tailwind utilities would have to re-declare daisyUI's own
-   internals (button height, border width) to win reliably. */
-.binminder-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 12px;
-  border: 1px solid rgba(24, 122, 90, 0.2);
-  border-radius: 999px;
-  color: #187a5a;
-  background: rgba(24, 122, 90, 0.08);
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.binminder-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 17px;
-  border-radius: 999px;
-  color: #fff;
-  background: #187a5a;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform 180ms ease, background 180ms ease;
-}
-
-.binminder-link:hover {
-  color: #fff;
-  transform: translateY(-2px);
-  background: #0b5940;
+  50% {
+    transform: translateY(-7px) rotate(-9deg);
+  }
 }

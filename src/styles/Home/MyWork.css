@@ -1,40 +1,27 @@
 /**
- * DESCRIPTION: Styling for the My Work section (MyWork.tsx); pseudo-element labels, toolbox background, and skill-pill scatter Tailwind can't express.
+ * DESCRIPTION: Styling for the My Work section (MyWork.tsx) that can't live in Tailwind classes:
+ * the skill-pill float keyframes, and the dark-mode MoJ logo invert.
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/* The ambient gradients are painted in Skeuo.css; this blends them together. */
-.mywork-section {
-  background-blend-mode: soft-light;
+/* The source artwork is transparent black. Inverting only the artwork keeps
+   the logo legible against the dark theme while preserving transparent edges.
+   The explicit theme selector also covers the manual toggle, not just the
+   operating-system preference - a compound condition Tailwind's `dark:`
+   variant isn't wired up for in this project (theme is a `data-theme`
+   attribute, not `prefers-color-scheme` alone). */
+.moj-logo {
+  filter: none;
 }
 
-.skills-toolbox {
-  background:
-    radial-gradient(circle at 85% 12%, color-mix(in srgb, var(--secondary-color) 28%, transparent) 0 10%, transparent 32%),
-    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--sun) 20%, transparent) 0 8%, transparent 30%),
-    var(--surface-soft);
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="dean-light"]) .moj-logo {
+    filter: invert(1);
+  }
 }
 
-/* The angle itself is data, supplied per tile from MyWork.tsx as --tilt so the
-   scatter scales with the skills list. Hover straightens and lifts the pill. */
-.skills-toolbox .skill-wrapper {
-  transform: var(--tilt, none);
-  transition: transform 180ms ease;
-}
-
-.skills-toolbox .skill-wrapper:hover {
-  z-index: 2;
-  transform: translateY(-7px) rotate(0deg) scale(1.04);
-}
-
-.skills-toolbox .skill {
-  box-shadow: 0 5px 0 color-mix(in srgb, var(--primary-color) 12%, transparent);
-  animation-name: var(--float-name, skill-float-1);
-  animation-duration: var(--float-duration, 8s);
-  animation-delay: var(--float-delay, 0s);
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  will-change: transform, border-radius;
+:root[data-theme="dean-dark"] .moj-logo {
+  filter: invert(1);
 }
 
 /* Five drift shapes, each nudging a different corner and a different
@@ -124,17 +111,5 @@
   45% {
     transform: translate(2px, -1.5px) rotate(-0.6deg) scale(0.995);
     border-radius: 16px 12px 15px 11px;
-  }
-}
-
-/* Hover already drives the wrapper's own transform for the lift/straighten;
-   pausing the inner float keeps the two from fighting over motion. */
-.skills-toolbox .skill-wrapper:hover .skill {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skills-toolbox .skill {
-    animation: none;
   }
 }

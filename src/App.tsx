@@ -44,7 +44,7 @@ function App() {
   // -- Render the App component
   return (
     <Router>
-      <Preloader load={load} mode={systemMode} onWake={() => setSystemMode("ready")} />
+      <Preloader load={load} mode={systemMode} onWake={() => setSystemMode("ready")} onSkip={() => upadateLoad(false)} />
       <div className={`App ${load || systemMode !== "ready" ? "h-screen overflow-hidden" : ""}`}>
         <Navbar onLock={() => setSystemMode("locked")} onShutdown={() => setSystemMode("shutdown")} />
         <ScrollToTop />

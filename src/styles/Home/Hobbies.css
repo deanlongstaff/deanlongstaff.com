@@ -1,29 +1,16 @@
 /**
- * DESCRIPTION: Styling for the hobbies section (Hobbies.tsx); the collage stickers and per-card tilt Tailwind can't express.
+ * DESCRIPTION: Keyframe for the hobbies section's "GOOD VIBES ONLY" sticker; rest is Tailwind.
  */
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/* The angle is data, supplied per card from Hobbies.tsx as --tilt. Hover
-   straightens the photo and lifts it clear of its neighbours with a bit of
-   springy overshoot rather than a flat ease-out. */
-.hobbies-card {
-  transform: var(--tilt, none);
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+@keyframes hobbies-sticker-float {
 
-.hobbies-card:hover {
-  z-index: 4;
-  transform: translateY(-10px) scale(1.04) rotate(0deg) !important;
-}
-
-/* The collage angles are desktop-only; on a phone the cards stack and tilting
-   them just costs readable width. */
-@media (max-width: 767px) {
-  .hobbies-card {
-    transform: none;
+  0%,
+  100% {
+    transform: translateY(0) rotate(7deg);
   }
 
-  .hobbies-card:hover {
-    transform: translateY(-5px) scale(1.02) !important;
+  50% {
+    transform: translateY(-7px) rotate(10deg);
   }
 }

@@ -30,7 +30,7 @@ import { DiGit, DiMsqlServer } from "react-icons/di";
 import { VscAzure } from "react-icons/vsc";
 import { TbBrandPowershell, TbBrandReactNative } from "react-icons/tb";
 import { PiCodeBold } from "react-icons/pi";
-import mojLogo from "../../assets/images/moj.jpeg";
+import mojLogo from "../../assets/images/moj-transparent.png";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // -- Define the skills to display
 
@@ -114,7 +114,7 @@ function SkillsSection() {
   return (
     <section
       id="skills"
-      className="skills-manifesto relative mx-auto mt-12 grid max-w-7xl grid-cols-1 items-center gap-7 overflow-hidden rounded-[20px] border border-line bg-surface px-[14px] py-[22px] text-left md:mt-[84px] md:grid-cols-[minmax(270px,0.75fr)_minmax(0,1.25fr)] md:gap-[50px] md:rounded-[28px] md:p-[42px]"
+      className="relative mx-auto mt-12 grid max-w-7xl grid-cols-1 items-center gap-7 overflow-hidden rounded-[20px] border border-[color-mix(in_srgb,var(--ink)_16%,transparent)] bg-surface px-[14px] py-[22px] text-left shadow-[0_2px_0_color-mix(in_srgb,var(--surface)_95%,transparent),0_18px_30px_color-mix(in_srgb,var(--ink)_13%,transparent),inset_0_1px_0_rgba(255,255,255,.7)] md:mt-[84px] md:grid-cols-[minmax(270px,0.75fr)_minmax(0,1.25fr)] md:gap-[50px] md:rounded-[28px] md:p-[42px]"
     >
       <div className="relative z-[1] text-center md:text-left">
         <span className="mb-3 block font-mono text-[0.7rem] tracking-[0.1em] text-signal uppercase">How I approach things</span>
@@ -128,7 +128,7 @@ function SkillsSection() {
           <span className="hidden size-10 place-items-center rounded-[50%] bg-sun text-[1.15rem] text-navy shadow-[0_5px_0_color-mix(in_srgb,var(--sun)_55%,var(--paper))] md:grid">✦</span> Curiosity is the real superpower
         </div>
       </div>
-      <div className="skills-toolbox relative z-[1] rotate-[-1deg] rounded-[20px] border border-[color-mix(in_srgb,var(--primary-color)_22%,transparent)] px-3 py-4 md:p-5">
+      <div className="relative z-[1] rotate-[-1deg] rounded-[20px] border border-[color-mix(in_srgb,var(--primary-color)_22%,transparent)] bg-surface-soft bg-[radial-gradient(circle_at_85%_12%,color-mix(in_srgb,var(--secondary-color)_28%,transparent)_0_10%,transparent_32%),radial-gradient(circle_at_10%_90%,color-mix(in_srgb,var(--sun)_20%,transparent)_0_8%,transparent_30%)] px-3 py-4 shadow-[inset_0_2px_5px_color-mix(in_srgb,var(--ink)_11%,transparent),inset_0_-1px_0_rgba(255,255,255,.55)] md:p-5">
         <div className="mx-1 mb-4 flex justify-center gap-3 font-mono text-[0.55rem] text-muted uppercase md:text-[0.62rem]">
           <span>Things I&apos;ve picked up along the way</span>
         </div>
@@ -138,14 +138,14 @@ function SkillsSection() {
               href={skill.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="skill-wrapper block w-auto text-inherit no-underline"
+              className="group block w-auto text-inherit no-underline [transform:var(--tilt,none)] transition-transform duration-[180ms] ease-[ease] hover:z-[2] hover:[transform:translateY(-7px)_rotate(0deg)_scale(1.04)] motion-reduce:transition-none"
               // Set as a custom property, not `transform`: an inline transform
-              // would outrank the :hover rule that straightens the pill.
+              // would outrank the hover class that straightens the pill.
               style={{ "--tilt": SCATTER[index % SCATTER.length] } as CSSProperties}
               key={skill.name}
             >
               <div
-                className={`skill flex h-full items-center justify-start rounded-[13px] border border-line px-3 py-[9px] max-md:flex-col max-md:text-center ${tileTint(index + 1)}`}
+                className={`flex h-full items-center justify-start rounded-[13px] border border-line px-3 py-[9px] max-md:flex-col max-md:text-center ${tileTint(index + 1)} shadow-[0_5px_0_color-mix(in_srgb,var(--primary-color)_12%,transparent)] [animation-name:var(--float-name,skill-float-1)] [animation-duration:var(--float-duration,8s)] [animation-delay:var(--float-delay,0s)] [animation-timing-function:ease-in-out] [animation-iteration-count:infinite] will-change-[transform,border-radius] active:translate-y-[3px] active:shadow-[0_1px_0_color-mix(in_srgb,var(--ink)_12%,transparent)] group-hover:[animation-play-state:paused] motion-reduce:[animation:none]`}
                 style={
                   {
                     "--float-name": `skill-float-${FLOAT[index % FLOAT.length].shape}`,
@@ -154,7 +154,7 @@ function SkillsSection() {
                   } as CSSProperties
                 }
               >
-                <div className="mr-[7px] text-[1.45rem] text-signal drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] max-md:mb-[5px]">{skill.logo}</div>
+                <div className="mr-[7px] text-[1.45rem] text-signal drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] max-md:mr-0 max-md:mb-[5px]">{skill.logo}</div>
                 <p className="m-0 font-mono text-[0.68rem] font-medium text-ink">{skill.name}</p>
               </div>
             </a>
@@ -175,28 +175,24 @@ function MyWork() {
   return (
     <section
       id="mywork"
-      className="mywork-section relative overflow-hidden border-b border-b-line bg-cover bg-center bg-no-repeat px-[14px] pt-[58px] pb-[50px] md:px-5 md:py-[120px]"
+      className="mywork-section relative overflow-hidden border-b border-b-line px-[14px] pt-[58px] pb-[50px] before:absolute before:top-[11%] before:right-[4%] before:grid before:h-[54px] before:w-[132px] before:place-items-center before:rounded-full before:border-[3px] before:border-signal before:bg-surface before:font-mono before:text-[.62rem] before:text-signal before:shadow-[0_5px_0_color-mix(in_srgb,var(--primary-color)_25%,transparent),inset_0_2px_3px_color-mix(in_srgb,var(--ink)_12%,transparent)] before:content-['◉_SOLVE_IT'] before:[transform:rotate(9deg)] max-md:before:hidden after:absolute after:bottom-[6%] after:left-[3%] after:size-[78px] after:rounded-full after:border-8 after:border-coral after:opacity-80 after:shadow-[inset_0_0_0_5px_var(--sun),5px_7px_0_color-mix(in_srgb,var(--ink)_13%,transparent)] after:content-[''] max-md:after:hidden md:px-5 md:py-[120px]"
     >
       <div className="mx-auto max-w-7xl text-center text-muted">
         <h1 className="main-heading">
-          My <strong className="primary-color">Work</strong>
+          My <strong className="text-signal">Work</strong>
         </h1>
         <p className="mx-auto mt-[18px] max-w-[620px] text-[0.95rem] leading-[1.55] md:text-base md:leading-[1.75]">
           I turn half-formed ideas into polished digital experiences, then jump into the group chat to make them even better together.
         </p>
-        <div className="mywork-body relative mx-auto mt-7 grid max-w-7xl grid-cols-1 items-center justify-center justify-items-center gap-8 rounded-[18px] border border-line bg-surface px-3.5 py-[18px] text-center md:mt-[55px] md:grid-cols-2 md:rounded-3xl md:p-11 md:text-[1.2em]">
-          <div className="w-full">
-            <img src={mojLogo} alt="Ministry of Justice UK" className="mx-auto block h-auto w-full max-w-[250px] rounded-[10px] object-contain max-md:pt-8 max-md:mb-2" />
+        <div className="relative mx-auto mt-7 grid max-w-7xl grid-cols-1 items-center justify-center justify-items-center gap-8 overflow-hidden rounded-[18px] border-[3px] border-ink bg-[radial-gradient(circle_at_88%_18%,color-mix(in_srgb,var(--secondary-color)_34%,transparent)_0_7rem,transparent_7.2rem),linear-gradient(135deg,var(--surface)_0_58%,color-mix(in_srgb,var(--sun)_19%,var(--surface))_58%_100%)] px-3.5 pt-[72px] pb-[18px] text-center text-ink shadow-[10px_11px_0_color-mix(in_srgb,var(--primary-color)_48%,transparent),0_25px_35px_color-mix(in_srgb,var(--ink)_20%,transparent),inset_0_2px_0_rgba(255,255,255,.85)] rotate-[-.7deg] before:absolute before:inset-x-0 before:top-0 before:h-[35px] before:px-[14px] before:py-[10px] before:text-left before:font-mono before:text-[.52rem] before:tracking-[.07em] before:text-surface before:bg-[linear-gradient(180deg,var(--ink),color-mix(in_srgb,var(--ink)_78%,var(--secondary-color)))] before:border-b-2 before:border-ink before:content-['DAY_JOB.EXE'] md:mt-[55px] md:grid-cols-2 md:rounded-3xl md:p-11 md:pt-[72px] md:text-[1.2em] max-md:pt-[62px] max-md:rotate-0">
+          <div className="relative z-[1] w-full">
+            <img src={mojLogo} alt="Ministry of Justice UK" className="moj-logo mx-auto block h-auto w-full max-w-[250px] rounded-[10px] object-contain max-md:mt-8 max-md:mb-2" />
           </div>
-          <div className="w-full">
-            <p className="mx-auto m-0 max-w-[650px] leading-[1.75] max-md:text-[0.95rem] max-md:leading-[1.55]">
+          <div className="relative z-[1] w-full">
+            <p className="mx-auto m-0 max-w-[650px] leading-[1.75] text-ink max-md:text-[0.95rem] max-md:leading-[1.55]">
               At the Ministry of Justice, I help teams swap repetitive clicks for code that does it for them. I focus on upskilling the EUCS department to work more efficiently and securely, turning good ideas into practical workflows that can keep up with an ever changing security climate.
             </p>
           </div>
-          {/* Taped-on label for the day-job card. */}
-          <span aria-hidden="true" className="absolute -top-[11px] left-[25px] rounded bg-signal px-[9px] py-1 font-mono text-[0.6rem] text-surface">
-            THE DAY JOB
-          </span>
         </div>
         <SkillsSection />
       </div>

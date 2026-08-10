@@ -15,6 +15,7 @@ type PreloaderProps = {
     load: boolean;
     mode?: "ready" | "locked" | "shutdown";
     onWake?: () => void;
+    onSkip?: () => void;
 };
 
 // -- Must stay in sync with the progress bar's CSS animation duration/easing (Preloader.css)
@@ -54,7 +55,7 @@ const CRT_ON_DURATION_MS = 520;
 // -- Must match the container's own opacity transition duration (the `duration-[360ms]` below)
 const PRELOADER_FADE_MS = 360;
 
-function Preloader({ load, mode = "ready", onWake }: PreloaderProps) {
+function Preloader({ load, mode = "ready", onWake, onSkip }: PreloaderProps) {
     const visible = load || mode !== "ready";
     const isLocked = mode === "locked";
     const isShutdown = mode === "shutdown";
@@ -175,6 +176,12 @@ function Preloader({ load, mode = "ready", onWake }: PreloaderProps) {
                                 <span className="block size-full origin-left animate-[preloader-progress_4s_cubic-bezier(.25,.8,.25,1)_both] rounded-[1px] bg-[repeating-linear-gradient(135deg,var(--primary-color)_0_11px,var(--coral)_11px_22px)] shadow-[inset_0_1px_0_rgba(255,255,255,.35)] motion-reduce:animate-none" />
                             </div>
                         </div>
+
+                        {!isLocked && !isShutdown && (
+                            <button type="button" className="absolute right-3 bottom-[38px] cursor-pointer border-0 bg-transparent px-3 py-2 font-mono text-[0.48rem] tracking-[0.08em] text-muted underline decoration-dotted underline-offset-2 transition-colors hover:text-signal" onClick={onSkip}>
+                                SKIP BOOT ›
+                            </button>
+                        )}
 
                         <div className="flex justify-between bg-ink px-[15px] py-[11px] font-mono text-[0.52rem] tracking-[0.08em] text-[color-mix(in_srgb,var(--surface)_82%,var(--ink))] min-[561px]:text-[0.62rem]">
                             <span>© 2001—{new Date().getFullYear()} DEAN LONGSTAFF</span>

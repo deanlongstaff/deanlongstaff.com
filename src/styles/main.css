@@ -71,10 +71,6 @@
   color-scheme: light;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
@@ -98,14 +94,6 @@ body {
   a {
     color: inherit;
   }
-}
-
-.primary-color {
-  color: var(--primary-color);
-}
-
-.secondary-color {
-  color: var(--secondary-color);
 }
 
 .main-heading {
