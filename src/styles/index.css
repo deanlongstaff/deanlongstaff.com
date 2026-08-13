@@ -37,14 +37,15 @@
   --font-display: "Space Grotesk", sans-serif;
 }
 
-/* The tablet band (768-1199px) runs full-bleed; only true desktop gets the
-   narrow 60vw hero shell. Registered as a real breakpoint rather than an
-   arbitrary `min-[1200px]:` variant. Declared in rem to match the built-in
-   breakpoints: Tailwind orders media queries by the literal value, so a px
-   breakpoint sorts before `48rem` and `md:` would win at 1440px. */
+/* The tablet band (768-1199px) runs full-bleed; desktop gets a contained shell
+   that can use the available width at smaller laptop sizes before stopping at
+   a comfortable reading width. Registered as a real breakpoint rather than
+   an arbitrary `min-[1200px]:` variant. */
 @theme {
   --breakpoint-desk: 75rem;
   /* 1200px */
+  --breakpoint-wide: 90rem;
+  /* 1440px */
 }
 
 @plugin "daisyui" {

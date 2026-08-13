@@ -37,12 +37,12 @@ function Type() {
 function index() {
   return (
     <section id="welcome" className="relative">
-      {/* The tablet shell (768-1199px) runs full-bleed; only true desktop gets the 60vw column. */}
+      {/* The tablet shell (768-1199px) runs full-bleed; desktop gets a wider contained grid. */}
       <section
         className="welcome-section relative z-[2] flex min-h-0 items-center overflow-visible p-0 md:min-h-[790px]"
         id="home"
       >
-        <div className="welcome-content relative z-[1] mx-auto grid w-full grid-cols-1 items-center gap-4 px-3 pt-22 pb-8 text-left md:grid-cols-[1.15fr_0.85fr] md:gap-8 md:px-6 md:pt-44 md:pb-20 desk:w-[60vw] desk:gap-28">
+        <div className="welcome-content relative z-[1] mx-auto grid w-full grid-cols-1 items-center gap-4 px-3 pt-22 pb-8 text-left md:grid-cols-[1.15fr_0.85fr] md:gap-8 md:px-6 md:pt-44 md:pb-20 desk:w-[calc(100%-3rem)] desk:max-w-[1240px] desk:gap-28">
           <div className="pt-5 pb-2.5 text-center md:p-0 md:text-left">
             <div
               className="mb-[26px] inline-flex rotate-[-1.2deg] items-center gap-2 rounded-[5px] border-2 border-[var(--chrome-border)] bg-[var(--chrome-bg)] px-[9px] py-[7px] font-mono text-[0.5rem] tracking-[0.08em] text-mist shadow-[4px_4px_0_var(--primary-color),inset_0_1px_0_color-mix(in_srgb,white_20%,transparent)] md:mb-[18px] md:gap-3 md:text-[0.58rem]"
@@ -88,7 +88,7 @@ function index() {
 
           </div>
           <div className="group/photo relative flex items-center justify-center pt-4 pb-5 md:pt-5">
-            <div className="relative flex w-full max-w-[450px] items-center justify-center max-md:max-w-[290px] md:max-w-[min(34vw,360px)] desk:max-w-[450px]">
+            <div className="relative flex w-full max-w-[450px] items-center justify-center max-md:max-w-[290px] md:max-w-[min(34vw,360px)] desk:max-w-[min(30vw,380px)] wide:max-w-[450px]">
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 animate-[welcome-photo-ripple_3.6s_cubic-bezier(0.25,0.65,0.4,1)_infinite] rounded-full border-2 border-signal opacity-0 motion-reduce:animate-none motion-reduce:opacity-25" />
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 animate-[welcome-photo-ripple_3.6s_cubic-bezier(0.25,0.65,0.4,1)_infinite] [animation-delay:1.2s] rounded-full border-2 border-sun opacity-0 motion-reduce:animate-none motion-reduce:opacity-25" />
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 animate-[welcome-photo-ripple_3.6s_cubic-bezier(0.25,0.65,0.4,1)_infinite] [animation-delay:2.4s] rounded-full border-2 border-aqua opacity-0 motion-reduce:animate-none motion-reduce:opacity-25" />
