@@ -36,13 +36,13 @@ function Type() {
 
 function index() {
   return (
-    <section id="welcome">
+    <section id="welcome" className="relative">
       {/* The tablet shell (768-1199px) runs full-bleed; only true desktop gets the 60vw column. */}
       <section
         className="welcome-section relative z-[2] flex min-h-0 items-center overflow-visible p-0 md:min-h-[790px]"
         id="home"
       >
-        <div className="relative z-[1] mx-auto grid w-full grid-cols-1 items-center gap-4 px-3 pt-22 pb-8 text-left md:grid-cols-[1.15fr_0.85fr] md:gap-8 md:px-6 md:pt-44 md:pb-20 desk:w-[60vw] desk:gap-28">
+        <div className="welcome-content relative z-[1] mx-auto grid w-full grid-cols-1 items-center gap-4 px-3 pt-22 pb-8 text-left md:grid-cols-[1.15fr_0.85fr] md:gap-8 md:px-6 md:pt-44 md:pb-20 desk:w-[60vw] desk:gap-28">
           <div className="pt-5 pb-2.5 text-center md:p-0 md:text-left">
             <div
               className="mb-[26px] inline-flex rotate-[-1.2deg] items-center gap-2 rounded-[5px] border-2 border-[var(--chrome-border)] bg-[var(--chrome-bg)] px-[9px] py-[7px] font-mono text-[0.5rem] tracking-[0.08em] text-mist shadow-[4px_4px_0_var(--primary-color),inset_0_1px_0_color-mix(in_srgb,white_20%,transparent)] md:mb-[18px] md:gap-3 md:text-[0.58rem]"
@@ -111,30 +111,30 @@ function index() {
             </div>
           </div>
         </div>
-        <button
-          type="button"
-          className="group absolute bottom-[-0.75rem] left-1/2 z-[3] flex w-[calc(100%-1rem)] -translate-x-1/2 rotate-[-1.2deg] cursor-pointer items-center overflow-hidden rounded-md border-2 border-[var(--chrome-border)] bg-[var(--chrome-bg)] p-0 font-inherit text-mist shadow-[7px_7px_0_var(--primary-color),inset_0_1px_0_color-mix(in_srgb,white_24%,transparent)] focus-visible:[outline:2px_solid_var(--sun)] focus-visible:outline-offset-2 md:bottom-[-1.2rem] md:w-[min(86%,940px)]"
-          onClick={() => {
-            const target = document.getElementById("aboutme");
-            if (target) {
-              target.scrollIntoView({ behavior: "smooth" });
-            } else {
-              window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
-            }
-          }}
-          aria-label="Scroll to explore"
-        >
-          <span className="relative z-[2] shrink-0 overflow-hidden bg-sun px-2 py-[9px] font-mono text-[0.48rem] font-medium tracking-[0.08em] text-navy shadow-[inset_0_1px_0_rgba(255,255,255,.35),inset_0_-3px_4px_rgba(0,0,0,.12)] transition-[filter,box-shadow] duration-150 ease-[ease] after:absolute after:inset-0 after:z-[1] after:bg-[linear-gradient(115deg,rgba(255,255,255,.55)_0%,rgba(255,255,255,.12)_22%,transparent_45%,transparent_70%,rgba(255,255,255,.18)_100%)] after:bg-[length:220%_220%] after:bg-[position:0%_0%] after:opacity-35 after:transition-[opacity,background-position] after:duration-[400ms] after:ease-[ease] after:content-[''] after:pointer-events-none group-hover:brightness-110 group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,.55),inset_0_-5px_8px_rgba(0,0,0,.2)] group-hover:after:opacity-60 group-hover:after:bg-[position:100%_100%] group-focus-visible:brightness-110 group-focus-visible:shadow-[inset_0_1px_0_rgba(255,255,255,.55),inset_0_-5px_8px_rgba(0,0,0,.2)] group-focus-visible:after:opacity-60 group-focus-visible:after:bg-[position:100%_100%] group-active:brightness-[.94] group-active:shadow-[inset_0_2px_6px_rgba(0,0,0,.35)] md:px-[15px] md:py-[11px] md:text-[0.6rem]">
-            SCROLL TO EXPLORE
-          </span>
-          <span className="min-w-0 flex-auto overflow-hidden">
-            <span className="flex w-max animate-[welcome-marquee_24s_linear_infinite] font-mono text-[0.68rem] tracking-[0.16em] text-aqua motion-reduce:animate-none">
-              <span className="block flex-none pl-3 text-[0.5rem] md:pl-5 md:text-[0.68rem]">BUILT IT &nbsp;✦&nbsp; BROKE IT &nbsp;✦&nbsp; FIXED IT &nbsp;✦&nbsp; PRESSED BUTTONS &nbsp;✦&nbsp; SAW WHAT HAPPENED &nbsp;✦&nbsp; DONE IT AGAIN &nbsp;✦&nbsp;</span>
-              <span className="block flex-none pl-3 text-[0.5rem] md:pl-5 md:text-[0.68rem]" aria-hidden="true">BUILT IT &nbsp;✦&nbsp; BROKE IT &nbsp;✦&nbsp; FIXED IT &nbsp;✦&nbsp; PRESSED BUTTONS &nbsp;✦&nbsp; SAW WHAT HAPPENED &nbsp;✦&nbsp; DONE IT AGAIN &nbsp;✦&nbsp;</span>
-            </span>
-          </span>
-        </button>
       </section>
+      <button
+        type="button"
+        className="welcome-scroll-rail group absolute bottom-[-0.75rem] left-1/2 z-[5] flex w-[calc(100%-1rem)] -translate-x-1/2 rotate-[-1.2deg] cursor-pointer items-center overflow-hidden rounded-md border-2 border-[var(--chrome-border)] bg-[var(--chrome-bg)] p-0 font-inherit text-mist shadow-[7px_7px_0_var(--primary-color),inset_0_1px_0_color-mix(in_srgb,white_24%,transparent)] focus-visible:[outline:2px_solid_var(--sun)] focus-visible:outline-offset-2 md:bottom-[-1.2rem] md:w-[min(86%,940px)]"
+        onClick={() => {
+          const target = document.getElementById("aboutme");
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          } else {
+            window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+          }
+        }}
+        aria-label="Scroll to explore"
+      >
+        <span className="relative z-[2] shrink-0 overflow-hidden bg-sun px-2 py-[9px] font-mono text-[0.48rem] font-medium tracking-[0.08em] text-navy shadow-[inset_0_1px_0_rgba(255,255,255,.35),inset_0_-3px_4px_rgba(0,0,0,.12)] transition-[filter,box-shadow] duration-150 ease-[ease] after:absolute after:inset-0 after:z-[1] after:bg-[linear-gradient(115deg,rgba(255,255,255,.55)_0%,rgba(255,255,255,.12)_22%,transparent_45%,transparent_70%,rgba(255,255,255,.18)_100%)] after:bg-[length:220%_220%] after:bg-[position:0%_0%] after:opacity-35 after:transition-[opacity,background-position] after:duration-[400ms] after:ease-[ease] after:content-[''] after:pointer-events-none group-hover:brightness-110 group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,.55),inset_0_-5px_8px_rgba(0,0,0,.2)] group-hover:after:opacity-60 group-hover:after:bg-[position:100%_100%] group-focus-visible:brightness-110 group-focus-visible:shadow-[inset_0_1px_0_rgba(255,255,255,.55),inset_0_-5px_8px_rgba(0,0,0,.2)] group-focus-visible:after:opacity-60 group-focus-visible:after:bg-[position:100%_100%] group-active:brightness-[.94] group-active:shadow-[inset_0_2px_6px_rgba(0,0,0,.35)] md:px-[15px] md:py-[11px] md:text-[0.6rem]">
+          SCROLL TO EXPLORE
+        </span>
+        <span className="min-w-0 flex-auto overflow-hidden">
+          <span className="flex w-max animate-[welcome-marquee_24s_linear_infinite] font-mono text-[0.68rem] tracking-[0.16em] text-aqua motion-reduce:animate-none">
+            <span className="block flex-none pl-3 text-[0.5rem] md:pl-5 md:text-[0.68rem]">BUILT IT &nbsp;✦&nbsp; BROKE IT &nbsp;✦&nbsp; FIXED IT &nbsp;✦&nbsp; PRESSED BUTTONS &nbsp;✦&nbsp; SAW WHAT HAPPENED &nbsp;✦&nbsp; DONE IT AGAIN &nbsp;✦&nbsp;</span>
+            <span className="block flex-none pl-3 text-[0.5rem] md:pl-5 md:text-[0.68rem]" aria-hidden="true">BUILT IT &nbsp;✦&nbsp; BROKE IT &nbsp;✦&nbsp; FIXED IT &nbsp;✦&nbsp; PRESSED BUTTONS &nbsp;✦&nbsp; SAW WHAT HAPPENED &nbsp;✦&nbsp; DONE IT AGAIN &nbsp;✦&nbsp;</span>
+          </span>
+        </span>
+      </button>
     </section>
   );
 }

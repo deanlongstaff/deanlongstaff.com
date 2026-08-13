@@ -1,0 +1,1120 @@
+/* The DO NOT PRESS infection, meltdown, and DEAN.OS reboot sequence. */
+/* Once the forbidden button is pressed, the little glitch leaks into the rest
+   of the page before the component cleans the infection up again. The page
+   tears itself apart in a staggered sequence, then the reboot screen briefly
+   takes over before everything snaps back to normal. */
+body.site-is-infected {
+  overflow-x: hidden;
+}
+
+body.site-is-infected #aboutme,
+body.site-is-infected #mywork,
+body.site-is-infected #sideprojects,
+body.site-is-infected #hobbies,
+body.site-is-infected .navbar,
+body.site-is-infected footer {
+  animation: aboutme-site-meltdown 7s steps(2, end) both;
+}
+
+/* The hero owns the protruding scroll strip, so keep its stacking context
+   above the next section while it is glitching. */
+body.site-is-infected #welcome {
+  position: relative;
+  z-index: 4;
+}
+
+body.site-is-infected #home {
+  animation: aboutme-site-meltdown 7s steps(2, end) both;
+}
+
+/* The scroll rail sits outside the hero's clipping context, but it still
+   needs to participate in the meltdown as its own little surface. */
+body.site-is-infected #welcome .welcome-scroll-rail {
+  animation: aboutme-site-meltdown 7s steps(2, end) both;
+  animation-delay: 260ms;
+}
+
+body.site-is-infected #aboutme {
+  animation-delay: 220ms;
+}
+
+body.site-is-infected #mywork {
+  animation-delay: 520ms;
+}
+
+body.site-is-infected #sideprojects {
+  animation-delay: 820ms;
+}
+
+body.site-is-infected #hobbies {
+  animation-delay: 1120ms;
+}
+
+body.site-is-infected footer {
+  animation-delay: 1420ms;
+}
+
+/* The blank moment is intentional: it makes the reset feel like a real
+   machine reboot instead of simply stopping an animation. */
+body.site-is-rebooting {
+  overflow: hidden;
+  background: var(--ink);
+}
+
+body.site-is-rebooting::before,
+body.site-is-rebooting::after {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+body.site-is-rebooting::before {
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(color-mix(in srgb, var(--secondary-color) 7%, transparent) 50%, transparent 50%),
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--secondary-color) 12%, var(--ink)), var(--ink) 62%);
+  background-size: 100% 4px, 100% 100%;
+  animation: aboutme-reboot-scan 360ms steps(2, end) infinite;
+}
+
+body.site-is-rebooting::after {
+  top: 50%;
+  left: 50%;
+  width: min(88vw, 460px);
+  padding: 1.1rem 1.4rem;
+  border: 1px solid color-mix(in srgb, var(--secondary-color) 55%, transparent);
+  color: var(--secondary-color);
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--primary-color) 45%, transparent), inset 0 0 24px color-mix(in srgb, var(--secondary-color) 12%, transparent);
+  content: "DEAN_OS // REBOOTING...";
+  font-family: "DM Mono", monospace;
+  font-size: clamp(0.72rem, 2vw, 0.95rem);
+  letter-spacing: 0.14em;
+  text-align: center;
+  transform: translate(-50%, -50%) rotate(-1deg);
+  animation: aboutme-reboot-text 720ms steps(2, end) infinite;
+}
+
+/* The reboot panel exits to the right as the page rebuilds underneath it. */
+body.site-is-infected.site-is-restoring #home,
+body.site-is-infected.site-is-restoring #welcome .welcome-scroll-rail,
+body.site-is-infected.site-is-restoring #aboutme,
+body.site-is-infected.site-is-restoring #mywork,
+body.site-is-infected.site-is-restoring #sideprojects,
+body.site-is-infected.site-is-restoring #hobbies,
+body.site-is-infected.site-is-restoring .navbar,
+body.site-is-infected.site-is-restoring footer {
+  animation: aboutme-site-restore 900ms cubic-bezier(0.18, 0.9, 0.28, 1) both;
+}
+
+body.site-is-infected.site-is-restoring #home {
+  animation-delay: 40ms;
+}
+
+body.site-is-infected.site-is-restoring #welcome .welcome-scroll-rail {
+  animation-delay: 120ms;
+}
+
+body.site-is-infected.site-is-restoring #aboutme {
+  animation-delay: 110ms;
+}
+
+body.site-is-infected.site-is-restoring #mywork {
+  animation-delay: 180ms;
+}
+
+body.site-is-infected.site-is-restoring #sideprojects {
+  animation-delay: 250ms;
+}
+
+body.site-is-infected.site-is-restoring #hobbies,
+body.site-is-infected.site-is-restoring footer {
+  animation-delay: 320ms;
+}
+
+body.site-is-rebooting.site-is-restoring::before {
+  animation: aboutme-reboot-fade-out 1200ms ease-out both;
+}
+
+body.site-is-rebooting.site-is-restoring::after {
+  animation: aboutme-reboot-exit 1200ms cubic-bezier(0.55, 0.05, 0.9, 0.35) both;
+}
+
+body.site-is-infected .navbar,
+body.site-is-infected footer {
+  filter: saturate(1.35) contrast(1.12);
+}
+
+body.site-is-infected #welcome,
+body.site-is-infected #home,
+body.site-is-infected #aboutme,
+body.site-is-infected #mywork,
+body.site-is-infected #sideprojects,
+body.site-is-infected .hobbies-section {
+  isolation: isolate;
+}
+
+/* The infection now burns into each surface instead of sitting over the page. */
+.aboutme-paper__burning-edge {
+  position: absolute;
+  z-index: 0;
+  right: 2%;
+  bottom: -3px;
+  left: 2%;
+  height: 44px;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 9% 100%, var(--coral) 0 7%, transparent 30%),
+    radial-gradient(ellipse at 24% 100%, var(--primary-color) 0 9%, transparent 31%),
+    radial-gradient(ellipse at 39% 100%, var(--sun) 0 6%, transparent 25%),
+    radial-gradient(ellipse at 57% 100%, var(--coral) 0 10%, transparent 32%),
+    radial-gradient(ellipse at 74% 100%, var(--primary-color) 0 7%, transparent 28%),
+    radial-gradient(ellipse at 91% 100%, var(--sun) 0 6%, transparent 25%);
+  filter: blur(3px) saturate(1.3);
+  transform: translateY(16px) scaleY(0.35);
+  transform-origin: bottom;
+}
+
+body.site-is-infected .aboutme-paper__burning-edge {
+  opacity: 0.78;
+  animation: aboutme-burn-edge 760ms steps(3, end) infinite;
+}
+
+body.site-is-infected #aboutme.aboutme-section--infection-2 .aboutme-paper__burning-edge {
+  opacity: 0.9;
+}
+
+body.site-is-infected #aboutme.aboutme-section--infection-3 .aboutme-paper__burning-edge {
+  opacity: 1;
+  filter: blur(3px) saturate(1.55);
+}
+
+body.site-is-infected #aboutme .aboutme-paper {
+  animation: aboutme-paper-burn 1.2s steps(2, end) infinite;
+  box-shadow: 9px 10px 0 color-mix(in srgb, var(--primary-color) 35%, transparent), 0 24px 40px color-mix(in srgb, var(--ink) 16%, transparent), inset 0 1px 0 rgba(255, 255, 255, .72), 0 0 22px color-mix(in srgb, var(--coral) 28%, transparent);
+}
+
+body.site-is-infected #aboutme .aboutme-paper::before {
+  color: var(--sun);
+  background: linear-gradient(180deg, var(--coral), var(--primary-deep));
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--ink) 24%, transparent), 0 0 14px color-mix(in srgb, var(--coral) 52%, transparent);
+  animation: aboutme-label-burn 620ms steps(2, end) infinite;
+}
+
+body.site-is-infected .welcome-content::after {
+  position: absolute;
+  right: 14%;
+  bottom: 4%;
+  left: 3%;
+  height: 92px;
+  pointer-events: none;
+  content: "";
+  opacity: 0.55;
+  background:
+    radial-gradient(ellipse at 8% 100%, var(--coral) 0 5%, transparent 25%),
+    radial-gradient(ellipse at 21% 100%, var(--primary-color) 0 8%, transparent 28%),
+    radial-gradient(ellipse at 36% 100%, var(--sun) 0 5%, transparent 22%),
+    radial-gradient(ellipse at 54% 100%, var(--coral) 0 7%, transparent 26%),
+    radial-gradient(ellipse at 74% 100%, var(--primary-color) 0 6%, transparent 24%);
+  filter: blur(5px) saturate(1.35);
+  transform: scaleY(0.28);
+  transform-origin: bottom;
+  animation: aboutme-flame-flicker 820ms steps(3, end) infinite;
+}
+
+body.site-is-infected .welcome-content h1:last-of-type,
+body.site-is-infected #mywork>div>h1,
+body.site-is-infected #sideprojects h1,
+body.site-is-infected #hobbies h1 {
+  animation: aboutme-text-scorch 1.15s steps(2, end) infinite;
+}
+
+body.site-is-infected .welcome-content img {
+  border-radius: 50%;
+  animation: aboutme-photo-scorch 1.4s steps(2, end) infinite;
+}
+
+body.site-is-infected #mywork>div>div,
+body.site-is-infected #skills,
+body.site-is-infected #sideprojects article,
+body.site-is-infected #hobbies article {
+  animation: aboutme-component-scorch 1.05s steps(2, end) infinite;
+}
+
+body.site-is-infected #mywork>div>div::after,
+body.site-is-infected #skills::after,
+body.site-is-infected #sideprojects article::after,
+body.site-is-infected #hobbies article::after {
+  position: absolute;
+  z-index: 0;
+  right: -4%;
+  bottom: -6px;
+  left: -4%;
+  height: 38px;
+  pointer-events: none;
+  content: "";
+  opacity: 0.55;
+  background:
+    radial-gradient(ellipse at 8% 100%, var(--coral) 0 7%, transparent 28%),
+    radial-gradient(ellipse at 22% 100%, var(--primary-color) 0 10%, transparent 30%),
+    radial-gradient(ellipse at 41% 100%, var(--sun) 0 6%, transparent 23%),
+    radial-gradient(ellipse at 63% 100%, var(--coral) 0 9%, transparent 30%),
+    radial-gradient(ellipse at 86% 100%, var(--primary-color) 0 8%, transparent 26%);
+  filter: blur(3px) saturate(1.35);
+  transform-origin: bottom;
+  animation: aboutme-card-fire 680ms steps(3, end) infinite;
+}
+
+body.site-is-infected #mywork>div>div>div,
+body.site-is-infected #skills>div,
+body.site-is-infected #sideprojects article>div,
+body.site-is-infected #hobbies article>* {
+  position: relative;
+  z-index: 1;
+}
+
+body.site-is-infected #skills a:nth-child(3n)>div,
+body.site-is-infected #hobbies article:nth-of-type(3n) img,
+body.site-is-infected #sideprojects article img {
+  animation: aboutme-edge-glitch 940ms steps(2, end) infinite;
+}
+
+body.site-is-infected footer {
+  position: relative;
+  overflow: hidden;
+}
+
+body.site-is-infected footer::before {
+  position: absolute;
+  top: -8px;
+  right: 8%;
+  left: 8%;
+  height: 28px;
+  pointer-events: none;
+  content: "";
+  opacity: 0.65;
+  background: radial-gradient(ellipse at 14% 100%, var(--coral) 0 7%, transparent 29%), radial-gradient(ellipse at 38% 100%, var(--sun) 0 8%, transparent 31%), radial-gradient(ellipse at 68% 100%, var(--primary-color) 0 7%, transparent 27%), radial-gradient(ellipse at 89% 100%, var(--coral) 0 6%, transparent 24%);
+  filter: blur(3px);
+  animation: aboutme-card-fire 720ms steps(3, end) infinite;
+}
+
+/* A shared flame silhouette keeps every burn edge anchored to its component.
+   The uneven crown creates tongues; the layered colour gives each tongue a
+   hot yellow tip, orange body, and darker red base instead of a flat bar. */
+.aboutme-paper__burning-edge,
+body.site-is-infected .welcome-content::after,
+body.site-is-infected #mywork>div>div::after,
+body.site-is-infected #skills::after,
+body.site-is-infected #sideprojects article::after,
+body.site-is-infected #hobbies article::after {
+  right: 0;
+  left: 0;
+  background:
+    radial-gradient(ellipse at 18% 92%, color-mix(in srgb, white 35%, var(--sun)) 0 4%, transparent 13%),
+    radial-gradient(ellipse at 47% 86%, color-mix(in srgb, white 28%, var(--sun)) 0 5%, transparent 15%),
+    radial-gradient(ellipse at 76% 94%, color-mix(in srgb, white 24%, var(--sun)) 0 4%, transparent 12%),
+    linear-gradient(180deg, color-mix(in srgb, var(--sun) 92%, white) 0%, var(--primary-color) 42%, var(--primary-deep) 100%);
+  clip-path: polygon(0 100%, 0 76%, 4% 88%, 8% 42%, 12% 80%, 17% 58%, 21% 91%, 26% 31%, 31% 73%, 36% 50%, 40% 86%, 45% 24%, 50% 75%, 55% 44%, 59% 89%, 64% 55%, 69% 34%, 74% 79%, 79% 47%, 84% 90%, 89% 60%, 94% 37%, 97% 75%, 100% 57%, 100% 100%);
+  border-radius: 50% 50% 10% 10% / 65% 65% 8% 8%;
+  filter: blur(1.35px) drop-shadow(0 -3px 3px color-mix(in srgb, var(--coral) 48%, transparent));
+  mix-blend-mode: screen;
+}
+
+.aboutme-paper__burning-edge {
+  bottom: -3px;
+  height: 78px;
+}
+
+body.site-is-infected .welcome-content::after {
+  bottom: 4%;
+  height: 148px;
+}
+
+body.site-is-infected #mywork>div>div::after,
+body.site-is-infected #skills::after,
+body.site-is-infected #sideprojects article::after,
+body.site-is-infected #hobbies article::after {
+  bottom: -1px;
+  height: 72px;
+}
+
+body.site-is-infected footer::before {
+  right: 0;
+  left: 0;
+  height: 52px;
+  background:
+    radial-gradient(ellipse at 20% 15%, color-mix(in srgb, white 28%, var(--sun)) 0 4%, transparent 13%),
+    radial-gradient(ellipse at 52% 22%, color-mix(in srgb, white 22%, var(--sun)) 0 5%, transparent 15%),
+    radial-gradient(ellipse at 82% 17%, color-mix(in srgb, white 18%, var(--sun)) 0 4%, transparent 12%),
+    linear-gradient(180deg, var(--primary-deep) 0%, var(--primary-color) 55%, var(--sun) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 96% 39%, 92% 76%, 88% 31%, 83% 67%, 78% 22%, 73% 72%, 68% 37%, 63% 80%, 58% 28%, 53% 64%, 48% 20%, 43% 73%, 38% 35%, 33% 79%, 28% 26%, 23% 68%, 18% 38%, 13% 74%, 8% 29%, 4% 62%, 0 43%);
+  filter: drop-shadow(0 3px 3px color-mix(in srgb, var(--coral) 58%, transparent));
+}
+
+/* The forbidden button is a tiny arcade cabinet hidden in the copy. */
+.aboutme-do-not-press {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-inline: 0.2em;
+  transform: translateY(-0.08em) rotate(-1.5deg);
+  cursor: pointer;
+  border: 2px solid var(--primary-deep);
+  border-radius: 4px;
+  padding: 0.08em 0.4em 0.12em;
+  color: var(--primary-deep);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sun) 72%, var(--surface)), color-mix(in srgb, var(--primary-color) 20%, var(--surface)));
+  font: inherit;
+  font-size: 0.9em;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  box-shadow: 2px 3px 0 var(--primary-deep), inset 0 1px 0 color-mix(in srgb, white 75%, transparent);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+.aboutme-do-not-press::before,
+.aboutme-do-not-press::after {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  color: var(--secondary-color);
+  font-family: "DM Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.aboutme-do-not-press::before {
+  top: -1.15rem;
+  left: -0.8rem;
+  content: "✦";
+}
+
+.aboutme-do-not-press::after {
+  right: -0.9rem;
+  bottom: -0.8rem;
+  content: "✹";
+  color: var(--coral);
+}
+
+.aboutme-do-not-press:hover {
+  transform: translateY(-0.16em) rotate(2deg) scale(1.04);
+  filter: saturate(1.2);
+}
+
+.aboutme-do-not-press:active {
+  transform: translate(2px, 2px) rotate(-1deg);
+  box-shadow: 0 1px 0 var(--primary-deep), inset 0 1px 0 color-mix(in srgb, white 50%, transparent);
+}
+
+.aboutme-section--easter-egg .aboutme-paper {
+  animation: aboutme-paper-wobble 850ms cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+.aboutme-section--easter-egg .aboutme-do-not-press {
+  z-index: 1;
+  animation: aboutme-button-bounce 720ms cubic-bezier(0.2, 1.5, 0.35, 1);
+}
+
+.aboutme-section--easter-egg .aboutme-do-not-press::before {
+  animation: aboutme-spark-left 850ms ease-out both;
+}
+
+.aboutme-section--easter-egg .aboutme-do-not-press::after {
+  animation: aboutme-spark-right 850ms ease-out 80ms both;
+}
+
+.aboutme-easter-egg {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1rem auto 0;
+  transform: rotate(-1deg);
+  border: 1px dashed color-mix(in srgb, var(--primary-color) 70%, transparent);
+  border-radius: 5px;
+  padding: 0.55rem 0.7rem;
+  color: var(--primary-deep);
+  background: color-mix(in srgb, var(--sun) 16%, var(--paper));
+  box-shadow: 3px 4px 0 color-mix(in srgb, var(--secondary-color) 35%, transparent), inset 0 1px 0 color-mix(in srgb, white 55%, transparent);
+  text-align: left;
+  animation: aboutme-console-pop 480ms cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+.aboutme-easter-egg__icon {
+  display: grid;
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--surface);
+  background: var(--primary-color);
+  font-size: 0.9rem;
+  animation: aboutme-icon-spin 900ms ease-out both;
+}
+
+.aboutme-easter-egg__copy {
+  display: grid;
+  gap: 0.16rem;
+  min-width: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  line-height: 1.35;
+}
+
+.aboutme-easter-egg__copy strong {
+  color: var(--ink);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.aboutme-easter-egg__count {
+  align-self: flex-start;
+  margin-left: auto;
+  color: var(--secondary-color);
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@keyframes aboutme-paper-wobble {
+
+  0%,
+  100% {
+    transform: rotate(-0.35deg);
+  }
+
+  18% {
+    transform: rotate(1deg) translateX(-3px);
+  }
+
+  38% {
+    transform: rotate(-1.2deg) translateX(4px);
+  }
+
+  58% {
+    transform: rotate(0.7deg) translateX(-2px);
+  }
+
+  78% {
+    transform: rotate(-0.65deg) translateX(1px);
+  }
+}
+
+@keyframes aboutme-button-bounce {
+  0% {
+    transform: translateY(-0.08em) rotate(-1.5deg) scale(1);
+  }
+
+  32% {
+    transform: translateY(-0.28em) rotate(7deg) scale(1.16);
+  }
+
+  62% {
+    transform: translateY(0.04em) rotate(-8deg) scale(0.96);
+  }
+
+  100% {
+    transform: translateY(-0.08em) rotate(-1.5deg) scale(1);
+  }
+}
+
+@keyframes aboutme-spark-left {
+  0% {
+    opacity: 0;
+    transform: translate(0.4rem, 0.5rem) scale(0);
+  }
+
+  35% {
+    opacity: 1;
+    transform: translate(-0.25rem, -0.2rem) scale(1.3) rotate(28deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-0.9rem, -0.75rem) scale(0.4) rotate(72deg);
+  }
+}
+
+@keyframes aboutme-spark-right {
+  0% {
+    opacity: 0;
+    transform: translate(-0.35rem, -0.3rem) scale(0);
+  }
+
+  35% {
+    opacity: 1;
+    transform: translate(0.2rem, 0.1rem) scale(1.35) rotate(-20deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0.85rem, 0.7rem) scale(0.35) rotate(-65deg);
+  }
+}
+
+@keyframes aboutme-console-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.55rem) rotate(-5deg) scale(0.88);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(0.1rem) rotate(1.5deg) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(-1deg) scale(1);
+  }
+}
+
+@keyframes aboutme-icon-spin {
+  0% {
+    transform: rotate(-90deg) scale(0.2);
+  }
+
+  70% {
+    transform: rotate(20deg) scale(1.15);
+  }
+
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes aboutme-burn-edge {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateY(15px) scaleY(0.28) skewX(-2deg);
+  }
+
+  28% {
+    opacity: 0.9;
+    transform: translateY(5px) scaleY(0.72) skewX(2deg);
+  }
+
+  52% {
+    opacity: 0.62;
+    transform: translateY(10px) scaleY(0.45) skewX(-3deg);
+  }
+
+  76% {
+    opacity: 0.86;
+    transform: translateY(2px) scaleY(0.82) skewX(1deg);
+  }
+}
+
+@keyframes aboutme-paper-burn {
+
+  0%,
+  100% {
+    filter: none;
+    transform: rotate(-0.35deg);
+  }
+
+  24% {
+    filter: sepia(0.16) saturate(1.25);
+    transform: rotate(0.2deg) translateX(-2px);
+  }
+
+  27% {
+    filter: contrast(1.18) saturate(1.45);
+    transform: rotate(-0.5deg) translateX(3px);
+  }
+
+  58% {
+    filter: sepia(0.12) saturate(1.18);
+    transform: rotate(-0.1deg) translateX(-1px);
+  }
+}
+
+@keyframes aboutme-label-burn {
+
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: translateY(0) rotate(0);
+  }
+
+  35% {
+    filter: brightness(1.3) saturate(1.5);
+    transform: translateY(-1px) rotate(-1deg);
+  }
+
+  39% {
+    filter: brightness(0.85);
+    transform: translateY(1px) rotate(1deg);
+  }
+}
+
+@keyframes aboutme-flame-flicker {
+
+  0%,
+  100% {
+    opacity: 0.32;
+    transform: scaleY(0.28) skewX(-2deg);
+  }
+
+  25% {
+    opacity: 0.62;
+    transform: scaleY(0.72) skewX(2deg);
+  }
+
+  44% {
+    opacity: 0.4;
+    transform: scaleY(0.42) skewX(-3deg);
+  }
+
+  69% {
+    opacity: 0.58;
+    transform: scaleY(0.84) skewX(1deg);
+  }
+}
+
+@keyframes aboutme-text-scorch {
+
+  0%,
+  100% {
+    filter: none;
+    text-shadow: none;
+    transform: translateX(0);
+  }
+
+  18% {
+    filter: sepia(0.45) saturate(1.65);
+    text-shadow: 2px 0 color-mix(in srgb, var(--coral) 60%, transparent), -2px 0 color-mix(in srgb, var(--secondary-color) 55%, transparent);
+    transform: translateX(1px);
+  }
+
+  21% {
+    filter: contrast(1.2);
+    text-shadow: -2px 0 color-mix(in srgb, var(--coral) 55%, transparent);
+    transform: translateX(-2px);
+  }
+
+  54% {
+    filter: sepia(0.2) saturate(1.25);
+    text-shadow: 1px 0 color-mix(in srgb, var(--sun) 60%, transparent);
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutme-photo-scorch {
+
+  0%,
+  100% {
+    filter: none;
+    transform: none;
+  }
+
+  22% {
+    filter: sepia(0.28) saturate(1.4) contrast(1.1);
+    transform: translateX(1px) rotate(0.3deg);
+  }
+
+  25% {
+    filter: contrast(1.18) brightness(1.08);
+    transform: translateX(-2px) rotate(-0.25deg);
+  }
+
+  63% {
+    filter: sepia(0.18) saturate(1.25);
+    transform: none;
+  }
+}
+
+@keyframes aboutme-component-scorch {
+
+  0%,
+  100% {
+    filter: none;
+    clip-path: inset(0);
+    transform: none;
+  }
+
+  16% {
+    filter: sepia(0.15) saturate(1.25);
+    clip-path: polygon(0 0, 100% 0, 99.7% 100%, 0.2% 99.4%);
+    transform: translateX(2px) rotate(0.15deg);
+  }
+
+  20% {
+    filter: contrast(1.15) saturate(1.45);
+    clip-path: inset(0.4% 0.2% 0.7% 0.3%);
+    transform: translateX(-2px) rotate(-0.2deg);
+  }
+
+  24% {
+    filter: none;
+    clip-path: inset(0);
+    transform: none;
+  }
+
+  58% {
+    filter: sepia(0.12) saturate(1.22);
+    transform: translateX(1px);
+  }
+}
+
+@keyframes aboutme-card-fire {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.28) skewX(-2deg);
+  }
+
+  26% {
+    opacity: 0.72;
+    transform: scaleY(0.92) skewX(2deg);
+  }
+
+  45% {
+    opacity: 0.42;
+    transform: scaleY(0.48) skewX(-3deg);
+  }
+
+  71% {
+    opacity: 0.65;
+    transform: scaleY(0.78) skewX(1deg);
+  }
+}
+
+@keyframes aboutme-edge-glitch {
+
+  0%,
+  100% {
+    filter: none;
+    clip-path: inset(0);
+  }
+
+  20% {
+    filter: sepia(0.28) saturate(1.5);
+    clip-path: polygon(0 0, 100% 0, 99% 100%, 0 98%);
+  }
+
+  24% {
+    filter: contrast(1.2);
+    clip-path: inset(0.5% 0.3% 0.8% 0.2%);
+  }
+
+  28% {
+    filter: none;
+    clip-path: inset(0);
+  }
+}
+
+@keyframes aboutme-page-disintegrate {
+
+  0%,
+  100% {
+    clip-path: inset(0);
+    filter: none;
+    transform: none;
+  }
+
+  9% {
+    clip-path: polygon(0 0, 100% 0, 99.7% 100%, 0.2% 99.7%);
+    filter: saturate(1.35) contrast(1.08);
+    transform: translateX(3px) skewX(0.15deg);
+  }
+
+  12% {
+    clip-path: polygon(0.4% 0, 99.5% 0.5%, 100% 99.5%, 0.2% 100%);
+    filter: contrast(1.2) brightness(1.05);
+    transform: translateX(-4px) skewX(-0.2deg);
+  }
+
+  15% {
+    clip-path: inset(0.35% 0.15% 0.55% 0.3%);
+    filter: saturate(0.75) contrast(1.28);
+    transform: translateX(2px);
+  }
+
+  18% {
+    clip-path: inset(0);
+    filter: none;
+    transform: none;
+  }
+
+  36% {
+    clip-path: polygon(0 0.25%, 99.8% 0, 100% 99.7%, 0.4% 100%);
+    filter: saturate(1.25) hue-rotate(8deg);
+    transform: translateX(-2px) skewX(0.12deg);
+  }
+
+  39% {
+    clip-path: inset(0.55% 0.25% 0.25% 0.15%);
+    filter: contrast(1.16);
+    transform: translateX(3px);
+  }
+
+  43% {
+    clip-path: inset(0);
+    filter: none;
+    transform: none;
+  }
+}
+
+@keyframes aboutme-site-meltdown {
+
+  0%,
+  8% {
+    clip-path: inset(0);
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  17% {
+    clip-path: polygon(0 0, 100% 0, 99.6% 100%, 0.3% 99.5%);
+    filter: saturate(1.35) contrast(1.12);
+    transform: translateX(4px) skewX(0.2deg);
+  }
+
+  28% {
+    clip-path: polygon(0 0, 35% 0, 35.8% 28%, 68% 27%, 67% 0, 100% 0, 100% 66%, 73% 65%, 74% 100%, 41% 100%, 42% 72%, 0 74%);
+    filter: contrast(1.3) saturate(1.5) hue-rotate(-7deg);
+    transform: translateX(-5px) skewX(-0.35deg) rotate(-0.25deg);
+  }
+
+  41% {
+    clip-path: polygon(0 0, 24% 0, 24% 18%, 82% 18%, 82% 38%, 48% 38%, 48% 57%, 100% 57%, 100% 100%, 69% 100%, 69% 79%, 0 79%);
+    filter: contrast(1.4) brightness(1.08) saturate(0.75);
+    opacity: 0.88;
+    transform: translate(7px, -2px) skewX(0.6deg) rotate(0.45deg);
+  }
+
+  55% {
+    clip-path: polygon(0 0, 14% 0, 14% 31%, 40% 31%, 40% 12%, 72% 12%, 72% 47%, 100% 47%, 100% 100%, 82% 100%, 82% 70%, 56% 70%, 56% 91%, 0 91%);
+    filter: contrast(1.55) brightness(1.18) saturate(0.55) blur(0.2px);
+    opacity: 0.68;
+    transform: translate(-8px, 3px) skewX(-0.9deg) rotate(-0.7deg);
+  }
+
+  70% {
+    clip-path: polygon(0 0, 9% 0, 9% 15%, 29% 15%, 29% 43%, 52% 43%, 52% 7%, 77% 7%, 77% 58%, 100% 58%, 100% 100%, 63% 100%, 63% 82%, 34% 82%, 34% 100%, 0 100%);
+    filter: contrast(1.7) saturate(0.35) blur(0.8px);
+    opacity: 0.38;
+    transform: translate(12px, -5px) skewX(1.2deg) rotate(1deg) scale(1.015);
+  }
+
+  86% {
+    clip-path: polygon(0 0, 7% 0, 7% 19%, 18% 19%, 18% 11%, 31% 11%, 31% 63%, 48% 63%, 48% 28%, 60% 28%, 60% 78%, 75% 78%, 75% 41%, 87% 41%, 87% 100%, 0 100%);
+    filter: contrast(1.9) saturate(0) blur(1.8px);
+    opacity: 0.12;
+    transform: translate(-16px, 8px) skewX(-1.6deg) rotate(-1.6deg) scale(0.98);
+  }
+
+  100% {
+    clip-path: inset(0 0 100% 100%);
+    filter: contrast(2) saturate(0) blur(4px);
+    opacity: 0;
+    transform: translate(24px, -12px) skewX(2deg) rotate(2deg) scale(0.94);
+  }
+}
+
+@keyframes aboutme-reboot-scan {
+
+  0%,
+  100% {
+    opacity: 0.82;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+}
+
+@keyframes aboutme-reboot-text {
+
+  0%,
+  100% {
+    opacity: 0.72;
+    filter: none;
+    transform: translate(-50%, -50%) rotate(-1deg);
+  }
+
+  46% {
+    opacity: 1;
+    filter: brightness(1.4);
+    transform: translate(-50%, -50%) rotate(0.5deg);
+  }
+
+  52% {
+    opacity: 0.42;
+    filter: contrast(1.8);
+    transform: translate(calc(-50% + 3px), -50%) rotate(-1deg);
+  }
+}
+
+@keyframes aboutme-reboot-fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  58% {
+    opacity: 0.78;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes aboutme-reboot-exit {
+  0% {
+    opacity: 1;
+    filter: none;
+    transform: translate(-50%, -50%) rotate(-1deg) scale(1);
+  }
+
+  24% {
+    opacity: 1;
+    filter: brightness(1.35);
+    transform: translate(calc(-50% + 5px), -50%) rotate(0.5deg) scale(1.02);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(3px);
+    transform: translate(58vw, -50%) rotate(7deg) scale(0.78);
+  }
+}
+
+@keyframes aboutme-site-restore {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    filter: blur(5px) saturate(0.45) contrast(1.35);
+    opacity: 0;
+    transform: translateX(-8vw) rotate(-2deg) scale(0.96);
+  }
+
+  58% {
+    clip-path: inset(0 8% 0 0);
+    filter: blur(1px) saturate(1.1);
+    opacity: 0.82;
+    transform: translateX(1.5vw) rotate(0.35deg) scale(1.01);
+  }
+
+  100% {
+    clip-path: inset(0);
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes aboutme-welcome-jitter {
+
+  0%,
+  100% {
+    filter: none;
+    transform: none;
+  }
+
+  12% {
+    filter: saturate(1.28) contrast(1.06);
+    transform: translateX(3px) skewX(0.12deg);
+  }
+
+  15% {
+    filter: contrast(1.18) brightness(1.04);
+    transform: translateX(-3px) skewX(-0.15deg);
+  }
+
+  22% {
+    filter: none;
+    transform: none;
+  }
+
+  48% {
+    filter: saturate(1.18) hue-rotate(6deg);
+    transform: translateX(2px);
+  }
+
+  52% {
+    filter: none;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .aboutme-section--easter-egg .aboutme-paper,
+  .aboutme-section--easter-egg .aboutme-do-not-press,
+  .aboutme-section--easter-egg .aboutme-do-not-press::before,
+  .aboutme-section--easter-egg .aboutme-do-not-press::after,
+  .aboutme-easter-egg,
+  .aboutme-easter-egg__icon,
+  body.site-is-infected #welcome,
+  body.site-is-infected #home,
+  body.site-is-infected #welcome .welcome-scroll-rail,
+  body.site-is-infected #aboutme,
+  body.site-is-infected #mywork,
+  body.site-is-infected #sideprojects,
+  body.site-is-infected #hobbies,
+  body.site-is-infected .navbar,
+  body.site-is-infected footer,
+  body.site-is-infected #aboutme .aboutme-paper,
+  body.site-is-infected #aboutme .aboutme-paper::before,
+  body.site-is-infected .welcome-content h1:last-of-type,
+  body.site-is-infected #mywork>div>h1,
+  body.site-is-infected #sideprojects h1,
+  body.site-is-infected #hobbies h1,
+  body.site-is-infected .welcome-content img,
+  body.site-is-infected #mywork>div>div,
+  body.site-is-infected #skills,
+  body.site-is-infected #sideprojects article,
+  body.site-is-infected #hobbies article,
+  body.site-is-infected #skills a:nth-child(3n)>div,
+  body.site-is-infected #hobbies article:nth-of-type(3n) img,
+  body.site-is-infected #sideprojects article img,
+  .aboutme-paper__burning-edge,
+  body.site-is-infected .welcome-content::after,
+  body.site-is-infected #mywork>div>div::after,
+  body.site-is-infected #skills::after,
+  body.site-is-infected #sideprojects article::after,
+  body.site-is-infected #hobbies article::after,
+  body.site-is-infected footer::before,
+  body.site-is-rebooting::before,
+  body.site-is-rebooting::after,
+  body.site-is-infected.site-is-restoring #home,
+  body.site-is-infected.site-is-restoring #welcome .welcome-scroll-rail,
+  body.site-is-infected.site-is-restoring #aboutme,
+  body.site-is-infected.site-is-restoring #mywork,
+  body.site-is-infected.site-is-restoring #sideprojects,
+  body.site-is-infected.site-is-restoring #hobbies,
+  body.site-is-infected.site-is-restoring .navbar,
+  body.site-is-infected.site-is-restoring footer {
+    animation: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .aboutme-easter-egg {
+    align-items: flex-start;
+    margin-top: 0.9rem;
+  }
+
+  .aboutme-easter-egg__count {
+    padding-top: 0.1rem;
+  }
+
+  body.site-is-infected .welcome-content::after {
+    right: 0;
+    left: 0;
+  }
+}
