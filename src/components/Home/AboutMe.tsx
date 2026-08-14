@@ -7,6 +7,7 @@
 // ----- Import the required modules
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import aboutPhoto from "../../assets/images/me-diy.jpeg";
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ----- Define the AboutMe component
@@ -70,10 +71,11 @@ function index() {
       : "Okay I get it, you like pressing buttons.";
 
   return (
-    <section
-      id="aboutme"
-      className={`aboutme-section relative overflow-hidden border-b border-b-line px-[14px] pt-[58px] pb-[50px] md:px-5 md:py-[120px] ${isEasterEggActive ? `aboutme-section--easter-egg aboutme-section--infection-${infectionLevel}` : ""}`}
-    >
+    <>
+      <section
+        id="aboutme"
+        className={`aboutme-section relative overflow-hidden border-b border-b-line px-[14px] pt-[58px] pb-[50px] md:px-5 md:py-[120px] ${isEasterEggActive ? `aboutme-section--easter-egg aboutme-section--infection-${infectionLevel}` : ""}`}
+      >
       <div
         id="about"
         className="aboutme-paper relative mx-auto max-w-7xl rounded-[6px] border border-[color-mix(in_srgb,var(--ink)_20%,transparent)] bg-paper bg-[linear-gradient(color-mix(in_srgb,var(--secondary-color)_13%,transparent)_1px,transparent_1px)] bg-[size:100%_30px] bg-[position:0_24px] px-[28px] pt-[34px] pb-[42px] shadow-[9px_10px_0_color-mix(in_srgb,var(--primary-color)_30%,transparent),0_24px_40px_color-mix(in_srgb,var(--ink)_16%,transparent),inset_0_1px_0_rgba(255,255,255,.72)] rotate-[-.35deg] before:absolute before:-top-[13px] before:left-6 before:rounded-[3px_3px_0_0] before:border before:border-ink before:px-[11px] before:py-[6px] before:font-mono before:text-[.52rem] before:tracking-[.08em] before:text-surface before:bg-ink before:content-['ABOUT_ME.TXT'] max-md:rotate-0 max-md:bg-[size:100%_27px] max-md:bg-[position:0_21px] max-md:px-3.5 max-md:pt-7 max-md:pb-8"
@@ -137,7 +139,16 @@ function index() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+      {isEasterEggRebooting && createPortal(
+        <div className="aboutme-reboot-copy" role="status" aria-live="polite">
+          <strong>DEAN_OS // REBOOTING...</strong>
+          <span className="aboutme-reboot-status aboutme-reboot-status--memory">[ OK ] memory cleared</span>
+          <span className="aboutme-reboot-status aboutme-reboot-status--interface">[ OK ] rebuilding interface</span>
+        </div>,
+        document.body,
+      )}
+    </>
   );
 }
 

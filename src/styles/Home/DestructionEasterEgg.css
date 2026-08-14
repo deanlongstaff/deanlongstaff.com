@@ -58,7 +58,11 @@ body.site-is-infected footer {
    machine reboot instead of simply stopping an animation. */
 body.site-is-rebooting {
   overflow: hidden;
-  background: var(--ink);
+  --reboot-bg: #071522;
+  --reboot-surface: #102b3b;
+  --reboot-text: #d9f5f0;
+  --reboot-accent: #78e0e7;
+  background: var(--reboot-bg);
 }
 
 body.site-is-rebooting::before,
@@ -72,8 +76,8 @@ body.site-is-rebooting::before {
   inset: 0;
   content: "";
   background:
-    linear-gradient(color-mix(in srgb, var(--secondary-color) 7%, transparent) 50%, transparent 50%),
-    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--secondary-color) 12%, var(--ink)), var(--ink) 62%);
+    repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, var(--reboot-accent) 10%, transparent) 4px 5px),
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--reboot-accent) 18%, var(--reboot-bg)), var(--reboot-bg) 64%);
   background-size: 100% 4px, 100% 100%;
   animation: aboutme-reboot-scan 360ms steps(2, end) infinite;
 }
@@ -82,18 +86,64 @@ body.site-is-rebooting::after {
   top: 50%;
   left: 50%;
   width: min(88vw, 460px);
-  padding: 1.1rem 1.4rem;
-  border: 1px solid color-mix(in srgb, var(--secondary-color) 55%, transparent);
-  color: var(--secondary-color);
-  background: color-mix(in srgb, var(--ink) 88%, transparent);
-  box-shadow: 6px 6px 0 color-mix(in srgb, var(--primary-color) 45%, transparent), inset 0 0 24px color-mix(in srgb, var(--secondary-color) 12%, transparent);
-  content: "DEAN_OS // REBOOTING...";
+  padding: 1.25rem 1.5rem 1.35rem;
+  border: 2px solid var(--reboot-accent);
+  border-radius: 4px;
+  min-height: 8.8rem;
+  color: var(--reboot-text);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--reboot-surface) 92%, white), var(--reboot-bg));
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--primary-color) 45%, var(--reboot-bg)), 0 0 28px color-mix(in srgb, var(--reboot-accent) 24%, transparent), inset 0 0 24px color-mix(in srgb, var(--reboot-accent) 10%, transparent), inset 0 1px 0 color-mix(in srgb, white 22%, transparent);
+  content: "";
   font-family: "DM Mono", monospace;
   font-size: clamp(0.72rem, 2vw, 0.95rem);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
+  line-height: 1.65;
   text-align: center;
+  white-space: pre;
+  text-shadow: 0 1px 0 var(--reboot-bg), 0 0 10px color-mix(in srgb, var(--reboot-accent) 18%, transparent);
   transform: translate(-50%, -50%) rotate(-1deg);
   animation: aboutme-reboot-text 720ms steps(2, end) infinite;
+}
+
+.aboutme-reboot-copy {
+  position: fixed;
+  z-index: 10000;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: min(88vw, 460px);
+  min-height: 8.8rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.48rem;
+  padding: 1.25rem 1.5rem 1.35rem;
+  color: var(--reboot-text);
+  font-family: "DM Mono", monospace;
+  font-size: clamp(0.72rem, 2vw, 0.95rem);
+  letter-spacing: 0.12em;
+  line-height: 1.65;
+  text-align: center;
+  text-shadow: 0 1px 0 var(--reboot-bg), 0 0 10px color-mix(in srgb, var(--reboot-accent) 18%, transparent);
+  transform: translate(-50%, -50%) rotate(-1deg);
+  animation: aboutme-reboot-text 720ms steps(2, end) infinite;
+}
+
+.aboutme-reboot-copy strong {
+  font-weight: 500;
+}
+
+.aboutme-reboot-status {
+  display: block;
+  opacity: 1;
+}
+
+.aboutme-reboot-status--memory {
+  animation: aboutme-reboot-status-in 420ms ease-out 220ms both;
+}
+
+.aboutme-reboot-status--interface {
+  animation: aboutme-reboot-status-in 420ms ease-out 620ms both;
 }
 
 /* The reboot panel exits to the right as the page rebuilds underneath it. */
@@ -138,6 +188,10 @@ body.site-is-rebooting.site-is-restoring::before {
 }
 
 body.site-is-rebooting.site-is-restoring::after {
+  animation: aboutme-reboot-exit 1200ms cubic-bezier(0.55, 0.05, 0.9, 0.35) both;
+}
+
+body.site-is-rebooting.site-is-restoring .aboutme-reboot-copy {
   animation: aboutme-reboot-exit 1200ms cubic-bezier(0.55, 0.05, 0.9, 0.35) both;
 }
 
@@ -362,17 +416,18 @@ body.site-is-infected footer::before {
   transform: translateY(-0.08em) rotate(-1.5deg);
   cursor: pointer;
   border: 2px solid var(--primary-deep);
-  border-radius: 4px;
-  padding: 0.08em 0.4em 0.12em;
+  border-radius: 6px;
+  padding: 0.1em 0.48em 0.14em;
   color: var(--primary-deep);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--sun) 72%, var(--surface)), color-mix(in srgb, var(--primary-color) 20%, var(--surface)));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sun) 78%, white), color-mix(in srgb, var(--primary-color) 24%, var(--surface)));
   font: inherit;
   font-size: 0.9em;
   font-weight: 700;
   letter-spacing: 0.035em;
   line-height: 1.1;
   text-transform: uppercase;
-  box-shadow: 2px 3px 0 var(--primary-deep), inset 0 1px 0 color-mix(in srgb, white 75%, transparent);
+  text-shadow: 0 1px 0 color-mix(in srgb, white 65%, transparent);
+  box-shadow: 3px 4px 0 var(--primary-deep), 0 0 0 1px color-mix(in srgb, white 54%, transparent), inset 0 2px 0 color-mix(in srgb, white 78%, transparent), inset 0 -3px 5px color-mix(in srgb, var(--primary-deep) 17%, transparent);
   transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
 }
 
@@ -408,6 +463,42 @@ body.site-is-infected footer::before {
 .aboutme-do-not-press:active {
   transform: translate(2px, 2px) rotate(-1deg);
   box-shadow: 0 1px 0 var(--primary-deep), inset 0 1px 0 color-mix(in srgb, white 50%, transparent);
+}
+
+/* In dark mode the control becomes a small backlit terminal switch rather
+   than a pale paper label, keeping the text and edge readable on navy. */
+:root[data-theme="dean-dark"] .aboutme-do-not-press {
+  border-color: var(--primary-color);
+  border-radius: 5px;
+  padding: 0.12em 0.58em 0.15em;
+  color: var(--muted);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, var(--secondary-color) 7%, transparent) 4px 5px),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-soft) 78%, var(--paper)), var(--paper));
+  font-family: "DM Mono", monospace;
+  font-size: 0.82em;
+  font-weight: 500;
+  letter-spacing: 0.055em;
+  text-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 70%, transparent);
+  box-shadow: 3px 4px 0 color-mix(in srgb, var(--primary-color) 72%, var(--ink)), 0 0 0 1px color-mix(in srgb, var(--primary-color) 28%, transparent), inset 0 1px 0 color-mix(in srgb, white 18%, transparent), inset 0 -3px 5px color-mix(in srgb, var(--ink) 42%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="dean-light"]) .aboutme-do-not-press {
+    border-color: var(--primary-color);
+    border-radius: 5px;
+    padding: 0.12em 0.58em 0.15em;
+    color: var(--muted);
+    background:
+      repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, var(--secondary-color) 7%, transparent) 4px 5px),
+      linear-gradient(180deg, color-mix(in srgb, var(--surface-soft) 78%, var(--paper)), var(--paper));
+    font-family: "DM Mono", monospace;
+    font-size: 0.82em;
+    font-weight: 500;
+    letter-spacing: 0.055em;
+    text-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 70%, transparent);
+    box-shadow: 3px 4px 0 color-mix(in srgb, var(--primary-color) 72%, var(--ink)), 0 0 0 1px color-mix(in srgb, var(--primary-color) 28%, transparent), inset 0 1px 0 color-mix(in srgb, white 18%, transparent), inset 0 -3px 5px color-mix(in srgb, var(--ink) 42%, transparent);
+  }
 }
 
 .aboutme-section--easter-egg .aboutme-paper {
@@ -942,21 +1033,39 @@ body.site-is-infected footer::before {
 
   0%,
   100% {
-    opacity: 0.72;
+    opacity: 1;
     filter: none;
     transform: translate(-50%, -50%) rotate(-1deg);
   }
 
   46% {
     opacity: 1;
-    filter: brightness(1.4);
+    filter: brightness(1.12);
     transform: translate(-50%, -50%) rotate(0.5deg);
   }
 
   52% {
-    opacity: 0.42;
-    filter: contrast(1.8);
-    transform: translate(calc(-50% + 3px), -50%) rotate(-1deg);
+    opacity: 0.88;
+    filter: contrast(1.15);
+    transform: translate(calc(-50% + 2px), -50%) rotate(-1deg);
+  }
+}
+
+@keyframes aboutme-reboot-status-in {
+  0% {
+    opacity: 0;
+    filter: blur(3px);
+    transform: translateY(0.4rem);
+  }
+  65% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(-0.04rem);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: translateY(0);
   }
 }
 
@@ -1091,6 +1200,8 @@ body.site-is-infected footer::before {
   body.site-is-infected footer::before,
   body.site-is-rebooting::before,
   body.site-is-rebooting::after,
+  .aboutme-reboot-copy,
+  .aboutme-reboot-status,
   body.site-is-infected.site-is-restoring #home,
   body.site-is-infected.site-is-restoring #welcome .welcome-scroll-rail,
   body.site-is-infected.site-is-restoring #aboutme,
