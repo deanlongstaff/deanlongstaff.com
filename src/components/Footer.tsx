@@ -44,7 +44,7 @@ function Footer() {
               </a>
             </li>
             <li className="block">
-              <a className={SOCIAL_CHIP} href="https://www.linkedin.com/in/dean-longstaff-934023126/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a className={SOCIAL_CHIP} href="https://www.linkedin.com/in/deanlongstaff/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedinIn />
               </a>
             </li>
