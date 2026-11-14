@@ -190,7 +190,7 @@ function MyWork() {
           </div>
           <div className="relative z-[1] w-full">
             <p className="mx-auto m-0 max-w-[650px] leading-[1.75] text-ink max-md:text-[0.95rem] max-md:leading-[1.55]">
-              I lead technical strategy for AI, automation and emerging tech, helping teams adopt it safely, at scale, and without a 40-page approval process. Shared standards, secure-by-default patterns and sensible governance, so the distance from “wouldn’t it be cool if…” to “it’s live, and it’s secure” gets a lot shorter.
+              At the Ministry of Justice, I lead technical strategy for AI, automation and emerging tech, helping teams adopt it safely, at scale, and without a 40-page approval process. Shared standards, secure-by-default patterns and sensible governance, so the distance from “wouldn’t it be cool if…” to “it’s live, and it’s secure” gets a lot shorter.
             </p>
           </div>
         </div>
