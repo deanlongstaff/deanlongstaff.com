@@ -10,7 +10,7 @@
     "react-microsoft-clarity": "^2.0.0",
     "react-router-dom": "^7.13.1",
     "react-scroll": "^1.9.3",
-    "typewriter-effect": "^2.22.0"
+    "typewriter-effect": "^3.0.0"
   },
   "scripts": {
     "start": "vite",
